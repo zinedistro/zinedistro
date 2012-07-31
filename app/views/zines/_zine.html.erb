@@ -1,0 +1,3 @@
+<%= link_to zine.title, zine, :class => "zine" %>
+by <%= AuthorsPresenter.new(zine.authors).names %>
+<%= zine.excerpt%>

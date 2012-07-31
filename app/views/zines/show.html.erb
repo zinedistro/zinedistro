@@ -1,0 +1,4 @@
+<%= @zine.title %>
+<%= @zine.excerpt %>
+by <%= AuthorsPresenter.new(@zine.authors).names %>
+<%= @zine.full_text %>
