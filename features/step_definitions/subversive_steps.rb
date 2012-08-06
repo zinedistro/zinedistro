@@ -63,3 +63,14 @@ end
 Then /^I should be punched$/ do
   page.status_code.should == 404
 end
+
+Given /^there is at least one author$/ do
+  Author.create(:name => "Walt Disney")
+  Author.create(:name => "Thomas Edison")
+end
+
+Then /^I should see the authors listed on the author page$/ do
+  visit authors_path
+  page.should have_content Author.first.name
+  page.should have_content Author.last.name
+end
