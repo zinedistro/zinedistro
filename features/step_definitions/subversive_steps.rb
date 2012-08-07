@@ -64,13 +64,40 @@ Then /^I should be punched$/ do
   page.status_code.should == 404
 end
 
-Given /^there is at least one author$/ do
-  Author.create(:name => "Walt Disney")
-  Author.create(:name => "Thomas Edison")
+Given /^there are (\d+) authors$/ do |number_of_authors|
+  number_of_authors.to_i.times { Author.create(:name => Faker::Name.name) }
 end
 
-Then /^I should see the authors listed on the author page$/ do
+Given /^the first author has published zines$/ do
+  Zine.create(title: Faker::Lorem.sentence, authors: [Author.first], published: true)
+end
+
+Given /^the last author has unpublished zines$/ do
+  Zine.create(title: Faker::Lorem.sentence, authors: [Author.last], published: false)
+end
+
+When /^I view the authors page$/ do
   visit authors_path
+end
+
+Then /^I should see the first author listed$/ do
   page.should have_content Author.first.name
-  page.should have_content Author.last.name
+end
+
+Then /^I should not see the last author listed$/ do
+  page.should have_no_content Author.last.name
+end
+
+Given /^there is an author$/ do
+  step "there are 1 authors"
+end
+
+When /^I click on the first author link$/ do
+  page.first('a.author').click
+end
+
+Then /^I should see the first author's zines$/ do
+  Author.first.zines.each do |zine|
+    page.should have_content zine.title
+  end
 end

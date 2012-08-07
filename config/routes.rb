@@ -1,6 +1,10 @@
 DistroNew::Application.routes.draw do
   resources :zines
-  resources :authors
+  resources :authors do
+    member do
+      get :zines
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

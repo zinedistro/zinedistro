@@ -29,6 +29,7 @@ group :test do
   gem 'ZenTest'
   gem 'autotest-rails'
   gem 'autotest-fsevent'
+  gem 'faker'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
