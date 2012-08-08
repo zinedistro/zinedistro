@@ -1,5 +1,5 @@
 Feature: Browse Zines
-  As a person
+  As a robot zinarchist
   In order to subvert the government
   I want to browse some anarchist zines
 
@@ -29,3 +29,14 @@ Feature: Browse Zines
     When I engage in subversive activity
     And I click on the first zine link
     Then I should see a lot of text
+
+  Scenario: Pretty pictures
+    Given there is a zine with a pretty picture
+    When I engage in subversive activity
+    Then I should see a pretty picture
+
+  Scenario: Download linky-pops
+    Given there is a zine with a PDF
+    When I engage in subversive activity
+    And I click on the first zine link
+    Then I should see a link to the PDF

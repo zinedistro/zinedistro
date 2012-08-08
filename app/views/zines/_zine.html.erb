@@ -1,3 +1,5 @@
 <%= link_to zine.title, zine, :class => "zine" %>
 by <%= AuthorsPresenter.new(zine.authors).names %>
+<img src="<%= zine.cover_url %>" alt="">
 <%= zine.excerpt%>
+<br>

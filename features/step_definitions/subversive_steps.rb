@@ -101,3 +101,19 @@ Then /^I should see the first author's zines$/ do
     page.should have_content zine.title
   end
 end
+
+Given /^there is a zine with a pretty picture$/ do
+  Zine.create(title: "KITTY CANNON", cover_url: "http://farm3.staticflickr.com/2232/3527154618_ebc13ae6ef.jpg")
+end
+
+Then /^I should see a pretty picture$/ do
+  page.should have_selector "img[src='#{Zine.first.cover_url}']"
+end
+
+Given /^there is a zine with a PDF$/ do
+  Zine.create(title: "Kitty Weekly", download_url: "http://example.com/kitties.pdf")
+end
+
+Then /^I should see a link to the PDF$/ do
+  page.should have_link "Download", href: Zine.first.download_url
+end

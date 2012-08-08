@@ -1,4 +1,5 @@
 <%= @zine.title %>
 <%= @zine.excerpt %>
 by <%= AuthorsPresenter.new(@zine.authors).names %>
+<a href="<%= @zine.download_url %>">Download</a>
 <%= @zine.full_text %>
