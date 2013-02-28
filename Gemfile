@@ -26,10 +26,18 @@ group :test do
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
-  gem 'ZenTest'
-  gem 'autotest-rails'
-  gem 'autotest-fsevent'
   gem 'faker'
+end
+
+group :development do
+  gem 'guard'
+  gem 'guard-zeus'
+  gem 'zeus'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

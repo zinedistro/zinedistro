@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    ZenTest (4.8.3)
     actionmailer (3.2.12)
       actionpack (= 3.2.12)
       mail (~> 2.4.4)
@@ -31,10 +30,6 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
-    autotest-fsevent (0.2.8)
-      sys-uname
-    autotest-rails (4.1.2)
-      ZenTest (~> 4.5)
     builder (3.0.4)
     capybara (2.0.2)
       mime-types (>= 1.16)
@@ -45,6 +40,7 @@ GEM
       xpath (~> 1.0.0)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -73,6 +69,21 @@ GEM
     ffi (1.3.1)
     gherkin (2.11.5)
       json (>= 1.4.6)
+    guard (1.6.2)
+      listen (>= 0.6.0)
+      lumberjack (>= 1.0.2)
+      pry (>= 0.9.10)
+      terminal-table (>= 1.4.3)
+      thor (>= 0.14.6)
+    guard-cucumber (1.3.2)
+      cucumber (>= 1.2.0)
+      guard (>= 1.1.0)
+    guard-rspec (2.4.1)
+      guard (>= 1.1)
+      rspec (~> 2.11)
+    guard-zeus (0.0.1)
+      guard
+      zeus
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -83,14 +94,21 @@ GEM
     libwebsocket (0.1.7.1)
       addressable
       websocket
+    listen (0.7.2)
+    lumberjack (1.0.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.1)
     mime-types (1.21)
     multi_json (1.6.1)
     nokogiri (1.5.6)
     polyglot (0.3.3)
+    pry (0.9.12)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -114,8 +132,17 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (10.0.3)
+    rb-fchange (0.0.6)
+      ffi
+    rb-fsevent (0.9.3)
+    rb-inotify (0.9.0)
+      ffi (>= 0.5.0)
     rdoc (3.12.1)
       json (~> 1.4)
+    rspec (2.12.0)
+      rspec-core (~> 2.12.0)
+      rspec-expectations (~> 2.12.0)
+      rspec-mocks (~> 2.12.0)
     rspec-core (2.12.2)
     rspec-expectations (2.12.1)
       diff-lcs (~> 1.1.3)
@@ -138,14 +165,14 @@ GEM
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
+    slop (3.4.3)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
-    sys-uname (0.9.1)
-      ffi (>= 1.0.0)
+    terminal-table (1.4.5)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -162,22 +189,29 @@ GEM
     websocket (1.0.6)
     xpath (1.0.0)
       nokogiri (~> 1.3)
+    zeus (0.13.2)
+      method_source (>= 0.6.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  ZenTest
-  autotest-fsevent
-  autotest-rails
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner
   faker
+  guard
+  guard-cucumber
+  guard-rspec
+  guard-zeus
   jquery-rails
   rails (~> 3.2.11)
+  rb-fchange
+  rb-fsevent
+  rb-inotify
   rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3
   thin
   uglifier (>= 1.0.3)
+  zeus
