@@ -4,4 +4,11 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-DistroNew::Application.config.secret_token = '99ba84e2748ca474e490c81b4f7bf582498cac3fa6d5f3ead51be8677027e3d574b118feebf43849bf90aad48ee87a800e3b2665004a52e748acafa1a39678ab'
+if Rails.env.test? || Rails.env.development? || Rails.env == "profile"
+  DistroNew::Application.config.secret_token = "k4ycDncmDors9PzaBjE72Q9NiLuQu7Bq3Lxw28P8VRMCEfPEuEEW23AUF7yj9iTcmApWVqeZzzMGBCKpn9QJ7YyAZoFuq7pm873uww9Zcf9xJ33ppXFuGvqgLyWhz99CZFfx8vW6TjqCLyJ8BF6HfP"
+  DistroNew::Application.config.secret_key_base = DistroNew::Application.config.secret_token
+else
+  raise "You must set a secret token in ENV['SECRET_TOKEN'] or in config/initializers/secret_token.rb" if ENV['SECRET_TOKEN'].blank?
+  DistroNew::Application.config.secret_token = ENV['SECRET_TOKEN']
+  DistroNew::Application.config.secret_key_base = DistroNew::Application.config.secret_token
+end

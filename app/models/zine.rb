@@ -3,7 +3,7 @@ class Zine < ActiveRecord::Base
   has_many :authorships
   has_many :authors, :through => :authorships
 
-  scope :published, where(:published => true)
+  scope :published, -> { where published: true}
 
   def self.catalog
     published.order("updated_at DESC")
