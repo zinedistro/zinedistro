@@ -33,3 +33,10 @@ group :development do
   gem 'rb-fsevent', require: false
   gem 'rb-fchange', require: false
 end
+
+gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+gem 'devise', '3.0.0.rc'
+gem 'responders',          github: 'plataformatec/responders'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
+gem 'ransack',             github: 'ernie/ransack',            branch: 'rails-4'
+gem 'formtastic',          github: 'justinfrench/formtastic', branch: 'rails4beta'
