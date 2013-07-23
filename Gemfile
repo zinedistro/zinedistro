@@ -19,6 +19,7 @@ gem 'protected_attributes'
 group :test, :development do
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :test do
