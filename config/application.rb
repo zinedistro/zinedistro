@@ -12,10 +12,12 @@ module DistroNew
         helper_specs: false,
         routing_specs: false,
         controller_specs: true,
-        request_specs: true
+        feature_specs: true
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
       g.helper false
       g.template_engine :slim
       g.stylesheets false
+      g.stylesheet_engine = :sass
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

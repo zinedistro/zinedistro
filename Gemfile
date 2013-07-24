@@ -20,12 +20,12 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
   gem "factory_girl_rails", "~> 4.0"
+  gem 'faker'
 end
 
 group :test do
   gem 'simplecov'
   gem 'database_cleaner'
-  gem 'faker'
 end
 
 group :development do

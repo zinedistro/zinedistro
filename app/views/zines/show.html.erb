@@ -1,5 +1,18 @@
-<%= @zine.title %>
-<%= @zine.excerpt %>
-by <%= AuthorsPresenter.new(@zine.authors).names %>
-<a href="<%= @zine.download_url %>">Download</a>
-<%= @zine.full_text %>
+<article>
+  <section class="title">
+    <%= @zine.title %>
+  </section>
+  <section class="excerpt">
+    <%= @zine.excerpt %>
+  </section>
+  <section class="author">
+    by <%= AuthorsPresenter.new(@zine.authors).names %>
+  </section>
+  <span>
+    <%= link_to "Download", @zine.download_url, class: "download_url" %>
+  </span>
+  <span>
+    <img src="<%= @zine.cover_url%>" alt="Cover image" />
+  </span>
+  <section class="full_text"><%= @zine.full_text %></section>
+</article>
