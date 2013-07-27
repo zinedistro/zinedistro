@@ -18,9 +18,9 @@ gem 'protected_attributes'
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'cucumber-rails', require: false
   gem "factory_girl_rails", "~> 4.0"
   gem 'faker'
+  gem "capybara"
 end
 
 group :test do
@@ -33,7 +33,6 @@ group :development do
   gem 'guard-zeus'
   gem 'zeus'
   gem 'guard-rspec'
-  gem 'guard-cucumber'
   gem 'rb-inotify', require: false
   gem 'rb-fsevent', require: false
   gem 'rb-fchange', require: false
