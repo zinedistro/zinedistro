@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    render :file => "#{Rails.root}/public/404", :status => :not_found, :formats => [:html]
+    render :file => "#{Rails.root}/public/404", :status => :not_found, :formats => [:html], :layout => false
   end
 end
