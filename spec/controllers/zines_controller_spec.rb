@@ -10,7 +10,7 @@ describe ZinesController do
 
   end
 
-  describe "show" do
+  describe "#show" do
 
     context "with one zine" do
       let(:zine) { create :zine }

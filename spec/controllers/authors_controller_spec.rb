@@ -1,6 +1,6 @@
 require 'spec_helper'
 describe AuthorsController do
-  describe "index" do
+  describe "#index" do
     context "with published authors" do
       let!(:zine) { create :zine }
 
@@ -17,7 +17,7 @@ describe AuthorsController do
       end
     end
   end
-  describe "zines" do
+  describe "#zines" do
     context "with a published author" do
       let!(:zine) { create :zine }
 
