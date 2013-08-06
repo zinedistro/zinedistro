@@ -4,12 +4,15 @@ class ZinesController < ApplicationController
   end
 
   def show
-    @zine = Zine.find_published(params[:id])
+    @zine = Zine.find_published(ZineParams.build(params))
     not_found unless @zine
   end
 
-  private
-  def zine_params
-    param.require(:id)
+  class ZineParams
+    def self.build params
+      params.require(:id)
+    end
   end
+
 end
+
