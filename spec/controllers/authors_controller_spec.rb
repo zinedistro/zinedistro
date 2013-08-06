@@ -12,11 +12,12 @@ describe AuthorsController do
         response.status.should eq 200
       end
 
-      it "assigns authors as :author" do
+      it "assigns authors as :authors" do
         assigns(:authors).should eq zine.authors
       end
     end
   end
+
   describe "#zines" do
     context "with a published author" do
       let!(:zine) { create :zine }
@@ -33,6 +34,7 @@ describe AuthorsController do
         assigns(:author).should eq zine.authors.first
       end
     end
+
     context "without an author" do
       before do
         get :zines, id: 0
