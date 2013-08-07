@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130807045520) do
+ActiveRecord::Schema.define(version: 20130807045721) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -60,9 +60,9 @@ ActiveRecord::Schema.define(version: 20130807045520) do
   create_table "zines", force: true do |t|
     t.string   "title"
     t.string   "subtitle"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "published",    default: true
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "published",       default: true
     t.text     "full_text"
     t.string   "url"
     t.text     "excerpt"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20130807045520) do
     t.string   "download_url"
     t.datetime "added_at"
     t.integer  "views"
+    t.integer  "new_paper_count"
   end
 
 end
