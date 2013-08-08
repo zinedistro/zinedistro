@@ -4,7 +4,7 @@ gem 'rails', '~> 4.0.0'
 # gem 'unicorn'
 
 # Infrastructure gems
-gem 'sqlite3'
+gem 'pg'
 gem 'thin'
 gem 'slim-rails'
 
