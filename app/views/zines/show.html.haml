@@ -1,0 +1,12 @@
+%article
+  %section.title
+    = @zine.title
+  %section.excerpt
+    = @zine.excerpt
+  %section.author
+    by #{AuthorsPresenter.new(@zine.authors).names}
+  %span
+    = link_to "Download", @zine.download_url, class: "download_url"
+  %span
+    %img{:alt => "Cover image", :src => @zine.cover_url}/
+  %section.full_text= @zine.full_text

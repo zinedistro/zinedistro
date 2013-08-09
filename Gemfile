@@ -6,13 +6,13 @@ gem 'rails', '~> 4.0.0'
 # Infrastructure gems
 gem 'pg'
 gem 'thin'
-gem 'slim-rails'
 
 # Assets
 gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails', '>= 3.0.0'
+gem 'haml', '~> 4.0.3'
 #Rails 4 transition gems
 gem 'protected_attributes'
 
