@@ -36,6 +36,7 @@ group :development do
   gem 'rb-inotify', require: false
   gem 'rb-fsevent', require: false
   gem 'rb-fchange', require: false
+  gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
 end
 
 gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
