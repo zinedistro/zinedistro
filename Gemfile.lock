@@ -115,6 +115,10 @@ GEM
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.1)
     diff-lcs (1.2.4)
+    draper (1.2.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0.3)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
@@ -206,6 +210,7 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
+    request_store (1.0.5)
     rspec (2.14.0)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -271,6 +276,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise (= 3.0.0.rc)
+  draper
   factory_girl_rails (~> 4.0)
   faker
   formtastic!
