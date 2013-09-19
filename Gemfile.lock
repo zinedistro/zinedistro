@@ -287,6 +287,7 @@ DEPENDENCIES
   haml (~> 4.0.3)
   inherited_resources!
   jquery-rails (>= 3.0.0)
+  nokogiri
   pg
   protected_attributes
   rails (~> 4.0.0)
