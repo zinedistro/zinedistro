@@ -28,7 +28,32 @@ describe ZinesController do
           assigns(:zine).should eq zine
         end
 
+        it "is decorated with ZineDecorator" do
+          assigns(:zine).should be_decorated_with ZineDecorator
+        end
+
       end
     end
+  end
+
+  describe "#index" do
+    let(:author_with_zines) { create :author, :with_zines }
+
+    context "with valid params" do
+
+      before do
+        get :index
+      end
+
+      it "returns sucessfully" do
+        response.should be_success
+      end
+
+      it "assigns the entire published zine catalog as @zines" do
+        assigns(:zines).should eq Zine.catalog
+      end
+
+    end
+
   end
 end
