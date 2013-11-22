@@ -16,3 +16,6 @@
 
 # Ingnore coverage files from SimpleCov
 /coverage
+
+# Ignore the .env file
+/.env

@@ -3,6 +3,11 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 Bundler.require(:default, Rails.env)
 
+if Rails.env.development? || Rails.env.test?
+  require 'dotenv'
+  Dotenv.load
+end
+
 module DistroNew
   class Application < Rails::Application
     config.generators do |g|

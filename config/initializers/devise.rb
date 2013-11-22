@@ -6,6 +6,15 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
+  if ENV['DEVISE_SECRET_KEY'].blank?
+    fail <<-EOS
+      No secret token found!
+      Run `echo \"export DEVISE_SECRET_KEY=\'$(rake secret)\'\" >> .env`
+      from #{Rails.root}"
+    EOS
+  end
+  config.secret_key = ENV['DEVISE_SECRET_KEY']
+
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
