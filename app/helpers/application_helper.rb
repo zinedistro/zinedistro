@@ -1,6 +1,4 @@
 module ApplicationHelper
-  include Url
-
   # def blog_path
   #   "http://blog.zinedistro.org"
   # end
@@ -16,7 +14,6 @@ module ApplicationHelper
   # def faunzy_path
   #   "http://twitter.com/faunzy"
   # end
-
 
   # def page_id
   #   "#{controller.controller_name}_#{controller.action_name}"
@@ -146,7 +143,4 @@ module ApplicationHelper
   #   thing.downcase.gsub(/&/, "and").gsub(/ /, "-").gsub(/,|\.|'|\/|\\|!|:|\?|#/, "").gsub(/--/, "-")
   # end
 
-  def sanitized_seo_zine_path(zine)
-    zine_seo_path(zine, sanitize_for_url(zine.title), sanitize_for_url(zine.author_names))
-  end
 end

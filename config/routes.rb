@@ -9,7 +9,10 @@ DistroNew::Application.routes.draw do
   end
 
   # zines
-  get "/zines/:id/:seo_title/by/:author_names", controller: "zines", action: "show", as: "zine_seo"
+  get '/zines/:id/:seo_title/by/:author_names',
+      controller: 'zines',
+      action: 'show',
+      as: 'zine_seo'
 
-  root :to => 'zines#index'
+  root to: 'zines#index'
 end

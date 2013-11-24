@@ -15,11 +15,31 @@ describe ZineDecorator do
     end
 
     context 'without a cover image' do
-      subject { described_class.new(build :zine, cover_url: nil) }
+      subject do
+        described_class.new(build :zine, cover_url: nil)
+      end
       it 'returns the default image' do
         subject.link_to_cover_image_tag
-        .should eq '<img alt="Missing zine cover" src="http://assets.zinedistro.org/zines/covers/missing.png" />'
+        .should eq '<img alt="Missing zine cover" ' +
+        'src="http://assets.zinedistro.org/zines/covers/missing.png" />'
       end
     end
+  end
+
+  describe 'sanitized_seo_zine_path' do
+    subject do
+      described_class.new(create :zine)
+    end
+
+    it 'returns a sanitized, seo-friendly url string' do
+      subject.sanitized_seo_zine_path
+        .should eq '/zines/' +
+        "#{subject.object.id}/" +
+        "#{subject.object.title.downcase.gsub(' ', '-')}/" +
+        "by/author-#{subject.object.authors[0].id}" +
+        "-author-#{subject.object.authors[1].id}-" +
+        "and-author-#{subject.object.authors[2].id}"
+    end
+
   end
 end
