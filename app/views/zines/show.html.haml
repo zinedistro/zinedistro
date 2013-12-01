@@ -1,17 +1,16 @@
 %article.zine.column.span-24{:id => "zine_#{@zine.id}"}
   #cover.column.span-6
-    = cover_image_tag @zine
+    = @zine.cover_image_tag
   %section.meta.column.span-18.last
     %nav.column.span-4.last
       .download
-        = link_to "DOWNLOAD", download_path(@zine), :accesskey => "d"
-      = link_to_previous_and_next_zines(@zine)
+        = @zine.download_link
       = link_to "Back to zines", zines_path
     %h3= @zine.title
     %h4= @zine.subtitle
     %h5
       %span.alt by
-      = author_name(@zine)
+      = @zine.author_name_tag
     %p.excerpt
       = simple_format @zine.excerpt if @zine.excerpt
   - if @zine.full_text?

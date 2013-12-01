@@ -2,7 +2,11 @@ require 'spec_helper'
 feature 'When Browsing Zines' do
   describe 'On the index page' do
 
-    let!(:first_zine) { create :zine, title: 'Zine 1' }
+    let!(:first_zine) do create(:zine,
+                                :with_3_authors,
+                                title: 'Zine 1',
+                                subtitle: 'Subtitle 1')
+    end
     let!(:second_zine) { create :zine, title: 'Zine 2' }
     let!(:unpublished_zine) { create :unpublished_zine, title: 'Super Secret' }
 
@@ -12,6 +16,10 @@ feature 'When Browsing Zines' do
 
     scenario 'I can see zines titles on the index page' do
       page.should have_content first_zine.title
+    end
+
+    scenario 'I can see zines subtitles on the index page' do
+      page.should have_content first_zine.subtitle
     end
 
     scenario 'I can see zines sorted by date in descending order' do
@@ -38,7 +46,8 @@ feature 'When Browsing Zines' do
       end
 
       scenario 'I can see the cover image' do
-        page.should have_selector "img[src^='http://assets.zinedistro.org/zines/covers/#{first_zine.id}']"
+        page.should have_selector "img[src^='http://assets.zinedistro.org/" +
+        "zines/covers/#{first_zine.id}']"
       end
 
       scenario 'I can see the full text' do
@@ -46,7 +55,8 @@ feature 'When Browsing Zines' do
       end
 
       scenario 'I can download a PDF of the zine' do
-        page.should have_css "a[href='http://assets.zinedistro.org/zines/pdfs/#{first_zine.id}.pdf']"
+        page.should have_css "a[href='http://assets.zinedistro.org/" +
+        "zines/pdfs/#{first_zine.id}.pdf']"
       end
     end
   end

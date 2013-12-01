@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe ZineDecorator do
   describe '#link_to_cover_image_tag' do
-
     context 'with a cover image' do
       subject do
         described_class
@@ -16,7 +15,7 @@ describe ZineDecorator do
 
     context 'without a cover image' do
       subject do
-        described_class.new(build :zine, cover_url: nil)
+        described_class.new(build :zine, :with_3_authors, cover_url: nil)
       end
       it 'returns the default image' do
         subject.link_to_cover_image_tag
@@ -26,13 +25,13 @@ describe ZineDecorator do
     end
   end
 
-  describe 'sanitized_seo_zine_path' do
+  describe '#path' do
     subject do
-      described_class.new(create :zine)
+      described_class.new(create :zine, :with_3_authors)
     end
 
     it 'returns a sanitized, seo-friendly url string' do
-      subject.sanitized_seo_zine_path
+      subject.path
         .should eq '/zines/' +
         "#{subject.object.id}/" +
         "#{subject.object.title.downcase.gsub(' ', '-')}/" +
@@ -40,6 +39,28 @@ describe ZineDecorator do
         "-author-#{subject.object.authors[1].id}-" +
         "and-author-#{subject.object.authors[2].id}"
     end
-
   end
+
+  describe '#author_names' do
+    subject do
+      described_class.new(zine)
+    end
+
+    context 'with multiple authors' do
+      let(:zine) { create :zine, :with_3_authors }
+      it 'returns a concatenated string of authors' do
+        expect(subject.author_names).to eq "#{zine.authors[0].name}, " +
+          "#{zine.authors[1].name}, " +
+          "and #{zine.authors[2].name}"
+      end
+    end
+
+    context 'whithout an author' do
+      let(:zine) { create :zine, :with_no_authors }
+      it "returns 'anonymous'" do
+        expect(subject.author_names).to eq 'Anonymous'
+      end
+    end
+  end
+
 end

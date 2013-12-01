@@ -4,12 +4,12 @@
       .column.span-4
       .meta.column.span-20.last
         .entry-title
-          %h3= link_to_title_tag(zine)
-          - if zine.subtitle
-            %h4= link_to_subtitle_tag(zine)
+          %h3= zine.title_link
+        .entry-title
+          %h3= zine.subtitle_link
         %h5
           %span.alt by
-          = author_name(zine)
+          = zine.author_name_tag
         - if zine.excerpt?
           %section.excerpt.entry-summary
             = simple_format zine.excerpt

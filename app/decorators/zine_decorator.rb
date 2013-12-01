@@ -11,10 +11,41 @@ class ZineDecorator < Draper::Decorator
     end
   end
 
-  def sanitized_seo_zine_path
+  def path
     zine_seo_path object,
                   sanitize_for_url(object.title),
-                  sanitize_for_url(object.author_names)
+                  sanitize_for_url(author_names)
+  end
+
+  def title_link
+    h.link_to object.title, path, rel: 'bookmark'
+  end
+
+  def subtitle_link
+    h.link_to object.subtitle, path, rel: 'bookmark'
+  end
+
+  def author_name_tag
+    h.content_tag(:span,
+                  (author_names),
+                  class: 'author')
+  end
+
+  def cover_image_tag
+    h.image_tag("http://assets.zinedistro.org/zines/covers/#{object.id}.png")
+  end
+
+  def download_link
+    h.link_to('Download',
+              "http://assets.zinedistro.org/zines/pdfs/#{object.id}.pdf")
+  end
+
+  def author_names
+    if object.authors.any?
+      object.authors.map(&:name).to_sentence
+    else
+      'Anonymous'
+    end
   end
 
   private
