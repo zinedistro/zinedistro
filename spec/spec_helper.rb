@@ -35,11 +35,12 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  config.order = 'random'
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
 end
 
+Capybara.asset_host = 'http://localhost:3000'
 RSpec.configure do |config|
 
   config.before(:suite) do
@@ -61,6 +62,4 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
 end
-
