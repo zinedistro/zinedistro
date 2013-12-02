@@ -1,3 +1,4 @@
+# AuthorsController
 class AuthorsController < ApplicationController
   def index
     @authors = Author.published

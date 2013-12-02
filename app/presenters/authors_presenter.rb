@@ -1,9 +1,10 @@
+# AuthorsPresenter
 class AuthorsPresenter
-  def initialize collection
+  def initialize(collection)
     @collection = collection
   end
 
   def names
-    @collection.map(&:name).join(", ")
+    @collection.map(&:name).join(', ')
   end
 end
