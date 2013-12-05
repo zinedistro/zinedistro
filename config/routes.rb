@@ -1,4 +1,4 @@
-DistroNew::Application.routes.draw do
+ZineDistro::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :zines

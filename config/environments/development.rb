@@ -1,4 +1,4 @@
-DistroNew::Application.configure do
+ZineDistro::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Turn off eager loading for Rails 4

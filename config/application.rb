@@ -8,7 +8,7 @@ if Rails.env.development? || Rails.env.test?
   Dotenv.load
 end
 
-module DistroNew
+module ZineDistro
   class Application < Rails::Application
     config.generators do |g|
       g.test_framework :rspec,

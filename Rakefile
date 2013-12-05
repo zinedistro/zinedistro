@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-DistroNew::Application.load_tasks
+ZineDistro::Application.load_tasks
