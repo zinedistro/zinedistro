@@ -6,7 +6,10 @@ FactoryGirl.define do
     sequence(:download_url) { |n| "/download/zines/#{n}" }
 
     trait :with_3_authors do
-      authors { create_list :author, 3 }
+      after :create do |instance|
+        authors = create_list(:author, 3)
+        instance.authors << authors
+      end
     end
 
     trait :with_no_authors do

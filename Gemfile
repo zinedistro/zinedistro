@@ -29,6 +29,7 @@ group :test do
   gem 'capybara-screenshot'
   gem 'simplecov'
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end
 
 group :development do

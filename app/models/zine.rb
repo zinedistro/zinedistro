@@ -9,10 +9,6 @@ class Zine < ActiveRecord::Base
   has_many :authorships
   has_many :authors, through: :authorships
 
-  # def destroy_if_no_authors
-  #   todo
-  # end
-
   scope :published, -> { where(published: true).order(updated_at: :desc) }
 
   def self.catalog
