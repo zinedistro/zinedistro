@@ -5,12 +5,12 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Zine Distro"
+  config.site_title = 'Zine Distro'
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
-  # config.site_title_link = "/"
+  config.site_title_link = '/'
 
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
@@ -57,7 +57,6 @@ ActiveAdmin.setup do |config|
   # within the controller.
   config.authentication_method = :authenticate_admin_user!
 
-
   # == Current User
   #
   # Active Admin will associate actions with the current
@@ -66,7 +65,6 @@ ActiveAdmin.setup do |config|
   # This setting changes the method which Active Admin calls
   # to return the currently logged in user.
   config.current_user_method = :current_admin_user
-
 
   # == Logging Out
   #
@@ -86,7 +84,6 @@ ActiveAdmin.setup do |config|
   # Default:
   # config.logout_link_method = :get
 
-
   # == Root
   #
   # Set the action to call for the root path. You can set different
@@ -95,13 +92,13 @@ ActiveAdmin.setup do |config|
   # Default:
   # config.root_to = 'dashboard#index'
 
-
   # == Admin Comments
   #
-  # This allows your users to comment on any resource registered with Active Admin.
+  # This allows your users to comment on any resource
+  # registered with Active Admin.
   #
   # You can completely disable comments:
-  # config.allow_comments = false
+  config.allow_comments = false
   #
   # You can disable the menu item for the comments index page:
   # config.show_comments_in_menu = false
@@ -109,13 +106,11 @@ ActiveAdmin.setup do |config|
   # You can change the name under which comments are registered:
   # config.comments_registration_name = 'AdminComment'
 
-
   # == Batch Actions
   #
   # Enable and disable Batch Actions
   #
-  config.batch_actions = true
-
+  # config.batch_actions = true
 
   # == Controller Filters
   #
@@ -123,7 +118,6 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
-
 
   # == Register Stylesheets & Javascripts
   #
@@ -134,12 +128,13 @@ ActiveAdmin.setup do |config|
   # To load a stylesheet:
   #   config.register_stylesheet 'my_stylesheet.css'
   #
-  # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
-  #   config.register_stylesheet 'my_print_stylesheet.css', :media => :print
+  # You can provide an options hash for more control,
+  # which is passed along to stylesheet_link_tag():
+  #    config.register_stylesheet('my_print_stylesheet.css',
+  #                               :media => :print)
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
-
 
   # == CSV options
   #
@@ -149,16 +144,19 @@ ActiveAdmin.setup do |config|
   # Force the use of quotes
   # config.csv_options = { :force_quotes => true }
 
-
   # == Menu System
   #
-  # You can add a navigation menu to be used in your application, or configure a provided menu
+  # You can add a navigation menu to be used in your application,
+  # or configure a provided menu
   #
-  # To change the default utility navigation to show a link to your website & a logout btn
+  # To change the default utility navigation to show a
+  # link to your website & a logout btn
   #
   #   config.namespace :admin do |admin|
   #     admin.build_menu :utility_navigation do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
+  #       menu.add(label: "My Great Website",
+  #       url: "http://www.mygreatwebsite.com",
+  #       html_options: { target: :blank })
   #       admin.add_logout_button_to_menu menu
   #     end
   #   end
@@ -166,11 +164,12 @@ ActiveAdmin.setup do |config|
   # If you wanted to add a static menu item to the default menu provided:
   #
   #   config.namespace :admin do |admin|
-  #     admin.build_menu :default do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
+  #     admin.build_menu(:default do |menu|
+  #       menu.add label: "My Great Website",
+  #         url: "http://www.mygreatwebsite.com",
+  #         html_options: { target: :blank })
   #     end
   #   end
-
 
   # == Download Links
   #
@@ -189,7 +188,6 @@ ActiveAdmin.setup do |config|
   #
   #   end
 
-
   # == Pagination
   #
   # Pagination is enabled by default for all resources.
@@ -197,13 +195,11 @@ ActiveAdmin.setup do |config|
   #
   # config.default_per_page = 30
 
-
   # == Filters
   #
-  # By default the index screen includes a “Filters” sidebar on the right
+  # By default the index screen includes a "Filters" sidebar on the right
   # hand side with a filter for each attribute of the registered model.
   # You can enable or disable them for all resources here.
   #
   # config.filters = true
-
 end
