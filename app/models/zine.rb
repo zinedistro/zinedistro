@@ -13,7 +13,7 @@ class Zine < ActiveRecord::Base
   scope :published, -> { where(published: true).order(updated_at: :desc) }
 
   def self.catalog
-    published.limit(10)
+    published
   end
 
   def self.find_published(id)
