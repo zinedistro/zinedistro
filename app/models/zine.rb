@@ -8,7 +8,7 @@ class Zine < ActiveRecord::Base
                   :cover_url,
                   :download_url
   has_many :authorships
-  has_many :authors, through: :authorships
+  has_many :authors, through: :authorships, counter_cache: :author_count
 
   scope :published, -> { where(published: true).order(updated_at: :desc) }
   scope :with_authors, -> { includes(:authors) }
