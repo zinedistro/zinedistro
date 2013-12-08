@@ -2,6 +2,7 @@
 class Zine < ActiveRecord::Base
   attr_accessible :title,
                   :excerpt,
+                  :subtitle,
                   :full_text,
                   :published,
                   :cover_url,
