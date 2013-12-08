@@ -11,9 +11,10 @@ class Zine < ActiveRecord::Base
   has_many :authors, through: :authorships
 
   scope :published, -> { where(published: true).order(updated_at: :desc) }
+  scope :with_authors, -> { includes(:authors) }
 
   def self.catalog
-    published
+    published.with_authors
   end
 
   def self.find_published(id)
