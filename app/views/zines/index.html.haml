@@ -3,10 +3,9 @@
     = div_for zine, :class => "column span-24 hentry" do
       .column.span-4
         = zine.cover_image_tag
-      .meta.column.span-20
+      .meta.column.span-20{ class: (index += 1) === zines.length ? 'last': '' }
         .entry-title
           %h3= zine.title_link
-        .entry-title
           %h3= zine.subtitle_link
         %h5
           %span.alt by
@@ -14,6 +13,3 @@
         - if zine.excerpt?
           %section.excerpt.entry-summary
             = simple_format zine.excerpt
-        = link_to "View more &rarr;".html_safe, zine_path(zine)
-        - unless (index += 1) === zines.length
-          %hr

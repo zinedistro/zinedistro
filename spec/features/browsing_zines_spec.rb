@@ -47,6 +47,17 @@ feature 'When Browsing Zines' do
       page.should have_no_content unpublished_zine.title
     end
 
+    scenario 'I can see the last class on the first published zine' do
+      within "#zine_#{first_zine.id}" do
+        page.should have_css '.meta.last'
+      end
+    end
+
+    scenario 'I do not see the last class on the most recent zine' do
+      within "#zine_#{second_zine.id}" do
+        page.should_not have_css '.meta.last'
+      end
+    end
     describe 'On the zine details page' do
 
       before do
