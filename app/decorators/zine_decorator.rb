@@ -32,7 +32,8 @@ class ZineDecorator < Draper::Decorator
   end
 
   def cover_image_tag
-    h.image_tag("http://assets.zinedistro.org/zines/covers/#{object.id}.png")
+    h.image_tag("http://assets.zinedistro.org/zines/covers/#{object.id}.png",
+                alt: object.title)
   end
 
   def download_link

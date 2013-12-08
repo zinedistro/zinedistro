@@ -14,6 +14,14 @@ feature 'When Browsing Zines' do
       visit '/zines'
     end
 
+    scenario 'I can see zine images on the index page' do
+      page.should have_css "img[src$=\'/zines/covers/#{first_zine.id}.png\']"
+    end
+
+    scenario 'I can see zine alt tag on the index page' do
+      page.should have_css "img[alt$=\'#{first_zine.title}\']"
+    end
+
     scenario 'I can see zines titles on the index page' do
       page.should have_content first_zine.title
     end
