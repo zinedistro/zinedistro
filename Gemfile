@@ -40,6 +40,7 @@ group :development do
   gem 'rb-inotify', require: false
   gem 'rb-fsevent', require: false
   gem 'rb-fchange', require: false
+  gem 'bullet'
 end
 
 gem 'activeadmin', github: 'gregbell/active_admin'
