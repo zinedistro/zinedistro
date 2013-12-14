@@ -13,7 +13,7 @@ describe ZinesController do
   describe '#show' do
 
     context 'with one zine' do
-      let(:zine) { create :zine }
+      let(:zine) { create :zine_with_authors }
 
       context 'with valid params' do
         before do

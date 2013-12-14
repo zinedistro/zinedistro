@@ -1,8 +1,8 @@
 require 'spec_helper'
 describe Zine do
 
-  let(:published_zine) { create :zine }
-  let(:unpublished_zine) { create :unpublished_zine }
+  let(:published_zine) { create :zine_with_authors }
+  let(:unpublished_zine) { create :zine_with_authors, :unpublished }
 
   describe '.find_published' do
     it 'returns a published_zine when called with an id' do

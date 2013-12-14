@@ -2,13 +2,16 @@ require 'spec_helper'
 feature 'When Browsing Zines' do
   describe 'On the index page' do
 
-    let!(:first_zine) do create(:zine,
-                                :with_3_authors,
+    let!(:first_zine) do create(:zine_with_authors,
                                 title: 'Zine 1',
                                 subtitle: 'Subtitle 1')
     end
     let!(:second_zine) { create :zine, title: 'Zine 2' }
-    let!(:unpublished_zine) { create :unpublished_zine, title: 'Super Secret' }
+    let!(:unpublished_zine) do
+      create(:zine,
+             :unpublished,
+             title: 'Super Secret')
+    end
 
     before do
       visit '/zines'

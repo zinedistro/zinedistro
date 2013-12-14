@@ -1,10 +1,16 @@
 FactoryGirl.define do
   factory :author do
     sequence(:name) { |n| "Author #{n}" }
-  end
-  trait :with_zines do
-    after(:create) do |instance|
-      create_list :zine, 3, authors: [instance]
+    factory :author_with_zines do
+      ignore do
+        zines_count 3
+      end
+      after(:create) do |author, evaluator|
+        zines = create_list(:zine, evaluator.zines_count)
+        zines.each do |zine|
+          zine.authors << author
+        end
+      end
     end
   end
 end

@@ -2,7 +2,7 @@ require 'spec_helper'
 describe AuthorsController do
   describe '#index' do
     context 'with published authors' do
-      let!(:zine) { create :zine }
+      let!(:author) { create :author_with_zines }
 
       before do
         get :index
@@ -13,17 +13,17 @@ describe AuthorsController do
       end
 
       it 'assigns authors as :authors' do
-        assigns(:authors).should eq zine.authors
+        assigns(:authors).should eq [author]
       end
     end
   end
 
   describe '#zines' do
     context 'with a published author' do
-      let!(:zine) { create :zine, :with_3_authors }
+      let!(:author) { create :author_with_zines }
 
       before do
-        get :zines, id: zine.authors.first
+        get :zines, id: author
       end
 
       it 'returns 200' do
@@ -31,7 +31,7 @@ describe AuthorsController do
       end
 
       it 'assigns the published author as author' do
-        assigns(:author).should eq zine.authors.first
+        assigns(:author).should eq author
       end
     end
 
