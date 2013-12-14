@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails', '>= 3.0.0'
 gem 'haml', '~> 4.0.3'
+
 # Rails 4 transition gems
 gem 'protected_attributes'
 
@@ -43,10 +44,12 @@ group :development do
   gem 'bullet'
 end
 
+# ActiveAdmin
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise', github: 'plataformatec/devise'
 gem 'responders', github: 'plataformatec/responders'
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
 gem 'ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
+
 gem 'draper'
