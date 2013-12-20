@@ -47,4 +47,10 @@ describe Zine do
     end
   end
 
+  describe '#author_count' do
+    it 'returns the number of authors for a given zine' do
+      published_zine.author_count.should eq 4
+    end
+  end
+
 end
