@@ -13,6 +13,10 @@ class Zine < ActiveRecord::Base
   scope :published, -> { where(published: true).order(updated_at: :desc) }
   scope :with_authors, -> { includes(:authors) }
 
+  def add_author(author)
+    authors << author
+  end
+
   def self.catalog
     published.with_authors
   end
