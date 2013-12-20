@@ -24,6 +24,7 @@ group :test, :development do
   gem 'faker'
   gem 'capybara'
   gem 'dotenv-rails'
+  gem 'pry'
 end
 
 group :test do
