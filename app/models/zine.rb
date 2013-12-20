@@ -6,9 +6,11 @@ class Zine < ActiveRecord::Base
                   :full_text,
                   :published,
                   :cover_url,
-                  :download_url
+                  :download_url,
+                  :author_count
+
   has_many :authorships
-  has_many :authors, through: :authorships, counter_cache: :author_count
+  has_many :authors, through: :authorships
 
   scope :published, -> { where(published: true).order(updated_at: :desc) }
   scope :with_authors, -> { includes(:authors) }
@@ -18,7 +20,14 @@ class Zine < ActiveRecord::Base
   end
 
   def remove_author(author)
-    authors.delete(author)
+    if author.respond_to? :id
+      authors = [author]
+    elsif author.respond_to? :each
+      authors = author
+    else
+      fail 'Author expected'
+    end
+    Authorship.where(author_id: authors.map(&:id), zine: self).destroy_all
   end
 
   def self.catalog

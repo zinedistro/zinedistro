@@ -36,20 +36,67 @@ describe Zine do
       zine.add_author(author)
       expect(zine.reload.authors).to eq [author]
     end
+
+    it 'does not add the author multiple times' do
+      pending 'Database uniqueness & validation'
+      zine.author_count.should eq 0
+      zine.add_author(author)
+      zine.add_author(author)
+      zine.reload.author_count.should eq 1
+    end
   end
 
   describe '#remove_author' do
-    it 'removes the author as one of the zine authors' do
-      published_zine.add_author(author)
-      expect { published_zine.remove_author(author) }.to change {
-        published_zine.authors.count
-      }.from(4).to(3)
+    context 'with an author' do
+      it 'removes the author as one of the zine authors' do
+        author = published_zine.authors.last
+        published_zine.remove_author(author).should be_truthy
+        published_zine.reload.author_count.should eq 2
+      end
+    end
+    context 'with an array of authors' do
+      it 'removes each author as one of the zine authors' do
+        authors = published_zine.authors.slice(0, 2)
+        published_zine.remove_author(authors).should be_truthy
+        published_zine.reload.author_count.should eq 1
+      end
     end
   end
 
   describe '#author_count' do
-    it 'returns the number of authors for a given zine' do
-      published_zine.author_count.should eq 4
+    context 'with authors' do
+      it 'returns the number of authors for a given zine' do
+        published_zine.reload.author_count.should eq 3
+      end
+    end
+
+    context 'with no authors' do
+      it 'returns 0' do
+        zine.reload.author_count.should eq 0
+      end
+    end
+
+    context 'when adding an author' do
+      it 'incriments author_count' do
+        expect(zine.author_count).to eq(0)
+        expected = expect do
+          zine.add_author(author)
+          zine.reload
+        end
+        expected.to change(zine, :author_count).from(0).to(1)
+      end
+    end
+
+    context 'when removing an author' do
+      it 'decrements author_count' do
+        zine.authors << author
+        expect(zine.reload.author_count).to eq 1
+        expected = expect do
+          zine.remove_author(author)
+          zine.reload
+        end
+       expected.to change(zine, :author_count).from(1).to(0)
+      end
     end
   end
 
