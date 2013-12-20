@@ -38,4 +38,13 @@ describe Zine do
     end
   end
 
+  describe '#remove_author' do
+    it 'removes the author as one of the zine authors' do
+      published_zine.add_author(author)
+      expect { published_zine.remove_author(author) }.to change {
+        published_zine.authors.count
+      }.from(4).to(3)
+    end
+  end
+
 end

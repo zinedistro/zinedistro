@@ -17,6 +17,10 @@ class Zine < ActiveRecord::Base
     authors << author
   end
 
+  def remove_author(author)
+    authors.delete(author)
+  end
+
   def self.catalog
     published.with_authors
   end
