@@ -22,3 +22,6 @@
 
 # Ignore the .env file
 /.env
+
+# Ignore compiled assets
+/public/assets/

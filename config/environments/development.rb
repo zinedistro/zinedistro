@@ -24,6 +24,8 @@ ZineDistro::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  config.sass.debug_info = true
+  config.sass.line_comments = false # source maps don't get output if this is true
 
   # ActionMailer host
   config.action_mailer.default_url_options = { host: 'localhost:3000' }

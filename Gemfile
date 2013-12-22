@@ -9,11 +9,10 @@ gem 'pg'
 gem 'thin'
 
 # Assets
-gem 'sass-rails',   '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails', '>= 3.0.0'
-gem 'haml', '~> 4.0.3'
+gem 'sass-rails',   '~> 4.0.1'
+gem 'coffee-rails', '~> 4.0.1'
+gem 'uglifier', '~> 2.4.0'
+gem 'haml', '~> 4.0.4'
 
 # Rails 4 transition gems
 gem 'protected_attributes'
@@ -43,6 +42,8 @@ group :development do
   gem 'rb-fsevent', require: false
   gem 'rb-fchange', require: false
   gem 'bullet'
+  gem 'coffee-rails-source-maps'
+  gem 'sass-rails-source-maps'
 end
 
 # ActiveAdmin
