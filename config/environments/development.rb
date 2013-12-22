@@ -1,5 +1,6 @@
 ZineDistro::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
+  # Settings specified here will take
+  # precedence over those in config/application.rb
 
   # Turn off eager loading for Rails 4
   config.eager_load = false
@@ -13,11 +14,8 @@ ZineDistro::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger
-  config.active_support.deprecation = :log
+  # config.active_support.deprecation = :log
 
   # Do not compress assets
   config.assets.compress = false
@@ -25,10 +23,15 @@ ZineDistro::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   config.sass.debug_info = true
-  config.sass.line_comments = false # source maps don't get output if this is true
+
+  # source maps don't get output if this is true
+  config.sass.line_comments = false
 
   # ActionMailer host
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  # config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  #
+  # Don't care if the mailer can't send
+  # config.action_mailer.raise_delivery_errors = false
 
   config.after_initialize do
     Bullet.enable = true

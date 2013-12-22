@@ -1,6 +1,13 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+# Require only the libraries we are using
+require 'active_model/railtie'
+require 'active_record/railtie'
+require 'action_controller/railtie'
+# require 'action_mailer/railtie'
+# require 'active_resource/railtie'
+require 'sprockets/railtie'
+
 Bundler.require(:default, Rails.env)
 
 if Rails.env.development? || Rails.env.test?
