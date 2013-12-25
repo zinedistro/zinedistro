@@ -78,24 +78,20 @@ describe Zine do
 
     context 'when adding an author' do
       it 'incriments author_count' do
-        expect(zine.author_count).to eq(0)
-        expected = expect do
+        expect do
           zine.add_author(author)
-          zine.reload
         end
-        expected.to change(zine, :author_count).from(0).to(1)
+        .to change(zine.reload.authors, :count).by(1)
       end
     end
 
     context 'when removing an author' do
       it 'decrements author_count' do
         zine.authors << author
-        expect(zine.reload.author_count).to eq 1
-        expected = expect do
+        expect do
           zine.remove_author(author)
-          zine.reload
         end
-       expected.to change(zine, :author_count).from(1).to(0)
+        .to change(zine.reload, :author_count).by(-1)
       end
     end
   end
