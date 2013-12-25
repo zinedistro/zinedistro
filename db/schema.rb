@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131225044554) do
+ActiveRecord::Schema.define(version: 20131225081502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20131225044554) do
   end
 
   create_table "authorships", id: false, force: true do |t|
-    t.integer "author_id"
-    t.integer "zine_id"
+    t.integer "author_id", null: false
+    t.integer "zine_id",   null: false
   end
 
   add_index "authorships", ["author_id", "zine_id"], name: "index_authorships_on_author_id_and_zine_id", unique: true, using: :btree
