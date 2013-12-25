@@ -9,21 +9,4 @@ class Authorship < ActiveRecord::Base
   belongs_to :zine, validate: true
   validates :zine_id, presence: true
   validates_uniqueness_of :author_id, scope: [:zine_id]
-
-  after_create :incriment_author_cache_counter
-  after_destroy :decriment_author_cache_counter
-
-  private
-
-  def incriment_author_cache_counter
-    update_zine_counter(1)
-  end
-
-  def decriment_author_cache_counter
-    update_zine_counter(-1)
-  end
-
-  def update_zine_counter(dir)
-    zine.update_attributes author_count: zine.author_count + (1 * dir)
-  end
 end

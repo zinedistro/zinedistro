@@ -10,7 +10,10 @@ class Zine < ActiveRecord::Base
                   :author_count
 
   has_many :authorships
-  has_many :authors, through: :authorships
+  has_many :authors,
+           through: :authorships,
+           after_add: [:incriment_author_cache_counter],
+           after_remove: [:decriment_author_cache_counter]
 
   scope :published, -> { where(published: true).order(updated_at: :desc) }
   scope :with_authors, -> { includes(:authors) }
@@ -29,5 +32,19 @@ class Zine < ActiveRecord::Base
 
   def self.find_published(id)
     published.where(id: id).limit(1).first
+  end
+
+  private
+
+  def incriment_author_cache_counter(record)
+    update_zine_counter(1)
+  end
+
+  def decriment_author_cache_counter(record)
+    update_zine_counter(-1)
+  end
+
+  def update_zine_counter(dir)
+    update_attributes! author_count: author_count + (1 * dir)
   end
 end
