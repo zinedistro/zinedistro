@@ -15,19 +15,12 @@ class Zine < ActiveRecord::Base
   scope :published, -> { where(published: true).order(updated_at: :desc) }
   scope :with_authors, -> { includes(:authors) }
 
-  def add_author(author)
-    authors << author
+  def add_author(author_to_add)
+    authors << author_to_add
   end
 
-  def remove_author(author)
-    if author.respond_to? :id
-      authors = [author]
-    elsif author.respond_to? :each
-      authors = author
-    else
-      fail 'Author expected'
-    end
-    Authorship.where(author_id: authors.map(&:id), zine: self).destroy_all
+  def remove_author(author_to_remove)
+    authors.delete(author_to_remove)
   end
 
   def self.catalog

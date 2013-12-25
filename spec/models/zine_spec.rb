@@ -5,6 +5,7 @@ describe Zine do
   let(:unpublished_zine) { create :zine_with_authors, :unpublished }
   let(:zine) { create :zine }
   let(:author) { create :author }
+  let(:last_author) { published_zine.authors.last }
 
   describe '.find_published' do
     it 'returns a published_zine when called with an id' do
@@ -49,16 +50,8 @@ describe Zine do
   describe '#remove_author' do
     context 'with an author' do
       it 'removes the author as one of the zine authors' do
-        author = published_zine.authors.last
-        published_zine.remove_author(author).should be_truthy
-        published_zine.reload.author_count.should eq 2
-      end
-    end
-    context 'with an array of authors' do
-      it 'removes each author as one of the zine authors' do
-        authors = published_zine.authors.slice(0, 2)
-        published_zine.remove_author(authors).should be_truthy
-        published_zine.reload.author_count.should eq 1
+        expect(published_zine.remove_author(last_author)).to be_truthy
+        expect(published_zine.reload.author_count).to eq 2
       end
     end
   end
