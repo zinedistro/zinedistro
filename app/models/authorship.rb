@@ -8,6 +8,7 @@ class Authorship < ActiveRecord::Base
 
   belongs_to :zine, validate: true
   validates :zine_id, presence: true
+  validates_uniqueness_of :author_id, scope: [:zine_id]
 
   after_create :incriment_author_cache_counter
   after_destroy :decriment_author_cache_counter
