@@ -17,6 +17,24 @@ feature 'When Browsing Zines' do
       visit '/zines'
     end
 
+    context 'Site footer' do
+      scenario 'I can see attribution content' do
+        within 'footer#bottom' do
+          find("a[href='https://twitter.com/faunzy']") do
+            page.should have_content 'maintained by Faun'
+          end
+        end
+      end
+
+      scenario 'I can see a link to the resistance army site' do
+        within 'footer#bottom' do
+          find("a[href='http://theresistancearmy.com/']") do
+            page.should have_content 'A Resistance Army Project'
+          end
+        end
+      end
+    end
+
     scenario 'I can see zine images on the index page' do
       page.should have_css "img[src$=\'/zines/covers/#{first_zine.id}.png\']"
     end
@@ -50,17 +68,6 @@ feature 'When Browsing Zines' do
       page.should have_no_content unpublished_zine.title
     end
 
-    scenario 'I can see the last class on the first published zine' do
-      within "#zine_#{first_zine.id}" do
-        page.should have_css '.meta.last'
-      end
-    end
-
-    scenario 'I do not see the last class on the most recent zine' do
-      within "#zine_#{second_zine.id}" do
-        page.should_not have_css '.meta.last'
-      end
-    end
     describe 'On the zine details page' do
 
       before do
@@ -80,6 +87,14 @@ feature 'When Browsing Zines' do
         page.should have_css "a[href='http://assets.zinedistro.org/" +
         "zines/pdfs/#{first_zine.id}.pdf']"
       end
+
+      describe 'Going back to the index page' do
+        scenario 'I can go back to the index page' do
+          click_link 'Back to zines'
+          current_path.should eq '/zines'
+        end
+      end
+
     end
   end
 end

@@ -2,5 +2,17 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  site:
+    name: 'Zine Distro'
+    tagline: 'Download Print Read'
   author:
-    attribution: "by"
+    attribution: 'by'
+  zines:
+    pluralized_title: 'Zines'
+    singular_title: 'Zine'
+  missing_zine_cover: 'Missing zine cover'
+  zine_back: 'Back to zines'
+  download_link: 'Download'
+  rss_link: 'Zines Feed'
+  twitter_link: 'Follow on Twitter'
+  anonymous: "Anonymous"

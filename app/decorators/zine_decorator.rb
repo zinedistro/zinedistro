@@ -7,7 +7,7 @@ class ZineDecorator < Draper::Decorator
     if object.cover_url.present?
       helpers.image_tag object.cover_url
     else
-      helpers.image_tag default_zine_image, alt: 'Missing zine cover'
+      helpers.image_tag default_zine_image, alt: I18n.t(:missing_zine_cover)
     end
   end
 
@@ -37,7 +37,7 @@ class ZineDecorator < Draper::Decorator
   end
 
   def download_link
-    h.link_to('Download',
+    h.link_to((I18n.t :download_link).upcase,
               "http://assets.zinedistro.org/zines/pdfs/#{object.id}.pdf")
   end
 
@@ -45,7 +45,7 @@ class ZineDecorator < Draper::Decorator
     if object.authors.any?
       object.authors.map(&:name).to_sentence
     else
-      'Anonymous'
+      I18n.t(:anonymous)
     end
   end
 

@@ -2,10 +2,12 @@
   #cover.column.span-6
     = @zine.cover_image_tag
   %section.meta.column.span-18.last
-    %nav.column.span-4.last
+    %nav.column.span-4
       .download
         = @zine.download_link
-      = link_to "Back to zines", zines_path
+      %ul.zine_back
+        %li
+          = link_to I18n.t(:zine_back), zines_path
     %h3= @zine.title
     %h4= @zine.subtitle
     %h5
