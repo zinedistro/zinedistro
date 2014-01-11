@@ -10,10 +10,8 @@ require 'sprockets/railtie'
 
 Bundler.require(:default, Rails.env)
 
-if Rails.env.development? || Rails.env.test?
-  require 'dotenv'
-  Dotenv.load
-end
+require 'dotenv'
+Dotenv.load
 
 module ZineDistro
   # ZineDistro configuration
