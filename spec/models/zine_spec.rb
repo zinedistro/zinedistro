@@ -39,10 +39,11 @@ describe Zine do
     end
 
     it 'does not add the author multiple times' do
-      pending 'Database uniqueness & validation'
       zine.author_count.should eq 0
       zine.add_author(author)
-      zine.add_author(author)
+      expect {
+        zine.add_author(author)
+      }.to raise_error(ActiveRecord::RecordInvalid)
       zine.reload.author_count.should eq 1
     end
   end
