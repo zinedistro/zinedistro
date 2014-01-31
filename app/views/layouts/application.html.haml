@@ -4,7 +4,6 @@
     %title Zine Distro : Download Print Read
     = csrf_meta_tags
     %link{:href => root_path, :rel => 'index'}/
-    %link{:href => zine_path(Zine.first), :rel => 'start'}/
     %link{:href => 'http://assets.zinedistro.org/avatars/favicon.png', :rel => 'icon', :type => 'image/png'}/
     = auto_discovery_link_tag :atom, zines_path(:format => :atom)
     = stylesheet_link_tag    'application', :media => 'all'
