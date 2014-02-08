@@ -2,7 +2,7 @@
   - @zines.each_with_index do |zine, index|
     = div_for zine, :class => "column span-24 hentry" do
       .cover.column.span-4
-        = zine.cover_image_tag
+        = zine.link_to_cover_image_tag
       .meta.column.span-20.last
         .entry-title
           %h3= zine.title_link

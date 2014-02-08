@@ -4,11 +4,7 @@ class ZineDecorator < Draper::Decorator
   delegate_all
 
   def link_to_cover_image_tag
-    if object.cover_url.present?
-      helpers.image_tag object.cover_url
-    else
-      helpers.image_tag default_zine_image, alt: I18n.t(:missing_zine_cover)
-    end
+    h.link_to(cover_image_tag, zine_path(object), class: 'cover')
   end
 
   def path
@@ -32,8 +28,7 @@ class ZineDecorator < Draper::Decorator
   end
 
   def cover_image_tag
-    h.image_tag("http://assets.zinedistro.org/zines/covers/#{object.id}.png",
-                alt: object.title)
+    h.image_tag(cover_image, alt: object.title)
   end
 
   def download_link
@@ -50,6 +45,10 @@ class ZineDecorator < Draper::Decorator
   end
 
   private
+
+  def cover_image
+    "http://assets.zinedistro.org/zines/covers/#{object.id}.png"
+  end
 
   def default_zine_image
     'http://assets.zinedistro.org/zines/covers/missing.png'

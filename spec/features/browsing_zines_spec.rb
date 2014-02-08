@@ -51,10 +51,18 @@ feature 'When Browsing Zines' do
       page.should have_no_content unpublished_zine.title
     end
 
+    scenario 'I can click on the zine cover to get to the zine details' do
+      find('#zines .zine:first-of-type a.cover').click
+      page.should have_selector 'article.zine'
+      current_url.should eq zine_url(second_zine)
+    end
+
     describe 'On the zine details page' do
 
       before do
-        click_link first_zine.title
+        within "#zine_#{first_zine.id} .entry-title h3" do
+          click_link first_zine.title
+        end
       end
 
       scenario 'I can see the cover image' do

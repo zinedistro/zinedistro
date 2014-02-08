@@ -11,22 +11,15 @@ describe ZineDecorator do
     context 'with a cover image' do
       subject do
         described_class
-                .new(build :zine, cover_url: 'http://flurp.com')
+                .new(build :zine, cover_url: 'http://flurp.com', id: 0)
       end
       it 'returns an image tag for the image' do
         subject.link_to_cover_image_tag
-          .should eq '<img alt="Flurp" src="http://flurp.com" />'
-      end
-    end
-
-    context 'without a cover image' do
-      subject do
-        described_class.new(build :zine_with_authors, cover_url: nil)
-      end
-      it 'returns the default image' do
-        subject.link_to_cover_image_tag
-        .should eq '<img alt="Missing zine cover" ' \
-        'src="http://assets.zinedistro.org/zines/covers/missing.png" />'
+          .should eq "<a class=\"cover\" " \
+          "href=\"/zines/0\">" \
+          "<img alt=\"#{zine.title}\" " \
+          "src=\"http://assets.zinedistro.org/zines/covers/0.png\" " \
+          "/></a>"
       end
     end
   end
