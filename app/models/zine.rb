@@ -15,8 +15,15 @@ class Zine < ActiveRecord::Base
            after_add: [:incriment_author_cache_counter],
            after_remove: [:decriment_author_cache_counter]
 
-  scope :published, -> { where(published: true).order(updated_at: :desc) }
+  scope :published, lambda {
+    where(published: true)
+    .order(updated_at: :desc)
+  }
   scope :with_authors, -> { includes(:authors) }
+
+  def publish!
+    update_attributes!(published: true)
+  end
 
   def add_author(author_to_add)
     authors << author_to_add
@@ -27,11 +34,19 @@ class Zine < ActiveRecord::Base
   end
 
   def self.catalog
-    published.with_authors
+    published
+  end
+
+  def self.catalog_with_authors
+    with_authors.published
   end
 
   def self.find_published(id)
-    published.where(id: id).limit(1).first
+    published.find_by!(id: id.to_i)
+  end
+
+  def self.find_published_with_authors(id)
+    with_authors.find_published(id)
   end
 
   private

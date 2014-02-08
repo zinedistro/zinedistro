@@ -17,5 +17,10 @@ FactoryGirl.define do
     trait :unpublished do
       published false
     end
+
+    trait :published do
+      published true
+    end
+
   end
 end

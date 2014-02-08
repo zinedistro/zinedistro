@@ -4,11 +4,11 @@ class ZinesController < ApplicationController
   decorates_assigned :zine
 
   def index
-    @zines = Zine.catalog.decorate
+    @zines = Zine.catalog_with_authors.decorate
   end
 
   def show
-    @zine = Zine.find_published(ZineParams.build(params)).decorate
+    @zine = Zine.find_published_with_authors(ZineParams.build(params)).decorate
     not_found unless @zine
   end
 

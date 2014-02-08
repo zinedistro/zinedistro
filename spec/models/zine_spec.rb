@@ -8,16 +8,27 @@ describe Zine do
   let(:last_author) { published_zine.authors.last }
 
   describe '.find_published' do
-    it 'returns a published_zine when called with an id' do
-      expect(
+    context 'a published zine' do
+      it 'returns the published zine' do
         described_class.find_published(published_zine.id)
-      ).to eq published_zine
+        .should eq published_zine
+      end
     end
 
-    it 'returns nil when the zine is not published' do
-      expect(
-        described_class.find_published(unpublished_zine.id)
-      ).to be_nil
+    context 'with an unpublished zine' do
+      it 'raises "record not found"' do
+        expect {
+          described_class.find_published(unpublished_zine.id)
+        }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
+    context 'without a zine' do
+      it 'raises "record not found"' do
+        expect {
+          described_class.find_published('robots')
+        }.to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
   end
 
@@ -72,22 +83,29 @@ describe Zine do
 
     context 'when adding an author' do
       it 'incriments author_count' do
-        expect do
+        expect {
           zine.add_author(author)
-        end
-        .to change(zine.reload.authors, :count).by(1)
+        }.to change(zine.reload.authors, :count).by(1)
       end
     end
 
     context 'when removing an author' do
       it 'decrements author_count' do
         zine.authors << author
-        expect do
+        expect {
           zine.remove_author(author)
-        end
-        .to change(zine.reload, :author_count).by(-1)
+        }.to change(zine.reload, :author_count).by(-1)
       end
     end
   end
 
+  describe '#publish!' do
+    let(:zine) { create :zine, :unpublished }
+    it 'changes the published attribute' do
+      zine.published.should be false
+      expect {
+        zine.publish!
+      }.to change(zine, :published).from(false).to(true)
+    end
+  end
 end

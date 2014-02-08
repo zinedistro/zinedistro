@@ -1,10 +1,16 @@
 # Author
 class Author < ActiveRecord::Base
   attr_accessible :name
-  has_many :authorships
+  has_many :authorships, -> { includes :authors }
   has_many :zines, through: :authorships
 
-  def self.published
-    Zine.catalog.map(&:authors).flatten.uniq
+  scope :published, lambda {
+    joins(:zines).merge(Zine.catalog).uniq
+  }
+
+  def self.find_published(id)
+    published.find_by!(id: id.to_i)
   end
+
+  scope :with_authors, -> { includes(:authors) }
 end
