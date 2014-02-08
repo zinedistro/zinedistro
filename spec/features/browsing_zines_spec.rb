@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 feature 'When Browsing Zines' do
   describe 'On the index page' do
 
@@ -15,24 +16,6 @@ feature 'When Browsing Zines' do
 
     before do
       visit '/zines'
-    end
-
-    context 'Site footer' do
-      scenario 'I can see attribution content' do
-        within 'footer#bottom' do
-          find("a[href='https://twitter.com/faunzy']") do
-            page.should have_content 'maintained by Faun'
-          end
-        end
-      end
-
-      scenario 'I can see a link to the resistance army site' do
-        within 'footer#bottom' do
-          find("a[href='http://theresistancearmy.com/']") do
-            page.should have_content 'A Resistance Army Project'
-          end
-        end
-      end
     end
 
     scenario 'I can see zine images on the index page' do
