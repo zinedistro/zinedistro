@@ -4,8 +4,7 @@ class AuthorsController < ApplicationController
     @authors = Author.published
   end
 
-  def zines
-    @author = Author.find(params[:id])
-    @zines = @author.zines
+  def show
+    @author = Author.find_published(params[:id])
   end
 end

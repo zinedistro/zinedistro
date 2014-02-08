@@ -16,3 +16,5 @@ en:
   rss_link: 'Zines Feed'
   twitter_link: 'Follow on Twitter'
   anonymous: "Anonymous"
+  flash:
+    record_not_found: 'The object you tried to access does not exist'

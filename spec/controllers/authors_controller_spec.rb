@@ -18,12 +18,13 @@ describe AuthorsController do
     end
   end
 
-  describe '#zines' do
+  describe '#show' do
     context 'with a published author' do
-      let!(:author) { create :author_with_zines }
+      let(:author) { create :author_with_zines }
 
       before do
-        get :zines, id: author
+        author.zines.first.publish!
+        get :show, id: author
       end
 
       it 'returns 200' do
@@ -35,9 +36,12 @@ describe AuthorsController do
       end
     end
 
-    context 'without an author' do
+    context 'with an unpublished author' do
+      let(:author) { create :author_with_zines, zines_count: 1 }
+
       before do
-        get :zines, id: 0
+        author.zines.first.update_attributes(published: false)
+        get :show, id: author
       end
 
       it 'returns 404' do
@@ -46,6 +50,24 @@ describe AuthorsController do
 
       it 'sets the flash message' do
         flash[:notice].should_not be_nil
+      end
+    end
+
+    context 'without an author' do
+      before do
+        get :show, id: 0
+      end
+
+      it 'returns 404' do
+        response.status.should eq 404
+      end
+
+      it 'sets the flash message' do
+        flash[:notice].should eq I18n.t('flash.record_not_found')
+      end
+
+      it 'renders the missing template' do
+        response.should render_template 'application/_missing'
       end
     end
   end
