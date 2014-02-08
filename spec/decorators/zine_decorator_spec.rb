@@ -3,6 +3,8 @@ require 'spec_helper'
 describe ZineDecorator do
   let(:zine) { create :zine_with_authors }
   subject do
+    # FIXME: stub out authors and ids to test in isolation
+    # without creating database objects for each test
     described_class.new(zine)
   end
   describe '#link_to_cover_image_tag' do
