@@ -9,6 +9,7 @@ require 'action_controller/railtie'
 require 'sprockets/railtie'
 
 Bundler.require(:default, Rails.env)
+require 'carrierwave/orm/activerecord'
 
 require 'dotenv'
 Dotenv.load

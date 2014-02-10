@@ -7,13 +7,16 @@ class Zine < ActiveRecord::Base
                   :published,
                   :cover_url,
                   :download_url,
-                  :author_count
+                  :author_count,
+                  :cover_image,
+                  :remote_cover_image_url
 
   has_many :authorships
   has_many :authors,
            through: :authorships,
            after_add: [:incriment_author_cache_counter],
            after_remove: [:decriment_author_cache_counter]
+  mount_uploader :cover_image, CoverImageUploader
 
   scope :published, lambda {
     where(published: true)

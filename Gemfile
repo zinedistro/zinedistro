@@ -55,3 +55,7 @@ gem 'ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
 
 gem 'draper'
+gem 'carrierwave'
+gem 'fog'
+gem 'rmagick'
+gem 'unf'
