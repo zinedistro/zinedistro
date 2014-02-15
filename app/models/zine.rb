@@ -5,7 +5,6 @@ class Zine < ActiveRecord::Base
                   :subtitle,
                   :full_text,
                   :published,
-                  :cover_url,
                   :download_url,
                   :author_count,
                   :cover_image,

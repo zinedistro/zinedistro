@@ -11,7 +11,7 @@ describe ZineDecorator do
     context 'with a cover image' do
       subject do
         described_class
-                .new(build :zine, cover_url: 'http://flurp.com', id: 0)
+                .new(build :zine, cover_image: 'http://flurp.com', id: 0)
       end
       it 'returns an image tag for the image' do
         subject.link_to_cover_image_tag

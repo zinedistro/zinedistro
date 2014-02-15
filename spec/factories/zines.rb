@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :zine do
     title Faker::Lorem.words.join(' ').capitalize!
     subtitle Faker::Lorem.words.join(' ').capitalize!
-    sequence(:cover_url) { |n| "/covers/zines/#{n}" }
+    sequence(:cover_image) { |n| "/covers/zines/#{n}" }
     sequence(:download_url) { |n| "/download/zines/#{n}" }
     factory :zine_with_authors do
       ignore do
