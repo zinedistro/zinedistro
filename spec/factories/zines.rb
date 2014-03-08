@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :zine do
     title Faker::Lorem.words.join(' ').capitalize!
     subtitle Faker::Lorem.words.join(' ').capitalize!
-    sequence(:cover_image) { |n| "/covers/zines/#{n}" }
+    cover_image Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/fixtures/images/transparent.png')))
     sequence(:download_url) { |n| "/download/zines/#{n}" }
     factory :zine_with_authors do
       ignore do
