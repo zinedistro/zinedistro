@@ -1,15 +1,5 @@
 # Zine
 class Zine < ActiveRecord::Base
-  attr_accessible :title,
-                  :excerpt,
-                  :subtitle,
-                  :full_text,
-                  :published,
-                  :download_url,
-                  :author_count,
-                  :cover_image,
-                  :remote_cover_image_url
-
   has_many :authorships
   has_many :authors,
            through: :authorships,

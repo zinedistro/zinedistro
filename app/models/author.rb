@@ -1,6 +1,5 @@
 # Author
 class Author < ActiveRecord::Base
-  attr_accessible :name
   has_many :authorships, -> { includes :authors }
   has_many :zines, through: :authorships
 

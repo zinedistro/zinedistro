@@ -14,9 +14,6 @@ gem 'coffee-rails', '~> 4.0.1'
 gem 'uglifier', '~> 2.4.0'
 gem 'haml', '~> 4.0.4'
 
-# Rails 4 transition gems
-gem 'protected_attributes'
-
 group :test, :development do
   gem 'rspec-rails', '~> 2.99.0.beta1'
   gem 'factory_girl_rails', '~> 4.0'

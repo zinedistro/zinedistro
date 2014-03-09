@@ -1,4 +1,14 @@
 ActiveAdmin.register Zine do
+  permit_params :title,
+                :excerpt,
+                :subtitle,
+                :full_text,
+                :published,
+                :download_url,
+                :author_count,
+                :cover_image,
+                :remote_cover_image_url
+
   config.filters = false
   index download_links: false do
     column :id, sortable: :id do |zine|
