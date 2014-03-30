@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140208125824) do
+ActiveRecord::Schema.define(version: 20140330045329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,21 +71,17 @@ ActiveRecord::Schema.define(version: 20140208125824) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "zines", force: true do |t|
-    t.string   "title",                          null: false
+    t.string   "title",                       null: false
     t.string   "subtitle"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "published",       default: true
+    t.boolean  "published",    default: true
     t.text     "full_text"
-    t.string   "url"
     t.text     "excerpt"
     t.string   "cover_image"
     t.string   "download_url"
     t.datetime "added_at"
-    t.integer  "views"
-    t.integer  "new_paper_count"
-    t.integer  "downloads",       default: 0
-    t.integer  "author_count",    default: 0,    null: false
+    t.integer  "author_count", default: 0,    null: false
   end
 
 end
