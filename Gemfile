@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 gem 'nokogiri'
 
 gem 'rails', '~> 4.0.2'
-# gem 'unicorn'
 
 # Infrastructure gems
 gem 'pg'
@@ -24,21 +23,37 @@ group :test, :development do
 end
 
 group :test do
+  # Take screenshots during/after failed feature specs
   gem 'capybara-screenshot'
+
+  # Test coverage
   gem 'simplecov'
+
+  # Database truncation for test isolation
   gem 'database_cleaner'
+
+  # Test Helpers
   gem 'shoulda-matchers'
 end
 
 group :development do
+  # Preloading the rails envionment
+  gem 'zeus'
+
+  # Filesystem watcher for autotest, etc
   gem 'guard'
   gem 'guard-zeus'
-  gem 'zeus'
   gem 'guard-rspec'
+
+  # Watching for file changes
   gem 'rb-inotify', require: false
   gem 'rb-fsevent', require: false
   gem 'rb-fchange', require: false
+
+  # Database query optimization
   gem 'bullet'
+
+  # Source maps for SASS and CoffeeScript
   gem 'coffee-rails-source-maps'
   gem 'sass-rails-source-maps'
 end
@@ -51,8 +66,13 @@ gem 'inherited_resources', github: 'josevalim/inherited_resources'
 gem 'ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
 
+# Decorators
 gem 'draper'
+
+# Image uploading
 gem 'carrierwave'
 gem 'fog'
-gem 'rmagick'
 gem 'unf'
+
+# Image processing
+gem 'rmagick'
