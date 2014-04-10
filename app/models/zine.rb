@@ -7,6 +7,8 @@ class Zine < ActiveRecord::Base
            after_remove: [:decriment_author_cache_counter]
   mount_uploader :cover_image, CoverImageUploader
 
+  validates_presence_of :cover_image
+
   scope :published, lambda {
     where(published: true)
     .order(updated_at: :desc)

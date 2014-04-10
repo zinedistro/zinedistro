@@ -7,6 +7,16 @@ describe Zine do
   let(:author) { create :author }
   let(:last_author) { published_zine.authors.last }
 
+  describe 'validations' do
+    context 'without a cover image' do
+      let(:zine) { build(:zine, cover_image: nil) }
+      it 'is not valid' do
+        expect(zine).to_not be_valid
+        expect(zine.errors.full_messages).to include "Cover image can't be blank"
+      end
+    end
+  end
+
   describe '.find_published' do
     context 'a published zine' do
       it 'returns the published zine' do
