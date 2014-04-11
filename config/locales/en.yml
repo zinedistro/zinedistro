@@ -10,6 +10,7 @@ en:
   zines:
     pluralized_title: 'Zines'
     singular_title: 'Zine'
+    cover_image: 'Cover image'
   missing_zine_cover: 'Missing zine cover'
   zine_back: 'Back to zines'
   download_link: 'Download'

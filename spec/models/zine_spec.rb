@@ -12,7 +12,10 @@ describe Zine do
       let(:zine) { build(:zine, cover_image: nil) }
       it 'is not valid' do
         expect(zine).to_not be_valid
-        expect(zine.errors.full_messages).to include "Cover image can't be blank"
+        expect(zine.errors.count).to equal 1
+        expect(zine.errors.full_messages.first).to eq(
+          "#{I18n.t('zines.cover_image')} #{I18n.t('errors.messages.blank')}"
+        )
       end
     end
   end
