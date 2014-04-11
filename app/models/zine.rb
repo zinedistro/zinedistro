@@ -1,10 +1,12 @@
 # Zine
+require 'active_model'
 class Zine < ActiveRecord::Base
   has_many :authorships
   has_many :authors,
            through: :authorships,
            after_add: [:incriment_author_cache_counter],
            after_remove: [:decriment_author_cache_counter]
+
   mount_uploader :cover_image, CoverImageUploader
 
   validates_presence_of :cover_image
