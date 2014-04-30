@@ -47,6 +47,7 @@ class ZineDecorator < Draper::Decorator
   private
 
   def cover_image
+    #TODO: Remove this method. Delegate to methods on mounted cover image
     "http://assets.zinedistro.org/zines/covers/#{object.id}.png"
   end
 
