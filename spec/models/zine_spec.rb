@@ -1,4 +1,4 @@
-require_relative '../../app/models/zine'
+require 'spec_helper'
 describe Zine do
 
   let(:published_zine) { create :zine_with_authors }
