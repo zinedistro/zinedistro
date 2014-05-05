@@ -113,7 +113,7 @@ describe Zine do
   end
 
   describe '#publish!' do
-    let(:zine) { create :zine, :unpublished }
+    let(:zine) { build :zine, :unpublished }
     it 'changes the published attribute' do
       zine.published.should be false
       expect {
