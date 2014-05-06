@@ -1,7 +1,5 @@
 # ZinesController
 class ZinesController < ApplicationController
-  decorates_assigned :zines
-  decorates_assigned :zine
 
   def index
     @zines = Zine.catalog_with_authors.decorate
