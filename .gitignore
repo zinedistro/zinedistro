@@ -13,6 +13,9 @@
 # Ignore YamlDB data dump
 /db/data.yml
 
+# Ignore the database seeds file
+/db/seeds.rb
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
