@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 describe AuthorsController do
   describe '#index' do
     context 'with published authors' do
@@ -8,9 +9,7 @@ describe AuthorsController do
         get :index
       end
 
-      it 'returns 200' do
-        response.status.should eq 200
-      end
+      it { should respond_with 200 }
 
       it 'assigns authors as :authors' do
         assigns(:authors).should eq [author]
@@ -27,9 +26,7 @@ describe AuthorsController do
         get :show, id: author
       end
 
-      it 'returns 200' do
-        response.status.should eq 200
-      end
+      it { should respond_with 200 }
 
       it 'assigns the published author as author' do
         assigns(:author).should eq author
@@ -44,9 +41,7 @@ describe AuthorsController do
         get :show, id: author
       end
 
-      it 'returns 404' do
-        response.status.should eq 404
-      end
+      it { should respond_with 404 }
 
       it 'sets the flash message' do
         flash[:notice].should_not be_nil
@@ -58,9 +53,7 @@ describe AuthorsController do
         get :show, id: 0
       end
 
-      it 'returns 404' do
-        response.status.should eq 404
-      end
+      it { should respond_with 404 }
 
       it 'sets the flash message' do
         flash[:notice].should eq I18n.t('flash.record_not_found')

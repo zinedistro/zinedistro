@@ -21,9 +21,7 @@ describe ZinesController do
           get :show, id: zine.id
         end
 
-        it 'returns successfully' do
-          response.should be_success
-        end
+        it { should respond_with 200 }
 
         it 'assigns zine as :zine' do
           assigns(:zine).should eq zine
@@ -46,9 +44,7 @@ describe ZinesController do
         get :index
       end
 
-      it 'returns sucessfully' do
-        response.should be_success
-      end
+      it { should respond_with 200 }
 
       it 'assigns the entire published zine catalog as @zines' do
         assigns(:zines).should eq Zine.catalog
