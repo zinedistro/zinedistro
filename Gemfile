@@ -38,7 +38,7 @@ end
 
 group :development do
   # Preloading the rails envionment
-  gem 'zeus'
+  gem 'spring'
 
   # Filesystem watcher for autotest, etc
   gem 'guard'
