@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gem 'nokogiri'
 
-gem 'rails', '~> 4.0.2'
+gem 'rails', '~> 4.1.1'
 
 # Infrastructure gems
 gem 'pg'
