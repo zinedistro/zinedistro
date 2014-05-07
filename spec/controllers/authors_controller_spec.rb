@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe AuthorsController do
-  describe '#index' do
+  describe 'on GET to :index' do
     context 'with published authors' do
       let!(:author) { create :author_with_zines }
 
@@ -11,13 +11,13 @@ describe AuthorsController do
 
       it { should respond_with 200 }
 
-      it 'assigns authors as :authors' do
+      it 'assigns authors as @authors' do
         assigns(:authors).should eq [author]
       end
     end
   end
 
-  describe '#show' do
+  describe 'on GET to :show' do
     context 'with a published author' do
       let(:author) { create :author_with_zines }
 
@@ -28,7 +28,7 @@ describe AuthorsController do
 
       it { should respond_with 200 }
 
-      it 'assigns the published author as author' do
+      it 'assigns the published author as @author' do
         assigns(:author).should eq author
       end
     end

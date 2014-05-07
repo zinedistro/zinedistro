@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 describe ZinesController do
 
   context 'parameters' do
@@ -11,7 +12,7 @@ describe ZinesController do
 
   end
 
-  describe '#show' do
+  describe 'on GET to :show' do
 
     context 'with one zine' do
       let(:zine) { create :zine_with_authors }
@@ -23,7 +24,7 @@ describe ZinesController do
 
         it { should respond_with 200 }
 
-        it 'assigns zine as :zine' do
+        it 'assigns zine as @zine' do
           assigns(:zine).should eq zine
         end
 
@@ -35,7 +36,7 @@ describe ZinesController do
     end
   end
 
-  describe '#index' do
+  describe 'on GET to :index' do
     let(:author_with_zines) { create :author, :with_zines }
 
     context 'with valid params' do
@@ -51,6 +52,5 @@ describe ZinesController do
       end
 
     end
-
   end
 end
