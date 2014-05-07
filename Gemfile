@@ -33,7 +33,7 @@ group :test do
   gem 'database_cleaner'
 
   # Test Helpers
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
 end
 
 group :development do
