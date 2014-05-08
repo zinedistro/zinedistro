@@ -39,6 +39,7 @@ end
 group :development do
   # Preloading the rails envionment
   gem 'spring'
+  gem 'spring-commands-rspec'
 
   # Filesystem watcher for autotest, etc
   gem 'guard'
