@@ -3,7 +3,7 @@ class Author < ActiveRecord::Base
   has_many :authorships, -> { includes :authors }
   has_many :zines, through: :authorships
 
-  scope :published, lambda {
+  scope :published, -> {
     joins(:zines).merge(Zine.catalog).uniq
   }
 

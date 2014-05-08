@@ -14,7 +14,7 @@ class Zine < ActiveRecord::Base
 
   validates_presence_of :cover_image
 
-  scope :published, lambda {
+  scope :published, -> {
     where(published: true)
     .order(updated_at: :desc)
   }
