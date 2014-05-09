@@ -79,4 +79,4 @@ gem 'fog'
 gem 'unf'
 
 # Image processing
-gem 'rmagick'
+gem 'rmagick', require: false
