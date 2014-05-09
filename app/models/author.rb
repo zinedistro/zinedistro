@@ -8,7 +8,9 @@ class Author < ActiveRecord::Base
   }
 
   def self.find_published(id)
-    published.find_by!(id: id.to_i)
+    published
+      .where(id: id.to_i)
+      .first || raise(ActiveRecord::RecordNotFound)
   end
 
   scope :with_authors, -> { includes(:authors) }
