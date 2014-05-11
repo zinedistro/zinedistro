@@ -5,7 +5,8 @@ require_relative '../uploaders/cover_image_uploader'
 # No model logic should go in this class
 class Zine < ActiveRecord::Base
   has_many :authorships
-  has_many :authors, -> { uniq },
+  has_many :authors,
+           -> { distinct.order(:name) },
            through: :authorships,
            after_add: [:incriment_author_cache_counter],
            after_remove: [:decriment_author_cache_counter]
