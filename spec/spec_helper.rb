@@ -54,6 +54,8 @@ end
 
 Capybara.asset_host = 'http://localhost:3000'
 RSpec.configure do |config|
+  # Turn deprications into errors with stacktraces
+  # config.raise_errors_for_deprecations!
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

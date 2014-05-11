@@ -14,7 +14,7 @@ gem 'uglifier', '~> 2.4.0'
 gem 'haml', '~> 4.0.4'
 
 group :test, :development do
-  gem 'rspec-rails', '~> 2.99.0.beta1'
+  gem 'rspec-rails', '~> 3.0.0.beta2'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
   gem 'capybara'
