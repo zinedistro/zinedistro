@@ -15,8 +15,8 @@ feature 'As a user' do
     visit new_admin_zine_path
     fill_in 'zine_title', with: "A zine"
     attach_file('zine_cover_image', File.join(Rails.root, '/spec/fixtures/images/transparent.png'))
-    page.should have_css '#zine_cover_image_cache'
+    expect(page).to have_css '#zine_cover_image_cache'
     click_button 'Create Zine'
-    page.should have_content success_message_for :zine
+    expect(page).to have_content success_message_for :zine
   end
 end

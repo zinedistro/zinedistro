@@ -12,7 +12,7 @@ feature 'Browsing Zines' do
       end
 
       scenario 'I see a list of authors' do
-        page.should have_content authors.reverse.map(&:name).join(' ')
+        expect(page).to have_content authors.reverse.map(&:name).join(' ')
       end
 
       context 'When I click on an author' do
@@ -22,7 +22,7 @@ feature 'Browsing Zines' do
 
         scenario "I should see the author's detailed information" do
           within '.author .name' do
-            page.should have_content authors.first.name
+            expect(page).to have_content authors.first.name
           end
         end
         scenario 'I can see the zines created by a given author'

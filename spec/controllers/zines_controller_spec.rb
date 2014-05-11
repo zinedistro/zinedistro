@@ -22,14 +22,14 @@ describe ZinesController do
           get :show, id: zine.id
         end
 
-        it { should respond_with 200 }
+        it { is_expected.to respond_with 200 }
 
         it 'assigns zine as @zine' do
-          assigns(:zine).should eq zine
+          expect(assigns(:zine)).to eq zine
         end
 
         it 'is decorated with ZineDecorator' do
-          assigns(:zine).should be_decorated_with ZineDecorator
+          expect(assigns(:zine)).to be_decorated_with ZineDecorator
         end
 
       end
@@ -45,10 +45,10 @@ describe ZinesController do
         get :index
       end
 
-      it { should respond_with 200 }
+      it { is_expected.to respond_with 200 }
 
       it 'assigns the entire published zine catalog as @zines' do
-        assigns(:zines).should eq Zine.catalog
+        expect(assigns(:zines)).to eq Zine.catalog
       end
 
     end

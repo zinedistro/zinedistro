@@ -21,8 +21,8 @@ describe Zine do
       let(:published_zine) { create :zine_with_authors }
 
       it 'returns the published zine' do
-        described_class.find_published(published_zine.id)
-        .should eq published_zine
+        expect(described_class.find_published(published_zine.id))
+        .to eq published_zine
       end
     end
 
@@ -52,11 +52,11 @@ describe Zine do
       let(:unpublished_zine) { build :zine_with_authors, :unpublished }
 
       it 'returns published zines' do
-        described_class.catalog.should include published_zine
+        expect(described_class.catalog).to include published_zine
       end
 
       it "doesn't return unpublished zines" do
-        described_class.catalog.should_not include unpublished_zine
+        expect(described_class.catalog).not_to include unpublished_zine
       end
     end
   end
@@ -73,12 +73,12 @@ describe Zine do
       end
 
       it 'does not add the author multiple times' do
-        zine.author_count.should eq 0
+        expect(zine.author_count).to eq 0
         zine.add_author(author)
         expect {
           zine.add_author(author)
         }.to raise_error(ActiveRecord::RecordInvalid)
-        zine.author_count.should eq 1
+        expect(zine.author_count).to eq 1
       end
     end
   end
@@ -102,7 +102,7 @@ describe Zine do
       let(:author) { build :author }
 
       it 'returns the number of authors for a given zine' do
-        published_zine.author_count.should eq 3
+        expect(published_zine.author_count).to eq 3
       end
 
       context 'when adding an author' do
@@ -128,7 +128,7 @@ describe Zine do
     context 'with unpublished zines' do
       let(:zine) { build :zine, :unpublished }
       it 'changes the published attribute' do
-        zine.published.should be false
+        expect(zine.published).to be false
         expect {
           zine.publish!
         }.to change(zine, :published).from(false).to(true)

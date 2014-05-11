@@ -9,10 +9,10 @@ describe AuthorsController do
         get :index
       end
 
-      it { should respond_with 200 }
+      it { is_expected.to respond_with 200 }
 
       it 'assigns authors as @authors' do
-        assigns(:authors).should eq [author]
+        expect(assigns(:authors)).to eq [author]
       end
     end
   end
@@ -26,10 +26,10 @@ describe AuthorsController do
         get :show, id: author
       end
 
-      it { should respond_with 200 }
+      it { is_expected.to respond_with 200 }
 
       it 'assigns the published author as @author' do
-        assigns(:author).should eq author
+        expect(assigns(:author)).to eq author
       end
     end
 
@@ -41,10 +41,10 @@ describe AuthorsController do
         get :show, id: author
       end
 
-      it { should respond_with 404 }
+      it { is_expected.to respond_with 404 }
 
       it 'sets the flash message' do
-        flash[:notice].should_not be_nil
+        expect(flash[:notice]).not_to be_nil
       end
     end
 
@@ -53,14 +53,14 @@ describe AuthorsController do
         get :show, id: 0
       end
 
-      it { should respond_with 404 }
+      it { is_expected.to respond_with 404 }
 
       it 'sets the flash message' do
-        flash[:notice].should eq I18n.t('flash.record_not_found')
+        expect(flash[:notice]).to eq I18n.t('flash.record_not_found')
       end
 
       it 'renders the missing template' do
-        response.should render_template 'application/_missing'
+        expect(response).to render_template 'application/_missing'
       end
     end
   end

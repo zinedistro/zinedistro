@@ -4,8 +4,8 @@ describe Authorship do
   let(:zine) { build :zine }
 
   context 'validations' do
-    it { should validate_presence_of :zine_id }
-    it { should validate_presence_of :author_id }
+    it { is_expected.to validate_presence_of :zine_id }
+    it { is_expected.to validate_presence_of :author_id }
 
     it 'raises an exception when adding duplicate authorship' do
       expect do
@@ -17,7 +17,7 @@ describe Authorship do
   end
 
   context 'relationships' do
-    it { should belong_to(:author).dependent(:destroy) }
-    it { should belong_to :zine }
+    it { is_expected.to belong_to(:author).dependent(:destroy) }
+    it { is_expected.to belong_to :zine }
   end
 end

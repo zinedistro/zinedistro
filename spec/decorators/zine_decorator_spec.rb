@@ -14,9 +14,9 @@ describe ZineDecorator do
                 .new(build :zine, id: 0)
       end
       it 'returns an image tag for the image' do
-        zine.cover_image.url.should_not be_falsey
-        subject.link_to_cover_image_tag
-          .should eq "<a class=\"cover\" " \
+        expect(zine.cover_image.url).not_to be_falsey
+        expect(subject.link_to_cover_image_tag)
+          .to eq "<a class=\"cover\" " \
           "href=\"/zines/0\">" \
           "<img alt=\"#{zine.title}\" " \
           "src=\"http://assets.zinedistro.org/zines/covers/0.png\" " \
@@ -27,8 +27,8 @@ describe ZineDecorator do
 
   describe '#path' do
     it 'returns a sanitized, seo-friendly url string' do
-      subject.path
-        .should eq '/zines/' \
+      expect(subject.path)
+        .to eq '/zines/' \
         "#{zine.id}/" \
         "#{zine.title.downcase.gsub(' ', '-')}/" \
         "by/author-#{zine.authors[0].id}" \

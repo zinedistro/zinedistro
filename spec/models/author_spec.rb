@@ -7,7 +7,7 @@ describe Author do
         author.zines.last.publish!
       end
       it 'returns the published author' do
-        described_class.find_published(author.id).should == author
+        expect(described_class.find_published(author.id)).to eq(author)
       end
     end
     context 'without an author' do
