@@ -9,13 +9,14 @@ describe CoverImageUploader do
   let(:cover_image) { described_class.new }
 
   before do
-    cover_image.stub_chain(:model, :id) { ::SecureRandom.hex }
+    allow(cover_image).to receive_message_chain(:model, :id)
+      .and_return(::SecureRandom.hex)
     cover_image.store! fixture_image
   end
 
   context 'test env' do
     it 'uploads the cover image to the correct bucket' do
-      cover_image.file.url.should match(/.*\/zinedistro-test.*/)
+      expect(cover_image.file.url).to match(/.*\/zinedistro-test.*/)
     end
   end
 end
