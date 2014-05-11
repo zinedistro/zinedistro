@@ -17,7 +17,7 @@ group :test, :development do
   gem 'rspec-rails', '~> 3.0.0.beta2'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
-  gem 'capybara'
+  gem 'capybara', github: 'jnicklas/capybara', branch: 'master'
   gem 'dotenv-rails'
   gem 'pry'
 end

@@ -16,6 +16,18 @@ GIT
       sass-rails
 
 GIT
+  remote: git://github.com/jnicklas/capybara.git
+  revision: 2b778ae6dcdaab067edde542b5dd8f05df3ee3ba
+  branch: master
+  specs:
+    capybara (2.2.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+
+GIT
   remote: git://github.com/josevalim/inherited_resources.git
   revision: 559161287cd705def4868d3c0de6ddc2d8a8564c
   specs:
@@ -110,12 +122,6 @@ GEM
     bullet (4.9.0)
       activesupport
       uniform_notifier (~> 1.6.0)
-    capybara (2.2.1)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
     capybara-screenshot (0.3.19)
       capybara (>= 1.0, < 3)
       launchy
@@ -346,7 +352,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   bullet
-  capybara
+  capybara!
   capybara-screenshot
   carrierwave
   coffee-rails (~> 4.0.1)
