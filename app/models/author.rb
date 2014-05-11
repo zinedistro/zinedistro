@@ -4,7 +4,11 @@ class Author < ActiveRecord::Base
   has_many :zines, through: :authorships
 
   scope :published, -> {
-    joins(:zines).merge(Zine.catalog).uniq
+    joins(:zines)
+      .merge(Zine.published)
+      .except(:order)
+      .distinct('authors.id')
+      .order('name DESC')
   }
 
   def self.find_published(id)

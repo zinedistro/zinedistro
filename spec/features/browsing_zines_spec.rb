@@ -38,8 +38,8 @@ feature 'When Browsing Zines' do
       page.body.should =~ /Zine 2.*Zine 1/m
     end
 
-    scenario "I can see the authors' names" do
-      page.should have_content "by #{first_zine.authors.map(&:name)
+    scenario "I can see the authors sorted by name" do
+      page.should have_content "by #{first_zine.authors.sort_by { |author| author.name }.map(&:name)
         .to_sentence}"
     end
 
