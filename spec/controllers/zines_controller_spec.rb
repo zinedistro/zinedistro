@@ -4,16 +4,24 @@ describe ZinesController do
 
   context 'parameters' do
 
-    it 'requires an id' do
-      params = ActionController::Parameters.new(id: 'foo', name: 'baz')
-      zine_params = ZinesController::ZineParams.build(params)
-      expect(zine_params).to eq('foo')
+    context 'index' do
+      it 'permits a page' do
+        params = ActionController::Parameters.new(page: 1)
+        zine_params = ZinesController::ZineParams.index(params)
+        expect(zine_params).to eq('page' => 1)
+      end
     end
 
+    context 'show' do
+      it 'requires an id' do
+        params = ActionController::Parameters.new(id: 1)
+        ZinesController::ZineParams.show(params)
+        expect(params).to eq('id' => 1)
+      end
+    end
   end
 
   describe 'on GET to :show' do
-
     context 'with one zine' do
       let(:zine) { create :zine_with_authors }
 

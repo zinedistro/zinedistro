@@ -1,13 +1,20 @@
 ActiveAdmin.register Zine do
-  permit_params :title,
-                :excerpt,
-                :subtitle,
-                :full_text,
-                :published,
-                :download_url,
-                :author_count,
-                :cover_image,
-                :remote_cover_image_url
+  controller do
+    def permitted_params
+      params.permit(:utf8,
+                    :commit,
+                    zine: [:title,
+                           :excerpt,
+                           :subtitle,
+                           :full_text,
+                           :published,
+                           :download_url,
+                           :author_count,
+                           :cover_image,
+                           :cover_image_cache,
+                           :remote_cover_image_url])
+    end
+  end
 
   config.filters = false
   index download_links: false do
