@@ -22,6 +22,9 @@ ZineDistro::Application.configure do
   # Raise exceptions instead of rendering exception templates
   config.action_dispatch.show_exceptions = false
 
+  # raise exception on unpermitted params
+  config.action_controller.action_on_unpermitted_parameters = :raise
+
   # Disable request forgery protection in test environment
   config.action_controller.allow_forgery_protection    = false
 
