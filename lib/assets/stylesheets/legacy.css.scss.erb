@@ -1,373 +1,359 @@
-/* blueprint overrides... */
-abbr, acronym { border: none; }
-.alt { color: #333; font-size: 1.2em;}
-body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; }
+$link_color: darken(steelblue, 0);
+$link_hover_color: #181818;
+$link_alternate_color: cornsilk;
+
+// blueprint overrides...
+abbr,
+acronym {
+  border: 0;
+}
+
+.alt {
+  color: #333;
+  font-size: 1.2em;
+}
+
+body,
+a.button,
+button,
+#site_search input {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
 
 a.button,
 button {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   display: inline;
   float: none;
   margin: 0;
 }
 
-.even { background: #e5ecf9; }
-/* ...blueprint overrides */
+.even {
+  background: #e5ecf9;
+}
 
-/* html5... */
-header, footer, nav, article, aside, section { display: block !important; }
-/* ...html5 */
+// html5...
 
-/* font includes... */
+header,
+footer,
+nav,
+article,
+aside,
+section {
+  display: block !important;
+}
+
+// ...html5
+
+// font includes...
+
 @font-face {
-  font-family: "Chunkfive";
-  src: url(<%= font_url("Chunkfive.ttf") %>)
-  format("truetype");
+  font-family: 'Chunkfive';
+  src: url(<%= font_url 'Chunkfive.ttf' %>) format('truetype');
 }
 
-.zinedistro,
 h1 {
-  font-family: "Chunkfive", "helvetica neue", helvetica, sans-serif;
+  font-family: 'Chunkfive', 'Helvetica Neue', Helvetica, sans-serif;
 }
-/* ...font includes */
 
-/* search... */
+// ...font includes
+
+// search...
 #site_search input {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   color: #999;
-
 }
-/* ...search */
 
-/* links... */
+// ...search
+
+// links...
 a {
-  border: none;
-  text-decoration: none;
+  border: 0;
   padding: .25em;
+  text-decoration: none;
+  color: $link_color;
+
+  &:hover {
+    background: none;
+    color: $link_hover_color;
+  }
+
+  &.cover {
+    background: none;
+
+    & a:hover {
+      background: none;
+    }
+  }
 }
 
-a:hover {
-  background: #006;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#006), to(#009));
-  color: white;
-}
 
 article a {
-  margin: 0 -.15em;
   font-weight: bold;
+  margin: 0 -.15em;
 }
 
-.cover img:hover {
-  outline: 1px solid #009;
-}
 
-a.cover {
-  background: none;
-}
+// ...links
 
-#zines .meta a {
-  padding: 0;
-  display: block;
-}
-/* ...links */
-
-
-/* header... */
+// header...
 header {
   background: #eee;
   padding: 1em 0;
+
+  h2 a {
+    color: #ccc;
+  }
+
+
+  nav {
+    float: right;
+    margin-top: 1em;
+
+    & ul,
+    & li,
+    & form {
+      display: inline;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
 
 h1,
 h2 {
   display: inline;
+
+  & a:hover {
+    background: none;
+    color: #000;
+  }
 }
 
 h1 {
   font-weight: bold;
   letter-spacing: -.04em;
   margin-right: .25em;
+
+  & a {
+    color: #666;
+    padding: 0;
+  }
 }
 
-header h2 a {
-  color: #ccc;
-}
+// ...header
 
-h1 a {
-  color: #666;
-  padding: 0;
-}
-
-h1 a:hover,
-h2 a:hover {
-  background: none;
-  color: black;
-}
-
-header nav,
-header nav ul,
-header nav ul li,
-header nav ul li form {
-  display: inline;
-  margin: 0;
-  padding: 0;
-}
-
-header nav {
-  float: right;
-  margin-top: 1em;
-}
-/* ...header */
-
-/* main... */
+// main...
 #main {
   padding-top: 5em;
 }
-/* ...main */
 
-/* zine article... */
+// ...main
+
+// zine article...
 .zine {
-  margin-top: 3em;
-}
 
-.zine nav {
-  float: right;
-  padding: 0 0 1em 2em;
-}
+  .full_text {
+    font-size: 1.5em;
+    margin-top: 2em;
 
-.zine .download {
-  text-align: right;
-  font-size: 1.5em;
-  margin: 0 0 .5em 0;
-}
-
-.zine .download a {
-  border: 1px solid #009;
-  background: #eee;
-  padding: .5em;
-}
-
-.zine .download a:hover {
-  background: #006;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#006), to(#009));
-  color: white;
-}
-
-.zine .previous_next, .zine .zine_back {
-  margin: 0;
-  padding: 0;
-  text-align: right;
-
-  li.border {
-    border-right: 1px solid #ccc;
-    padding-right: .5em;
+    & p:first-child {
+      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#fff));
+      font-family: georgia, times, serif;
+      font-size: 1.25em;
+      padding: 1em;
+    }
   }
 
-  li {
-    display: inline;
+  nav {
+    float: right;
+    padding: 0 0 1em 2em;
   }
 
-  a {
-    font-weight: normal !important;
+  .download {
+    font-size: 1.5em;
+    margin: 0 0 .5em;
+    text-align: right;
+
+    a {
+      background: #eee;
+      border: 1px solid $link_hover_color;
+      padding: .5em;
+
+      &:hover {
+        background: #eee;
+        color: #000;
+      }
+    }
+  }
+
+  .previous_next, .zine_back {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+
+    li.border {
+      border-right: 1px solid #ccc;
+      padding-right: .5em;
+    }
+
+    li {
+      display: inline;
+    }
+
+    a {
+      font-weight: normal !important;
+    }
+  }
+
+  .zine_back:before {
+    content: "\2190"
+  }
+
+  .cover {
+    margin-bottom: 2em;
   }
 }
 
+.meta {
+  h3 {
+    color: #000;
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
 
+  h4 {
+    color: #666;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+  }
 
-.zine .cover {
-  margin-bottom: 2em;
+  h5 {
+    margin: 0;
+    padding: 0;
+  }
 }
 
-#cover img,
-.cover img {
+div.cover  {
   outline: 1px solid #ccc;
-  width: 190px;
+  &, img {
+    width: 150px;
+  }
+}
+// ...zine article
+
+// zines index...
+#zines {
+
+  .zine {
+    margin-bottom: 5em;
+
+  }
+
+  .meta a {
+    display: block;
+    padding: 0;
+  }
+
+  .stats {
+    color: #ccc;
+    font-size: 1em;
+    line-height: 100%;
+
+    .alt {
+      color: #999;
+    }
+  }
+
+  .excerpt {
+    color: #666;
+
+    p {
+      margin-bottom: .5em;
+    }
+  }
 }
 
-.meta h3 {
-  font-size: 3em;
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-  color: black;
-}
+// ...zines index
 
-.meta h4 {
-  margin: 0;
-  padding: 0;
-  font-size: 2em;
-  color: #666;
-}
-
-.meta h5 {
-  margin: 0;
-  padding: 0;
-}
-
-.zine .full_text {
-  font-size: 1.5em;
-  margin-top: 2em;
-}
-
-.zine .full_text p:first-child {
-  font-family: georgia, times, serif;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#fff));
-  padding: 1em;
-  font-size: 1.25em;
-}
-/* ...zine article */
-
-/* zines index... */
-#zines .zine {
-  margin-bottom: 5em;
-}
-
-#zines .zine .cover img {
-  width: 150px;
-}
-
-#zines .stats {
-  font-size: 1em;
-  line-height: 100%;
-  color: #ccc;
-}
-
-#zines .stats .alt {
-  color: #999;
-}
-
-.excerpt {
-  color: #666;
-}
-
-#zines .excerpt p {
-  margin-bottom: .5em;
-}
-/* ...zines index */
-
-/* recent zines... */
+// recent zines...
 #recent_zines {
   margin: 3em 0;
+
+  caption {
+    background: none;
+    color: #999;
+    font-size: 3em;
+    letter-spacing: -.04em;
+    text-align: center;
+  }
+
+  td {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  img {
+    width: 180px;
+  }
+
+  td,
+  th {
+    font-size: 1.5em;
+    letter-spacing: -.08em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: top;
+
+    a {
+      display: block;
+      min-height: 3em;
+    }
+  }
 }
 
-#recent_zines caption {
-  letter-spacing: -.04em;
-  text-align: center;
-  background: none;
-  font-size: 3em;
-  color: #999;
-}
+// ...recent zines
 
-#recent_zines td {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-#recent_zines img {
-  width: 180px;
-}
-
-#recent_zines td a,
-#recent_zines th a {
-  display: block;
-  min-height: 3em;
-}
-
-#recent_zines th a:hover {
-  background: #006;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#006), to(#009));
-}
-
-#recent_zines th {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  vertical-align: top;
-  font-size: 1.5em;
-  letter-spacing: -.08em;
-}
-/* ...recent zines */
-
-/* footer... */
+// footer...
 footer {
   background: #eee;
   padding: 1em 0;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      border-right: 1px solid #666;
+      display: inline;
+      margin: 0 .5em 0 0;
+      padding: 0 1em 0 0;
+
+      &:last-child {
+        border: 0;
+        float: right;
+        margin: 0;
+        padding: 0;
+      }
+
+      &.feed {
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
 }
 
-footer ul {
-  margin: 0;
-  padding: 0;
-}
 
-footer ul li {
-  display: inline;
-  margin: 0 .5em 0 0;
-  padding: 0 1em 0 0;
-  border-right: 1px solid #666;
-}
 
-footer ul li:last-child {
-  float: right;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
 
-footer ul li.feed {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-/* ...footer */
+// ...footer
 
-/* crud forms... */
-#main textarea,
-#main select,
-#main input,
-#main label {
-  display: block;
-  font-size: 2em;
-  width: 100%;
-  font-family: "helvetica neue", helvetica, arial, sans-serif;
-}
-
-#main textarea {
-  height: 6em;
-}
-
-#main nav h3 {
-  margin-top: 1em;
-  font-size: 3em;
-  font-weight: bold;
-}
-
-#main nav h3 .actions {
-  font-weight: normal;
-  font-size: 50%;
-}
-
-#main nav h3 a {
-  margin: 0;
-  padding: 0;
-}
-
-#main form .last {
-  margin-bottom: 1em;
-}
-
-#main .buttons {
-  text-align: center;
-  margin-bottom: 3em;
-}
-
-#main .buttons button {
-  font-size: 2em;
-  padding: 1em;
-}
-/* ...crud forms */
-
-/* authors... */
+// authors...
 .authors #main label,
 .authors #main input,
 .authors #main button,
@@ -375,48 +361,15 @@ footer ul li.feed {
   display: inline !important;
 }
 
-.authors #main input  { width: 66%; }
+.authors #main input { width: 66%; }
 .authors #main button { padding: .5em !important; }
 
 .authors #main li {
   display: inline;
-  padding: 1em;
-  margin: 0;
   line-height: 3em;
-}
-/* ...authors */
-
-/* pagination... */
-.pagination {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.pagination .disabled {
-  color: #999;
-}
-
-.pagination .gap {
-  color: #666;
-}
-
-.pagination .current {
-  font-weight: bold;
-}
-
-.pagination .current,
-.pagination a {
-  padding: .5em;
   margin: 0;
-  line-height: 100%;
+  padding: 1em;
 }
 
-.pagination a {
-  border: 1px solid #ccc;
-}
+// ...authors
 
-.pagination .prev_page,
-.pagination .next_page {
-  margin: 0 1em;
-}
-/* ...pagination */
