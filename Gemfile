@@ -8,7 +8,7 @@ gem 'pg'
 gem 'thin'
 
 # Assets
-gem 'sass-rails',   '~> 4.0.1'
+gem 'sass-rails', '~> 4.0.1'
 gem 'coffee-rails', '~> 4.0.1'
 gem 'uglifier', '~> 2.4.0'
 gem 'haml', '~> 4.0.4'
@@ -54,9 +54,10 @@ group :development do
   # Database query optimization
   gem 'bullet'
 
+  # TODO: https://github.com/vhyza/sass-rails-source-maps/issues/6
   # Source maps for SASS and CoffeeScript
-  gem 'coffee-rails-source-maps'
-  gem 'sass-rails-source-maps'
+  # gem 'coffee-rails-source-maps'
+  # gem 'sass-rails-source-maps'
 end
 
 # Private inheritance
