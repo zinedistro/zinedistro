@@ -1,7 +1,7 @@
 # ZinesController
 class ZinesController < ApplicationController
   def index
-    @zines = Zine.catalog_with_authors.page(ZineParams.index(params[:page])).decorate
+    @zines = Zine.catalog_with_authors.page(ZineParams.index(params)[:page]).decorate
   end
 
   def show

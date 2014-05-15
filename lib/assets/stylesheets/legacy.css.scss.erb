@@ -373,3 +373,48 @@ footer {
 
 // ...authors
 
+// pagination...
+.pagination {
+  list-style-type: none;
+  margin: 3em auto;
+  text-align: center;
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+  .active {
+    a {
+      color: $link_alternate_color;
+      background-color: $link_color;
+    }
+  }
+
+  .page {
+    display: inline;
+  }
+
+  .disabled {
+    color: #999;
+  }
+
+  .gap {
+    color: #666;
+  }
+
+  .current {
+    font-weight: bold;
+  }
+
+  .current,
+  a {
+    border: 1px solid #ccc;
+    line-height: 100%;
+    margin: 0;
+    padding: .5em;
+  }
+
+}
+
+// ...pagination

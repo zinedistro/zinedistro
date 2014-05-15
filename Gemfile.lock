@@ -360,6 +360,7 @@ DEPENDENCIES
   guard-zeus
   haml (~> 4.0.4)
   inherited_resources!
+  kaminari
   nokogiri
   pg
   pry

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'When Browsing Zines' do
   describe 'On the index page' do
-
+    let!(:zine_for_pagination) { create :zine, :published }
     let!(:first_zine) do create(:zine_with_authors,
                                 title: 'Zine 1',
                                 subtitle: 'Subtitle 1')
@@ -55,6 +55,27 @@ feature 'When Browsing Zines' do
       find('#zines .zine:first-of-type a.cover').click
       expect(page).to have_selector 'article.zine'
       expect(current_url).to eq zine_url(second_zine)
+    end
+
+    describe 'Pagination' do
+
+      it 'has pagination' do
+        expect(page).to have_css '.pagination'
+      end
+
+      it 'is possible to navigate forward and backward' do
+        expect(page).to have_content first_zine.title
+        within 'li.next_page' do
+          click_link 'Next'
+        end
+        expect(page).to have_content zine_for_pagination.title
+        expect(page).to_not have_content first_zine.title
+        within 'li.prev' do
+          click_link 'Prev'
+        end
+        expect(page).to have_content first_zine.title
+      end
+
     end
 
     describe 'On the zine details page' do

@@ -74,6 +74,9 @@ gem 'formtastic', github: 'justinfrench/formtastic'
 # Decorators
 gem 'draper'
 
+# Pagination
+gem 'kaminari'
+
 # Image uploading
 gem 'carrierwave'
 gem 'fog'
