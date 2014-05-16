@@ -51,6 +51,8 @@ group :development do
   gem 'rb-fsevent', require: false
   gem 'rb-fchange', require: false
 
+  gem 'guard-livereload'
+
   # Database query optimization
   gem 'bullet'
 
