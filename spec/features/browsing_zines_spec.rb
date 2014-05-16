@@ -52,7 +52,7 @@ feature 'When Browsing Zines' do
     end
 
     scenario 'I can click on the zine cover to get to the zine details' do
-      find('#zines .zine:first-of-type a.cover').click
+      find('#zines .zine:first-of-type .cover a').click
       expect(page).to have_selector 'article.zine'
       expect(current_url).to eq zine_url(second_zine)
     end
@@ -81,7 +81,7 @@ feature 'When Browsing Zines' do
     describe 'On the zine details page' do
 
       before do
-        within "#zine_#{first_zine.id} .entry-title h3" do
+        within "#zine_#{first_zine.id} .entry-title" do
           click_link first_zine.title
         end
       end

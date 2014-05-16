@@ -10,14 +10,6 @@ class ZineDecorator < ModelDecorator
                   sanitize_for_url(author_names)
   end
 
-  def title_link
-    h.link_to object.title, path, rel: 'bookmark'
-  end
-
-  def subtitle_link
-    h.link_to object.subtitle, path, rel: 'bookmark'
-  end
-
   def author_name_tag
     h.content_tag(:span,
                   (author_names),

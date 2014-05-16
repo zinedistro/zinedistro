@@ -5,8 +5,11 @@
         = zine.link_to_cover_image_tag
       .meta.column.span-20.last
         .entry-title
-          %h3= zine.title_link
-          %h4= zine.subtitle_link
+          = link_to zine.path, rel: 'bookmark' do
+            %h3
+              = zine.title
+            %h4
+              = zine.subtitle
         %h5
           %span.alt
             = I18n.t 'author.attribution'
