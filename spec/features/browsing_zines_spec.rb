@@ -39,7 +39,9 @@ feature 'When Browsing Zines' do
     end
 
     scenario "I can see the authors sorted by name" do
-      expect(page).to have_content "by #{first_zine.authors.sort_by { |author| author.name }.map(&:name)
+      expect(page).to have_content "by #{first_zine
+        .authors
+        .sort_by { |author| author.name }.map(&:name)
         .to_sentence}"
     end
 
