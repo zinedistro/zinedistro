@@ -1,7 +1,7 @@
 # ZineDecorator adds helpers for zines
 class ZineDecorator < ModelDecorator
   def link_to_cover_image_tag
-    h.link_to(cover_image_tag, zine_path(object), class: 'cover')
+    h.link_to(cover_image_tag, zine_path(object))
   end
 
   def path
