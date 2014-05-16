@@ -61,7 +61,7 @@ section {
 // ...search
 
 // links...
-a {
+a, a h3, a h4 {
   border: 0;
   padding: .25em;
   text-decoration: none;
@@ -85,14 +85,34 @@ article a {
   font-weight: bold;
   margin: 0 -.15em;
 }
-
-
 // ...links
 
 // header...
 header {
   background: #eee;
   padding: 1em 0;
+
+  h1,
+  h2 {
+    display: inline;
+
+    & a:hover {
+      background: none;
+      color: #000;
+    }
+  }
+
+  h1 {
+    font-family: 'Chunkfive', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: -.04em;
+    margin-right: .25em;
+
+    & a {
+      color: #666;
+      padding: 0;
+    }
+  }
 
   h2 a {
     color: #ccc;
@@ -113,27 +133,6 @@ header {
   }
 }
 
-h1,
-h2 {
-  display: inline;
-
-  & a:hover {
-    background: none;
-    color: #000;
-  }
-}
-
-h1 {
-  font-weight: bold;
-  letter-spacing: -.04em;
-  margin-right: .25em;
-
-  & a {
-    color: #666;
-    padding: 0;
-  }
-}
-
 // ...header
 
 // main...
@@ -145,6 +144,44 @@ h1 {
 
 // zine article...
 .zine {
+
+  .cover {
+    margin-right: 14px;
+    margin-top: 6px;
+
+    a {
+      display: block;
+      height: 100%;
+    }
+  }
+
+  .meta {
+    width: 786px;
+
+    a {
+      padding: 0;
+    }
+  }
+
+  .meta {
+    h3 {
+      font-size: 3em;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+    }
+
+    h4 {
+      font-size: 2em;
+      margin: 0;
+      padding: 0;
+    }
+
+    h5 {
+      margin: 0;
+      padding: 0;
+    }
+  }
 
   .full_text {
     font-size: 1.5em;
@@ -204,28 +241,6 @@ h1 {
   }
 }
 
-.meta {
-  h3 {
-    color: #000;
-    font-size: 3em;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-  }
-
-  h4 {
-    color: #666;
-    font-size: 2em;
-    margin: 0;
-    padding: 0;
-  }
-
-  h5 {
-    margin: 0;
-    padding: 0;
-  }
-}
-
 div.cover  {
   outline: 1px solid #ccc;
   &, img {
@@ -236,28 +251,8 @@ div.cover  {
 
 // zines index...
 #zines {
-
   .zine {
     margin-bottom: 5em;
-  }
-
-  .cover {
-    margin-right: 14px;
-    margin-top: 6px;
-
-    a {
-      display: block;
-      height: 100%;
-    }
-  }
-
-  .meta {
-    width: 786px;
-
-    a {
-      display: block;
-      padding: 0;
-    }
   }
 
   .stats {
@@ -281,49 +276,10 @@ div.cover  {
 
 // ...zines index
 
-// recent zines...
-#recent_zines {
-  margin: 3em 0;
-
-  caption {
-    background: none;
-    color: #999;
-    font-size: 3em;
-    letter-spacing: -.04em;
-    text-align: center;
-  }
-
-  td {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-
-  img {
-    width: 180px;
-  }
-
-  td,
-  th {
-    font-size: 1.5em;
-    letter-spacing: -.08em;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    vertical-align: top;
-
-    a {
-      display: block;
-      min-height: 3em;
-    }
-  }
-}
-
-// ...recent zines
-
 // footer...
 footer {
   background: #eee;
+  margin-top: 5em;
   padding: 1em 0;
 
   ul {
@@ -351,9 +307,6 @@ footer {
     }
   }
 }
-
-
-
 
 // ...footer
 
