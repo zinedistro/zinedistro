@@ -81,7 +81,7 @@ gem 'kaminari'
 
 # Image uploading
 gem 'carrierwave'
-gem 'fog'
+gem 'fog', require: "fog/aws/storage"
 gem 'unf'
 
 # Image processing

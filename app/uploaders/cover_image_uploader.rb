@@ -1,4 +1,6 @@
 # encoding: utf-8
+require 'fog/aws/storage'
+require 'carrierwave'
 
 class CoverImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
