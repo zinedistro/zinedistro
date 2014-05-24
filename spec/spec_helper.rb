@@ -6,6 +6,11 @@ if ENV['COVERAGE']
   end
 end
 
+def rails_loaded?
+  Object.const_defined?(:ZineDistro) &&
+    ZineDistro.const_defined?(:Application)
+end
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
