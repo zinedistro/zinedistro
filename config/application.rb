@@ -11,8 +11,7 @@ require 'sprockets/railtie'
 Bundler.require(:default, Rails.env)
 require 'carrierwave/orm/activerecord'
 
-require 'dotenv'
-Dotenv.load
+require File.expand_path("#{File.dirname(__FILE__)}/initializers/dotenv.rb")
 
 module ZineDistro
   # ZineDistro configuration
