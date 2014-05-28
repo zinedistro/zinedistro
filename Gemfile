@@ -85,4 +85,4 @@ gem 'fog', require: "fog/aws/storage"
 gem 'unf'
 
 # Image processing
-gem 'rmagick', require: false
+gem "mini_magick"
