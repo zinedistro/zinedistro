@@ -1,4 +1,6 @@
-require 'spec_helper'
+require 'active_record_spec_helper'
+require_dependency 'author'
+
 describe Author do
   describe 'find_published' do
     context 'with a publshed author' do

@@ -1,4 +1,6 @@
-require 'spec_helper'
+require 'active_record_spec_helper'
+require_dependency 'authorship'
+
 describe Authorship do
   let(:author) { build :author }
   let(:zine) { build :zine }

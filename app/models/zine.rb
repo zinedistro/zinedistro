@@ -1,9 +1,10 @@
-require_dependency 'active_model'
-require_dependency 'active_record'
-require_relative '../uploaders/cover_image_uploader'
+require 'carrierwave/orm/activerecord'
+require_dependency 'cover_image_uploader'
+
 # ZineRepository is a repostory object for interacting with activerecord
 # No model logic should go in this class
 class Zine < ActiveRecord::Base
+
   has_many :authorships
   has_many :authors,
            -> { distinct.order(:name) },

@@ -6,13 +6,8 @@ if ENV['COVERAGE']
   end
 end
 
-def rails_loaded?
-  Object.const_defined?(:ZineDistro) &&
-    ZineDistro.const_defined?(:Application)
-end
+require 'spec_helper_lite'
 
-# This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
@@ -42,7 +37,6 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  require 'active_record_spec_helper'
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -55,7 +49,6 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
   config.include Capybara::DSL
-  config.include FactoryGirl::Syntax::Methods
 end
 
 Capybara.asset_host = 'http://localhost:3000'

@@ -1,4 +1,5 @@
-require 'spec_helper'
+require 'active_record_spec_helper'
+require_dependency 'zine'
 
 describe Zine do
 
