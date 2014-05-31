@@ -2,25 +2,30 @@ require 'spec_helper'
 
 describe ZineDecorator do
   let(:zine) { create :zine_with_authors }
+
   subject do
     # FIXME: stub out authors and ids to test in isolation
     # without creating database objects for each test
     described_class.new(zine)
   end
-  describe '#link_to_cover_image_tag' do
+
+  describe '#cover_image_tag' do
+
     context 'with a cover image' do
       subject do
-        described_class
-                .new(build :zine, id: 0)
+        described_class.new(build :zine, id: 0)
       end
-      it 'returns an image tag for the image' do
-        expect(zine.cover_image.url).not_to be_falsey
-        expect(subject.link_to_cover_image_tag)
-          .to eq "<a " \
-          "href=\"/zines/0\">" \
-          "<img alt=\"#{zine.title}\" " \
-          "src=\"http://assets.zinedistro.org/zines/covers/0.png\" " \
-          "/></a>"
+
+      it 'returns a figure tag' do
+        allow(zine).to receive(:title)
+        expect(subject.cover_image_tag)
+          .to eq '<figure '\
+        'style="background-image: url(' \
+        "#{subject.cover_image.list_view.url})\">" \
+        '<figcaption>' \
+        "#{subject.title}" \
+        '</figcaption>' \
+        '</figure>'
       end
     end
   end

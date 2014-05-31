@@ -72,13 +72,6 @@ a, a h3, a h4 {
     color: $link_hover_color;
   }
 
-  &.cover {
-    background: none;
-
-    & a:hover {
-      background: none;
-    }
-  }
 }
 
 article a {
@@ -144,14 +137,30 @@ header {
 
 // zine article...
 .zine {
+  a.cover_image, aside.cover {
+    background: none;
+    display: block;
+    margin: 6px 14px 0 0;
+    height: 200px;
+    width: 136px;
+    outline: 1px solid #ccc;
 
-  .cover {
-    margin-right: 14px;
-    margin-top: 6px;
+    & a:hover {
+      background: none;
+    }
 
-    a {
-      display: block;
-      height: 100%;
+    figure {
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: 0 auto;
+      height: 200px;
+      width: 129px;
+      overflow: hidden;
+
+      figcaption {
+        visibility: hidden;
+        height: 100%;
+      }
     }
   }
 
@@ -241,12 +250,6 @@ header {
   }
 }
 
-div.cover  {
-  outline: 1px solid #ccc;
-  &, img {
-    width: 150px;
-  }
-}
 // ...zine article
 
 // zines index...

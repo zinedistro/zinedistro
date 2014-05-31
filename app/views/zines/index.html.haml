@@ -2,7 +2,9 @@
   - @zines.each_with_index do |zine, index|
     = div_for zine, :class => "column span-24 hentry" do
       .cover.column.span-4
-        = zine.link_to_cover_image_tag
+        = link_to(zine.cover_image_tag,
+                  zine_path(zine),
+                  class: 'cover_image')
       .meta.column.span-20.last
         .entry-title
           = link_to zine.path, rel: 'bookmark' do

@@ -19,19 +19,25 @@ feature 'When Browsing Zines' do
     end
 
     scenario 'I can see zine images on the index page' do
-      expect(page).to have_css "img[src$=\'/zines/covers/#{first_zine.id}.png\']"
+      expect(page).to have_css "figure[style$=\'background-image: url(#{first_zine.cover_image.list_view.url})\']"
     end
 
-    scenario 'I can see zine alt tag on the index page' do
-      expect(page).to have_css "img[alt$=\'#{first_zine.title}\']"
+    scenario 'I can see zine title within figcaption on the index page' do
+      within "#zine_#{first_zine.id} figcaption" do
+        expect(page).to have_content first_zine.title
+      end
     end
 
     scenario 'I can see zines titles on the index page' do
-      expect(page).to have_content first_zine.title
+      within "#zine_#{first_zine.id} .meta .entry-title h3" do
+        expect(page).to have_content first_zine.title
+      end
     end
 
     scenario 'I can see zines subtitles on the index page' do
-      expect(page).to have_content first_zine.subtitle
+      within "#zine_#{first_zine.id} .meta .entry-title h4" do
+        expect(page).to have_content first_zine.subtitle
+      end
     end
 
     scenario 'I can see zines sorted by date in descending order' do
@@ -89,8 +95,7 @@ feature 'When Browsing Zines' do
       end
 
       scenario 'I can see the cover image' do
-        expect(page).to have_selector "img[src^='http://assets.zinedistro.org/" +
-        "zines/covers/#{first_zine.id}']"
+        expect(page).to have_css "figure[style$=\'background-image: url(#{first_zine.cover_image.list_view.url})\']"
       end
 
       scenario 'I can see the full text' do

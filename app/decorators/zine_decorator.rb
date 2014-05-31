@@ -1,9 +1,5 @@
 # ZineDecorator adds helpers for zines
 class ZineDecorator < ModelDecorator
-  def link_to_cover_image_tag
-    h.link_to(cover_image_tag, zine_path(object))
-  end
-
   def path
     zine_seo_path object,
                   sanitize_for_url(object.title),
@@ -17,7 +13,11 @@ class ZineDecorator < ModelDecorator
   end
 
   def cover_image_tag
-    h.image_tag(cover_image, alt: object.title)
+    h.content_tag(:figure, style: "background-image: url(#{cover_image_url})") do
+      h.content_tag :figcaption do
+        object.title
+      end
+    end
   end
 
   def download_link
@@ -35,13 +35,8 @@ class ZineDecorator < ModelDecorator
 
   private
 
-  def cover_image
-    #TODO: Remove this method. Delegate to methods on mounted cover image
-    "http://assets.zinedistro.org/zines/covers/#{object.id}.png"
-  end
-
-  def default_zine_image
-    'http://assets.zinedistro.org/zines/covers/missing.png'
+  def cover_image_url
+    object.cover_image.list_view.url
   end
 
   def sanitize_for_url(thing)
