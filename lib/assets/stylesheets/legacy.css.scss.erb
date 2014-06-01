@@ -128,14 +128,18 @@ header {
 // ...header
 
 // main...
-#main {
-  padding: 5em 0 2em;
+main {
+  padding: 4em 0 2em;
 }
 
 // ...main
 
 // zine article...
 .zine {
+  &:first-of-type {
+    padding-top: 1em;
+  }
+
   a.cover_image, aside.cover {
     background: none;
     display: block;
@@ -210,8 +214,8 @@ header {
 
   .download {
     font-size: 1.5em;
-    margin: 0 0 .5em;
     text-align: right;
+    margin-top: 12px;
 
     a {
       background: #eee;
@@ -247,6 +251,7 @@ header {
   .zine_back:before {
     content: "\2190"
   }
+
 }
 
 // ...zine article
