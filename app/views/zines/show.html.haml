@@ -1,3 +1,7 @@
+%nav.back
+  %ul.zine_back
+    %li
+      = link_to I18n.t(:zine_back), zines_path
 %article.zine.column.span-24{:id => "zine_#{@zine.id}"}
   %aside.cover.column.span-6
     = @zine.cover_image_tag
@@ -5,9 +9,6 @@
     %nav.column.span-4
       .download
         = @zine.download_link
-      %ul.zine_back
-        %li
-          = link_to I18n.t(:zine_back), zines_path
     %h3= @zine.title
     %h4= @zine.subtitle
     %h5

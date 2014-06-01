@@ -135,6 +135,29 @@ main {
 // ...main
 
 // zine article...
+.zine_back {
+  margin: 0;
+  padding: 0;
+  float: left;
+
+  li.border {
+    border-right: 1px solid #ccc;
+    padding-right: .5em;
+  }
+
+  li {
+    display: inline;
+  }
+
+  a {
+    font-weight: normal !important;
+  }
+}
+
+.zine_back:before {
+  content: "\2190"
+}
+
 .zine {
   &:first-of-type {
     padding-top: 1em;
@@ -227,29 +250,6 @@ main {
         color: #000;
       }
     }
-  }
-
-  .previous_next, .zine_back {
-    margin: 0;
-    padding: 0;
-    text-align: right;
-
-    li.border {
-      border-right: 1px solid #ccc;
-      padding-right: .5em;
-    }
-
-    li {
-      display: inline;
-    }
-
-    a {
-      font-weight: normal !important;
-    }
-  }
-
-  .zine_back:before {
-    content: "\2190"
   }
 
 }
