@@ -111,8 +111,7 @@ header {
     color: #ccc;
   }
 
-
-  nav {
+  .links {
     float: right;
     margin-top: 1em;
 
@@ -314,21 +313,21 @@ footer {
 // ...footer
 
 // authors...
-.authors #main label,
-.authors #main input,
-.authors #main button,
-.authors #main .buttons {
-  display: inline !important;
-}
+.authors {
 
-.authors #main input { width: 66%; }
-.authors #main button { padding: .5em !important; }
+  label, input, button, .buttons {
+    display: inline !important;
+  }
 
-.authors #main li {
-  display: inline;
-  line-height: 3em;
-  margin: 0;
-  padding: 1em;
+  input { width: 66%; }
+  button { padding: .5em !important; }
+
+  li {
+    display: inline;
+    line-height: 3em;
+    margin: 0;
+    padding: 1em;
+  }
 }
 
 // ...authors

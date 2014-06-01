@@ -10,13 +10,13 @@
     = javascript_include_tag 'application'
   %body
     %header
-      .container
+      %nav.container.root
         %h1= link_to I18n.t('site.name'), root_path, :rel => 'home', :accesskey => '1'
         %h2= link_to I18n.t('site.tagline'), root_path, :rel => 'home'
-        %nav
+        %nav.links
           %ul
             %li= link_to I18n.t('zines.pluralized_title'), zines_path, :accesskey => 'z'
-    #main.container
+    %main.container
       - flash.each do |name, msg|
               #{content_tag :div, msg, class: name}
       = yield
