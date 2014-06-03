@@ -6,6 +6,26 @@ require_dependency 'authorship'
 describe Zine do
 
   describe 'validations' do
+
+    context 'with all required attributes' do
+      let(:zine) { build :zine }
+      it 'is valid' do
+        expect(zine).to be_valid
+      end
+    end
+
+    context 'without a title' do
+      let(:zine) { build :zine, title: nil }
+
+      it 'is not valid' do
+        expect(zine).to_not be_valid
+        expect(zine.errors.count).to equal 1
+        expect(zine.errors.full_messages.first).to eq(
+          "#{I18n.t('activerecord.attributes.zine.title')} #{I18n.t('errors.messages.blank')}"
+        )
+      end
+    end
+
     context 'without a cover image' do
       let(:zine) { build :zine, cover_image: nil }
 

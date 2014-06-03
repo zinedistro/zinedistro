@@ -16,8 +16,7 @@ class Zine < ActiveRecord::Base
   mount_uploader :cover_image, CoverImageUploader
   mount_uploader :pdf, PdfUploader
 
-  validates_presence_of :cover_image
-  validates_presence_of :pdf
+  validates_presence_of :title, :cover_image, :pdf
 
   scope :published, -> {
     where(published: true)
