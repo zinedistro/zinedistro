@@ -12,7 +12,10 @@ ActiveAdmin.register Zine do
                            :author_count,
                            :cover_image,
                            :cover_image_cache,
-                           :remote_cover_image_url])
+                           :remote_cover_image_url,
+                           :pdf,
+                           :pdf_cache,
+                           :remote_pdf_url])
     end
   end
 
@@ -39,6 +42,8 @@ ActiveAdmin.register Zine do
     f.inputs "Attachments" do
       f.input :cover_image
       f.input :cover_image_cache, as: :hidden
+      f.input :pdf, label: "PDF"
+      f.input :pdf_cache, as: :hidden
     end
     f.actions
   end

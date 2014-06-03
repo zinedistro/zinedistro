@@ -10,7 +10,6 @@ en:
   zines:
     pluralized_title: 'Zines'
     singular_title: 'Zine'
-    cover_image: 'Cover image'
   missing_zine_cover: 'Missing zine cover'
   zine_back: 'Back to zines'
   download_link: 'Download'
@@ -19,3 +18,11 @@ en:
   anonymous: "Anonymous"
   flash:
     record_not_found: 'The object you tried to access does not exist'
+  activerecord:
+    models:
+      zine: Zine
+    attributes:
+      zine:
+        title: "Title"
+        cover_image: "Cover image"
+        pdf: "PDF"

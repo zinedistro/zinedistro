@@ -1,5 +1,7 @@
 require 'active_record_spec_helper'
 require_dependency 'zine'
+require_dependency 'author'
+require_dependency 'authorship'
 
 describe Zine do
 
@@ -11,7 +13,18 @@ describe Zine do
         expect(zine).to_not be_valid
         expect(zine.errors.count).to equal 1
         expect(zine.errors.full_messages.first).to eq(
-          "#{I18n.t('zines.cover_image')} #{I18n.t('errors.messages.blank')}"
+          "#{I18n.t('activerecord.attributes.zine.cover_image')} #{I18n.t('errors.messages.blank')}"
+        )
+      end
+    end
+
+    context 'without a PDF' do
+      let(:zine) { build :zine, pdf: nil }
+      it 'is not valid' do
+        expect(zine).to_not be_valid
+        expect(zine.errors.count).to equal 1
+        expect(zine.errors.full_messages.first).to eq(
+          "#{I18n.t('activerecord.attributes.zine.pdf')} #{I18n.t('errors.messages.blank')}"
         )
       end
     end

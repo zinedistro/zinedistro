@@ -1,5 +1,6 @@
 require 'carrierwave/orm/activerecord'
 require_dependency 'cover_image_uploader'
+require_dependency 'pdf_uploader'
 
 # ZineRepository is a repostory object for interacting with activerecord
 # No model logic should go in this class
@@ -13,8 +14,10 @@ class Zine < ActiveRecord::Base
            after_remove: [:decriment_author_cache_counter]
 
   mount_uploader :cover_image, CoverImageUploader
+  mount_uploader :pdf, PdfUploader
 
   validates_presence_of :cover_image
+  validates_presence_of :pdf
 
   scope :published, -> {
     where(published: true)
