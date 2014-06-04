@@ -9,7 +9,7 @@ ZineDistro::Application.routes.draw do
   end
 
   # zines
-  get '/zines/:id/:seo_title/by/:author_names',
+  get '/zines/:id/(:seo_title/by/:author_names)',
       controller: 'zines',
       action: 'show',
       as: 'zine_seo'
