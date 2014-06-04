@@ -86,3 +86,6 @@ gem 'unf'
 
 # Image processing
 gem "mini_magick"
+
+# Frontend assets
+gem 'bower-rails'
