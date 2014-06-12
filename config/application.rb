@@ -76,5 +76,8 @@ module ZineDistro
     # Add the fonts to asset pipeline
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.precompile += %w( .svg .eot .woff .ttf )
+
+    # Add assets packaged by bower to asset pipeline
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
   end
 end

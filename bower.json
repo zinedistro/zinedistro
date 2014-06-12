@@ -1,0 +1,12 @@
+{
+  "name": "ZineDistro",
+  "homepage": "https://github.com/zinedistro/zinedistro",
+  "description": "ZineDistro",
+  "private": true,
+  "vendor": {
+    "name": "bower-rails",
+    "dependencies": {
+      "select2": "3.4.8"
+    }
+  }
+}

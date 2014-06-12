@@ -37,6 +37,17 @@ ActiveAdmin.register Zine do
       f.input :title
       f.input :subtitle
     end
+
+    f.inputs "Authors" do
+      f.input :authors,
+        as: :select,
+        input_html: {
+          style: "width: 25%;",
+          class: "zine_authors",
+          placeholder: "Enter an author name",
+          value: f.object.authors.join(",")
+      }
+    end
     f.inputs "Content" do
       f.input :full_text
       f.input :excerpt
