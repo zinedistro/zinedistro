@@ -6,7 +6,7 @@ gem 'rails', github: 'rails/rails', branch: '4-1-stable'
 
 # Infrastructure gems
 gem 'pg'
-gem 'thin'
+gem 'unicorn'
 
 # Assets
 gem 'sass-rails', '~> 4.0.1'

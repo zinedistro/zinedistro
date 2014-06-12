@@ -1,18 +1,19 @@
 common: &common
   adapter: postgresql
   host: localhost
+  port: <%= ENV["BOXEN_POSTGRESQL_PORT"] || 5432 %>
   pool: 5
-  encoding: utf8
+  encoding: unicode
   timeout: 5000
 
 development:
   <<: *common
-  database: distro_new_development
+  database: zinedistro_development
 
 test:
   <<: *common
-  database: distro_new_test
+  database: zinedistro_test
 
 production:
   <<: *common
-  database: distro_new_production
+  database: zinedistro_production
