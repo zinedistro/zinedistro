@@ -44,7 +44,6 @@ group :development do
 
   # Filesystem watcher for autotest, etc
   gem 'guard'
-  gem 'guard-zeus'
   gem 'guard-rspec'
 
   # Watching for file changes
