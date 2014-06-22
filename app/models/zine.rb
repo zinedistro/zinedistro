@@ -16,6 +16,9 @@ class Zine < ActiveRecord::Base
 
   validates_presence_of :title, :cover_image, :pdf
 
+  before_validation(:generate_assets_from_legacy_ids,
+                    if: -> { legacy_id.present? })
+
   scope :published, -> {
     where(published: true)
     .order(updated_at: :desc)
@@ -51,6 +54,23 @@ class Zine < ActiveRecord::Base
   end
 
   private
+
+  def generate_assets_from_legacy_ids
+    if legacy_id.present?
+      generate_cover_image_from_legacy_id
+      generate_pdf_from_legacy_id
+    end
+  end
+
+  def generate_cover_image_from_legacy_id
+    self.remote_cover_image_url =
+      "http://assets.zinedistro.org/zines/covers/#{legacy_id}.png"
+  end
+
+  def generate_pdf_from_legacy_id
+      self.remote_pdf_url =
+        "http://assets.zinedistro.org/zines/pdfs/#{legacy_id}.pdf"
+  end
 
   def incriment_author_cache_counter(record)
     update_zine_counter(1)

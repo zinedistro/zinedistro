@@ -36,16 +36,37 @@ describe Zine do
           "#{I18n.t('activerecord.attributes.zine.cover_image')} #{I18n.t('errors.messages.blank')}"
         )
       end
+
+      context 'with a legacy_id' do
+        let(:zine) { build :zine, cover_image: nil, legacy_id: 12 }
+
+        it 'is valid' do
+          expect(zine).to be_valid
+          expect(zine.remote_cover_image_url).to eq(
+            "http://assets.zinedistro.org/zines/covers/#{zine.legacy_id}.png")
+        end
+      end
     end
 
     context 'without a PDF' do
       let(:zine) { build :zine, pdf: nil }
+
       it 'is not valid' do
         expect(zine).to_not be_valid
         expect(zine.errors.count).to equal 1
         expect(zine.errors.full_messages.first).to eq(
           "#{I18n.t('activerecord.attributes.zine.pdf')} #{I18n.t('errors.messages.blank')}"
         )
+      end
+
+      context 'with a legacy_id' do
+        let(:zine) { build :zine, pdf: nil, legacy_id: 12 }
+
+        it 'is valid' do
+          expect(zine).to be_valid
+          expect(zine.remote_pdf_url).to eq(
+            "http://assets.zinedistro.org/zines/pdfs/#{zine.legacy_id}.pdf")
+        end
       end
     end
   end
