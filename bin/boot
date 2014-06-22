@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /sbin/setuser app /home/app/zinedistro/bin/rails server thin
