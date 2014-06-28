@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603041645) do
+ActiveRecord::Schema.define(version: 20140622053608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20140603041645) do
     t.datetime "added_at"
     t.integer  "author_count", default: 0,    null: false
     t.string   "pdf"
+    t.integer  "legacy_id"
   end
 
 end
