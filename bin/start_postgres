@@ -1,0 +1,29 @@
+#!/bin/bash
+BIN_DIR="$( cd "$( dirname "$0" )" && pwd )"
+. $BIN_DIR/common
+
+if [[ -z $DB_PORT ]]
+then
+  echo '$DB_PORT not set'
+  exit 1
+fi
+
+if docker ps -a | grep zinedistro-db >& /dev/null
+then
+  docker stop zinedistro-db >& /dev/null
+  docker rm zinedistro-db >& /dev/null
+fi
+export DB_CID="$(docker run -d -t \
+  -p $DB_PORT:5432 \
+  --name zinedistro-db \
+  -e POSTGRESQL_USER=docker \
+  -e POSTGRESQL_PASS=docker \
+  -e POSTGRESQL_DB=$INITIAL_DB \
+  orchardup/postgresql)"
+
+if [[ -z $DB_CID ]]
+then
+  echo "Database container failed to boot"
+  exit 1
+fi
+echo "PostgreSQL container $DB_CID started on port $DB_PORT"

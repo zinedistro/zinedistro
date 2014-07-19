@@ -1,0 +1,6 @@
+#!/bin/bash
+export BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+. $BIN_DIR/common
+. $BIN_DIR/start_postgres
+. $BIN_DIR/start_rails_container

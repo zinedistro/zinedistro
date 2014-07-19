@@ -1,0 +1,7 @@
+#!/bin/bash
+export BOOTSTRAP_DB=true
+BIN_DIR="$( cd "$( dirname "$0" )" && pwd )"
+. $BIN_DIR/common
+# To build a new docker image:
+docker build -t=zinedistro_web .
+$BIN_DIR/start
