@@ -16,7 +16,7 @@ unless rails_loaded?
                             /../config/initializers/#{name}.rb")
   end
 
-  connection_info = YAML.load_file("config/database.yml")
+  connection_info = YAML.load(ERB.new(File.read("config/database.yml")).result)
   ActiveRecord::Base.establish_connection(connection_info['test'])
 
   app_translations = Dir[
