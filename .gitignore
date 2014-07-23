@@ -31,3 +31,6 @@
 
 # Ignore uploaded assets
 /public/uploads/
+
+# Ignore vagrant virtual machines
+/.vagrant/
