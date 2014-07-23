@@ -1,6 +1,6 @@
 Setup instructions
 
-### Install Docker
+Install [docker](https://docs.docker.com/installation/).
 
 ### Download and start a PostgreSQL database
 
