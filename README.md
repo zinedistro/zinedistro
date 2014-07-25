@@ -1,5 +1,11 @@
 Setup instructions
 
+Generate a [Digital Ocean](https://www.digitalocean.com) account.
+
+### Generate an API key
+
+[API key](https://cloud.digitalocean.com/generate_api_key)
+
 Install [docker](https://docs.docker.com/installation/).
 
 ### Download and start a PostgreSQL database
