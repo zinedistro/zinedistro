@@ -19,3 +19,9 @@ if ifconfig eth0 >& /dev/null
 then
   export EXTERNAL_IP="$(ifconfig eth0 | grep inet | awk '{print $2}' | sed 's/addr://' | sed 's/ *$//')"
 fi
+
+if ! docker ps >& /dev/null
+then
+  echo "Is docker installed and running?"
+  exit "1"
+fi
