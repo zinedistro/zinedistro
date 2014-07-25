@@ -10,12 +10,12 @@ then
   export DOCKER_IP="$(boot2docker ip 2> /dev/null)"
 fi
 
-if ifconfig docker0 > /dev/null
+if ifconfig docker0 >& /dev/null
 then
   export DOCKER_IP="$(ifconfig docker0 | grep inet | awk '{print $2}' | sed 's/addr://'  | sed 's/ *$//')"
 fi
 
-if ifconfig eth0 > /dev/null
+if ifconfig eth0 >& /dev/null
 then
   export EXTERNAL_IP="$(ifconfig eth0 | grep inet | awk '{print $2}' | sed 's/addr://' | sed 's/ *$//')"
 fi
