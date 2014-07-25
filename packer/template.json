@@ -1,0 +1,19 @@
+{
+  "builders": [
+    {
+      "type": "digitalocean",
+      "client_id": "A61bxThff4BWkrW1JTXxO",
+      "api_key": "eb6eb0041615dd5e506a8af64394d3f5",
+      "image_id": 4970653,
+      "region": "sgp1"
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "digital_ocean.sh"
+    }
+  ]
+
+}
