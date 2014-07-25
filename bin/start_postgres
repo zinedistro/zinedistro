@@ -16,6 +16,7 @@ fi
 export DB_CID="$(docker run -d -t \
   -p $DB_PORT:5432 \
   --name zinedistro-db \
+  -v /home/zinedistro/data:/var/lib/postgresql \
   -e POSTGRESQL_USER=docker \
   -e POSTGRESQL_PASS=docker \
   -e POSTGRESQL_DB=$INITIAL_DB \
