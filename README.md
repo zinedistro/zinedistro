@@ -14,19 +14,9 @@ Nope.
 
 ## Setup instructions
 
-Install [docker](https://docs.docker.com/installation/).
+1. Install [docker](https://docs.docker.com/installation/).
 
-Start it.
-
-On Linux:
-```console
-docker -d
-```
-
-On Mac OS:
-```console
-boot2docker up
-```
+2. Start it.
 
 ### Download and start a PostgreSQL database
 
