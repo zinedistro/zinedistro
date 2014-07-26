@@ -13,6 +13,7 @@ if [[ "x$RUN_COMMAND" != "x" ]]
 then
   echo "Running command: $RUN_COMMAND"
   export RUN_MODE="-i"
+  set -x
 fi
 
 WEB_CID="$(docker run $RUN_MODE -t \
@@ -24,7 +25,9 @@ WEB_CID="$(docker run $RUN_MODE -t \
   --link zinedistro-db:zinedistro-db \
   zinedistro_web $RUN_COMMAND)"
 
-if [[ -n $WEB_CID ]]
+set +x
+
+if [[ -n $WEB_CID && -z $RUN_COMMAND ]]
 then
   declare -i tries
   tries=0
