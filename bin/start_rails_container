@@ -3,16 +3,16 @@ BIN_DIR="$( cd "$( dirname "$0" )" && pwd )"
 . $BIN_DIR/common
 RUN_MODE='-d'
 
-if [[ "x$RUN_COMMAND" != "x" ]]
-then
-  echo "Running command: $RUN_COMMAND"
-  export RUN_MODE="-i"
-fi
-
 if docker ps -a | grep zinedistro-web >& /dev/null
 then
   docker stop zinedistro-web >& /dev/null
   docker rm zinedistro-web >& /dev/null
+fi
+
+if [[ "x$RUN_COMMAND" != "x" ]]
+then
+  echo "Running command: $RUN_COMMAND"
+  export RUN_MODE="-i"
 fi
 
 WEB_CID="$(docker run $RUN_MODE -t \
