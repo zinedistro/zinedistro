@@ -1,34 +1,41 @@
-Setup instructions
+# Zine Distro in a Box
 
-Generate a [Digital Ocean](https://www.digitalocean.com) account.
+### What is it?
 
-### Generate an API key
+A rails application to facilitate creating a [zine](https://en.wikipedia.org/wiki/Zine) distro. It includes a complete application to get started sharing zines online.
 
-[API key](https://cloud.digitalocean.com/generate_api_key)
+### Is It Good?
+
+Yes.
+
+### Is It "Production Ready™"?
+
+Nope.
+
+## Setup instructions
 
 Install [docker](https://docs.docker.com/installation/).
+
+Start it.
+
+On Linux:
+```console
+docker -d
+```
+
+On Mac OS:
+```console
+boot2docker up
+```
 
 ### Download and start a PostgreSQL database
 
 ```console
-docker run -d -p 5434:5432 --name zinedistro-db -e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker orchardup/postgresql
+RUN_COMMAND="bin/rake db:create db:schema:load db:migrate db:seed" bin/start 
 ```
 
-### Create the database
+### Start the application
 
 ```console
-rake db:create DB_1_PORT_5432_TCP_ADDR=192.168.59.104 DB_1_PORT_5432_TCP_PORT=5434
+bin/start 
 ```
-
-### Load the schema
-
-```console
-bin/rake db:schema:load
-```
-
-### Seed the database
-
-```console
-bin/rake db:setup
-```
-
