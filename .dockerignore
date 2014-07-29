@@ -1,0 +1,4 @@
+.vagrant
+.git
+.bundle
+tmp
