@@ -14,7 +14,7 @@ Nope.
 
 ## Setup instructions
 
-1. Install [vagrant](http://www.vagrantup.com/downloads.html)
+1. Install [Vagrant](http://www.vagrantup.com/downloads.html)
 
 2. Start the virtual machine:
 
