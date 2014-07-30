@@ -5,14 +5,27 @@ export INITIAL_DB="zinedistro_development"
 export BOOT_TIMEOUT=20
 export APP_DIR="$( cd "$( dirname "$0" )/../" && pwd )"
 
-if which boot2docker > /dev/null
+if [[ -z "${DOCKER_IP}" ]]
 then
-  export DOCKER_IP="$(boot2docker ip 2> /dev/null)"
-fi
 
-if ifconfig docker0 >& /dev/null
-then
-  export DOCKER_IP="$(ifconfig docker0 | grep inet | awk '{print $2}' | sed 's/addr://'  | sed 's/ *$//')"
+  if ifconfig eth0 >& /dev/null
+  then
+    export DOCKER_IP="$(ifconfig eth0 | grep inet | awk '{print $2}' | sed 's/addr://'  | sed 's/ *$//')"
+  fi
+
+  if ifconfig docker0 >& /dev/null
+  then
+    export DOCKER_IP="$(ifconfig docker0 | grep inet | awk '{print $2}' | sed 's/addr://'  | sed 's/ *$//')"
+  fi
+
+  if [[ -z "${DOCKER_IP}" ]]
+  then
+    echo "Could not obtain the docker host IP address"
+    exit 1
+  else
+    echo "Docker IP Address: ${DOCKER_IP}"
+  fi
+
 fi
 
 if ifconfig eth0 >& /dev/null
