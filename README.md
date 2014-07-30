@@ -29,3 +29,9 @@ It can take a while to download, so go find a nice zine to read in the meantime.
 ## Contributing
 
 Coming soon. Currently, Zinedistro is not ready for contributions. If you have a question or or an idea, please file an issue.
+
+## License
+
+[MIT licensed](https://tldrlegal.com/license/mit-license).
+
+See [license](LICENSE.md) for more information.
