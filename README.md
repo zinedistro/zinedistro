@@ -2,7 +2,7 @@
 
 ### What is it?
 
-A rails application to facilitate creating a [zine](https://en.wikipedia.org/wiki/Zine) distro. It includes a complete application to get started sharing zines online.
+A Rails application to facilitate creating a [zine](https://en.wikipedia.org/wiki/Zine) distro. It includes a complete application to get started sharing zines online.
 
 ### Is It Good?
 
@@ -14,18 +14,18 @@ Nope.
 
 ## Setup instructions
 
-1. Install [docker](https://docs.docker.com/installation/).
+1. Install [vagrant](http://www.vagrantup.com/downloads.html)
 
-2. Start it.
-
-### Download and start a PostgreSQL database
+2. Start the virtual machine:
 
 ```console
-RUN_COMMAND="bin/rake db:create db:schema:load db:migrate db:seed" bin/start 
+vagrant up
 ```
 
-### Start the application
+This command will download a virtual machine for Vagrant, install Docker on the virtual machine host, boot the Rails and PostgreSQL containers, link them together, set up the database, seed it with example data and finally, start the rails server. Whew, i's even exhausting to write.
 
-```console
-bin/start 
-```
+It can take a while to download, so go find a nice zine to read in the meantime.
+
+## Contributing
+
+Coming soon. Currently, Zinedistro is not ready for contributions. If you have a question or or an idea, please file an issue.
