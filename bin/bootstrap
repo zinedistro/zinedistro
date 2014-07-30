@@ -1,7 +1,13 @@
 #!/bin/bash
+set -e
 export BOOTSTRAP_DB=true
 BIN_DIR="$( cd "$( dirname "$0" )" && pwd )"
 . $BIN_DIR/common
 # To build a new docker image:
 docker build -t=zinedistro_web .
-$BIN_DIR/start
+. $BIN_DIR/start_postgres
+RUN_COMMAND='bin/rake db:create db:schema:load db:migrate db:seed'
+. $BIN_DIR/stop_rails_container
+. $BIN_DIR/start_rails_container
+unset RUN_COMMAND
+. $BIN_DIR/start_rails_container

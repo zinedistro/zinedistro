@@ -3,29 +3,30 @@ BIN_DIR="$( cd "$( dirname "$0" )" && pwd )"
 . $BIN_DIR/common
 RUN_MODE='-d'
 
-if docker ps -a | grep zinedistro-web >& /dev/null
-then
-  docker stop zinedistro-web >& /dev/null
-  docker rm zinedistro-web >& /dev/null
-fi
-
 if [[ "x$RUN_COMMAND" != "x" ]]
 then
   echo "Running command: $RUN_COMMAND"
-  export RUN_MODE="-i"
-  set -x
+  export RUN_MODE="--rm -i"
 fi
 
-WEB_CID="$(docker run $RUN_MODE -t \
+WEB_COMMAND="docker run $RUN_MODE -t \
   -p $WEB_PORT:3000 \
   -e DB_1_PORT_5432_TCP_PORT=$DB_PORT \
   -e DB_1_PORT_5432_TCP_ADDR=$DOCKER_IP \
   --name zinedistro-web \
   -v $APP_DIR:/home/app/zinedistro \
   --link zinedistro-db:zinedistro-db \
-  zinedistro_web $RUN_COMMAND)"
+  zinedistro_web $RUN_COMMAND"
 
-set +x
+if [[ "x$RUN_MODE" != "x-d" ]]
+then
+  echo "Running '${WEB_COMMAND//  /}' in foreground"
+  eval "${WEB_COMMAND}"
+  exit $?
+else
+  echo "Running '${WEB_COMMAND//  /} in detached mode'"
+  WEB_CID="$(${WEB_COMMAND})"
+fi
 
 if [[ -n $WEB_CID && -z $RUN_COMMAND ]]
 then
@@ -35,17 +36,12 @@ then
   do
     if [ "$tries" -le "$BOOT_TIMEOUT" ]
     then
-      printf "."
       tries+=1
       sleep 1
     else
-      echo
       echo "Booting web container timed out"
       exit 1
     fi
   done
-  echo
   echo "Rails container $WEB_CID started on http://$EXTERNAL_IP:$WEB_PORT"
-else
-  echo "Rails container failed to boot"
 fi

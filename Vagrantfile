@@ -1,71 +1,43 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-ENV['VAGRANT_DEFAULT_PROVIDER'] ||= 'docker'
-
-# http://www.talkingquickly.co.uk/2014/06/rails-development-environment-with-vagrant-and-docker/
-# Commands required to setup working docker environment, link
-# containers etc.
 $setup = <<SCRIPT
-usermod -aG docker vagrant
-docker -d &
-
-cd /vagrant
-docker build -t zinedistro_web .
-
-# bin/bootstrap
+cd /home/app/zinedistro
+./bin/bootstrap
 SCRIPT
 
-# Commands required to ensure correct docker containers
-# are started when the vm is rebooted.
+# Ensure correct docker containers are started when the vm is rebooted.
 $start = <<SCRIPT
-# docker start zinedistro-db
-# docker start zinedistro-web
+cd /home/app/zinedistro
+./bin/start
 SCRIPT
 
 VAGRANTFILE_API_VERSION = "2"
 
-Vagrant.configure("2") do |config|
-  # Install Ubuntu in the docker host VM
-  config.vm.box = "99designs/ubuntu-docker"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "phusion/ubuntu-14.04-amd64"
+  config.vm.box_url = "https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vbox.box"
 
-  config.vm.provider "virtualbox" do |v|
-    v.memory = 2048
-    v.cpus = 2
+  config.vm.provider :vmware_fusion do |f, override|
+    override.vm.box_url = "https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vmwarefusion.box"
   end
 
-  config.vm.provider "vmware_fusion" do |v, override|
-    override.vm.box = "99designs/ubuntu-docker"
+  # Must use NFS for this otherwise rails performance will be awful
+  config.vm.synced_folder ".", "/home/app/zinedistro", type: "nfs"
+
+  # Disable the default synced directory
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  if Dir.glob("#{File.dirname(__FILE__)}/.vagrant/machines/default/*/id").empty?
+    # Install Docker
+    pkg_cmd = "wget -q -O - https://get.docker.io/gpg | apt-key add -;" \
+      "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list;" \
+      "apt-get update -qq; apt-get install -q -y --force-yes lxc-docker; "
+    # Add vagrant user to the docker group
+    pkg_cmd << "usermod -a -G docker vagrant; "
+    config.vm.provision :shell, :inline => pkg_cmd
   end
 
-  config.vm.network "private_network", ip: "192.168.50.4"
-
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
-  for i in 49000..49900
-    config.vm.network "forwarded_port", guest: i, host: i
-  end
-
-  # Must use NFS for this otherwise rails
-  # performance will be awful
-  config.vm.synced_folder ".", "/app", type: "nfs"
-
-  # config.vm.provider "docker" do |d|
-  #   d.build_image "."
-  # end
-
-  # config.vm.provision "docker" do |d|
-  #   d.pull_images "faun/ruby-2.1"
-  #   d.pull_images "orchardup/postgresql"
-  #   d.run "zinedistro-web",
-  #      cmd: "bash -l",
-  #      args: "-v '/app:/home/app/zinedistro'"
-  # end
-
-  # Setup the containers when the VM is first
-  # created
-  config.vm.provision "shell", inline: $setup
-
-  # Make sure the correct containers are running
-  # every time we start the VM.
-  # config.vm.provision "shell", run: "always", inline: $start
+  config.vm.provision :shell, inline: $setup
+  config.vm.provision :shell, run: "always", inline: $start
 end

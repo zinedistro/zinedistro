@@ -1,0 +1,6 @@
+#!/bin/bash
+if docker ps -a | grep zinedistro-web >& /dev/null
+then
+  docker stop zinedistro-web >& /dev/null
+  docker rm zinedistro-web >& /dev/null
+fi
