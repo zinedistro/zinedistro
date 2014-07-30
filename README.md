@@ -1,4 +1,4 @@
-# Zine Distro in a Box
+# A Zine Distro in a Box
 
 ### What is it?
 
