@@ -2,8 +2,6 @@ require 'carrierwave/orm/activerecord'
 require_dependency 'cover_image_uploader'
 require_dependency 'pdf_uploader'
 
-# ZineRepository is a repostory object for interacting with activerecord
-# No model logic should go in this class
 class Zine < ActiveRecord::Base
 
   has_many :authorships
