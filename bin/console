@@ -1,0 +1,14 @@
+#!/bin/bash
+export BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+. $BIN_DIR/common
+. $BIN_DIR/start_postgres
+
+docker run --rm -i -t \
+  -e DB_1_PORT_5432_TCP_PORT=$DB_PORT \
+  -e DB_1_PORT_5432_TCP_ADDR=$DOCKER_IP \
+  --name zinedistro-console \
+  -v $APP_DIR:/home/app/zinedistro \
+  --link zinedistro-db:zinedistro-db \
+  zinedistro_web bin/rails console
+
