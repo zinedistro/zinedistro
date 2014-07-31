@@ -30,8 +30,6 @@ then
     echo "Could not obtain the docker host IP address"
     provide_instructions
     exit 1
-  else
-    echo "Docker IP Address: ${DOCKER_IP}"
   fi
 
 fi
