@@ -16,8 +16,7 @@ class Zine < ActiveRecord::Base
 
   validates_presence_of :title, :cover_image, :pdf
 
-  before_validation(:generate_assets_from_legacy_ids,
-                    if: -> { legacy_id.present? })
+  before_validation(:generate_assets_from_legacy_ids)
 
   scope :published, -> {
     where(published: true)
