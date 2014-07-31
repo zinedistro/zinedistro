@@ -2,6 +2,11 @@
 # vi: set ft=ruby :
 
 $setup = <<SCRIPT
+if ! cat ~/.bashrc | grep "cd /home/app/zinedistro" > /dev/null
+then
+  echo "cd /home/app/zinedistro" >> ~/.bashrc
+fi
+
 cd /home/app/zinedistro
 ./bin/bootstrap
 SCRIPT
