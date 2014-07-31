@@ -22,7 +22,7 @@ Nope.
 vagrant up
 ```
 
-This command will download a virtual machine for Vagrant, install Docker on the virtual machine host, boot the Rails and PostgreSQL containers, link them together, set up the database, seed it with example data and finally, start the rails server. Whew, i's even exhausting to write.
+This command will download a virtual machine for Vagrant, install Docker on the virtual machine host, boot the Rails and PostgreSQL containers, link them together, set up the database, seed it with example data and finally, start the rails server.
 
 It can take a while to download, so go find a nice zine to read in the meantime.
 
