@@ -19,12 +19,32 @@ Nope.
 2. Start the virtual machine:
 
 ```console
-vagrant up
+
+    vagrant up
+
 ```
 
 This command will download a virtual machine for Vagrant, install Docker on the virtual machine host, boot the Rails and PostgreSQL containers, link them together, set up the database, seed it with example data and finally, start the rails server.
 
 It can take a while to download, so go find a nice zine to read in the meantime.
+
+Once that has completed, create your first user:
+
+```console
+
+    vagrant ssh
+    cd /home/app/zinedistro
+    ./bin/console
+
+```
+
+In the Rails console that appears, type something similar to this while substituting your own email address and password:
+
+```ruby
+
+    User.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
+
+```
 
 ## Contributing
 
