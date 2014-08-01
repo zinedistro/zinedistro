@@ -7,3 +7,16 @@ rvm:
   - jruby-19mode # JRuby in 1.9 mode
   - rbx
 script: bundle exec rspec spec
+env:
+  global:
+  - CARRIERWAVE_PROVIDER='AWS'
+  - secure: mADV/ma1TdBzQDsJmYIiBQdnmPxNMFUwzmxXPV706/8ApLYSj+6dfz/3mpqqiY5I/EjBaAh/Ps205ifJhj73dz1anuO56xJ7v34jtrr20ePXnqCXDme2BG5VOwwWf8o+uq/1K3dkQe2jm8iAp2ZmkEF5lIyUK4hiAbtCcQbvfms=
+  - secure: AQeOX+mEFStr/OMwPThClwn8oMgNrvAFwMHaNdugT+PRT6hlS0fiKF9C9cYn02ZsVBSesGHy7l9sIxSVn37x3M4Jx63Zeo8hbiKq+F3YHMeGceWwA7IwcwK8zI/JjBwpIBR3f8MNSFnwysFuUZJisrQThh0IL9jaFrGfE0V64E8=
+  - CARRIERWAVE_REGION='us-west-1'
+  - CARRIERWAVE_ENDPOINT='https://s3-us-west-1.amazonaws.com/'
+  - CARRIERWAVE_HOST='https://s3.amazonaws.com'
+  - CARRIERWAVE_ASSET_HOST='http://assets.zinedistro.org'
+  - CARRIERWAVE_DIRECTORY='zinedistro-travis'
+  - secure: nt1qi2HBswWmqCyUudUiObjNuL9zAScbvOF1Zm7l1arn+DOZrVBblX+c9G4eGaQX8mfyvfgY23tPWuXc01mq2HdhV+lHtpNC34OwwiXfYIEXMnJWLXJlGgRSJHiOCmjLJYH2lAlBFPHq+jZjuhHZ1NCq7M9X6zR/vvo9m669L2c=
+  - secure: uV3zMRk0yyOmgsACttnSXBwkYWCkm8JZErJ+6e/RJ7i7flIcwXeInqLUJP8Ed5M8k9tKuyEK/Qjlbhck8DCMky1JNbHZEpW9/yFNB7l1UFjcJq1FSP0bcPUAI2RWdlcxsVMYi5XuRAtQLGUuQKqZpSjz7Ujfcm7KpZqAvhGmG3k=
+  - secure: IEuuxHFI1OfX/910S7k41A7STlXZ/wEt6vU4ZLGGizdM09uxOS/T6fyb4DwFp/tShZai/9iQKaZhOJ1Ac/qi+3+cZvUKQcOWvVvTBQcuFGnXlWYGmVUuC9LE6jCnOy9U17R19bje5b8uFi0YwVxTgduFEd/ajQ3TWyVVCA4vzrg=
