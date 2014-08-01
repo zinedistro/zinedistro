@@ -1,4 +1,6 @@
 # A Zine Distro in a Box
+
+[![Build Status](https://travis-ci.org/zinedistro/zinedistro.svg?branch=master)](https://travis-ci.org/zinedistro/zinedistro)
 [![Coverage Status](https://img.shields.io/coveralls/zinedistro/zinedistro.svg)](https://coveralls.io/r/zinedistro/zinedistro)
 
 ### What is it?
