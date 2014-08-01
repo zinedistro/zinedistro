@@ -16,7 +16,7 @@ describe CoverImageUploader do
 
   context 'test env' do
     it 'uploads the cover image to the correct bucket' do
-      expect(cover_image.file.url).to match(/.*\/zinedistro-test.*/)
+      expect(cover_image.file.url).to match(/.*\/#{ENV['CARRIERWAVE_DIRECTORY']}-test.*/)
     end
   end
 end
