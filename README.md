@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/zinedistro/zinedistro.svg?branch=master)](https://travis-ci.org/zinedistro/zinedistro)
 [![Coverage Status](https://img.shields.io/coveralls/zinedistro/zinedistro.svg)](https://coveralls.io/r/zinedistro/zinedistro)
+[![Code Climate](https://codeclimate.com/github/zinedistro/zinedistro/badges/gpa.svg)](https://codeclimate.com/github/zinedistro/zinedistro)
 
 ### What is it?
 
