@@ -11,6 +11,7 @@ ActiveAdmin.register Zine do
                            :published,
                            :download_url,
                            :author_count,
+                           {:author_ids => []},
                            :cover_image,
                            :cover_image_cache,
                            :remote_cover_image_url,
