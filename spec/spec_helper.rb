@@ -1,10 +1,6 @@
-if ENV['COVERAGE'] ||  ENV['TRAVIS']
+if ENV['COVERAGE'] ||  ENV['CI']
   require 'simplecov'
   require 'coveralls'
-  SimpleCov.start do
-    add_group 'Decorators', 'app/decorators'
-    add_group 'ActiveAdmin', 'app/admin'
-  end
 end
 
 require 'spec_helper_lite'

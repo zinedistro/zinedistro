@@ -9,4 +9,7 @@ SimpleCov.start 'rails' do
   add_group 'Helpers', 'app/helpers'
   add_group 'Mailers', 'app/mailers'
   add_group 'Views', 'app/views'
-end if ENV["COVERAGE"]
+  add_group 'Decorators', 'app/decorators'
+  add_group 'ActiveAdmin', 'app/admin'
+  add_group 'Uploaders', 'app/uploaders'
+end if ENV["COVERAGE"] || ENV['CI']
