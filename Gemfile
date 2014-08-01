@@ -61,9 +61,6 @@ group :development do
   # gem 'sass-rails-source-maps'
 end
 
-# Private inheritance
-gem 'fig_leaf'
-
 # ActiveAdmin
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise', github: 'plataformatec/devise'
