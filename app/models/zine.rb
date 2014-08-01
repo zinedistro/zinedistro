@@ -80,6 +80,6 @@ class Zine < ActiveRecord::Base
   end
 
   def update_zine_counter(dir)
-    update_attributes! author_count: author_count + (1 * dir)
+    update_attribute(:author_count, author_count + (1 * dir))
   end
 end
