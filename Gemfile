@@ -89,3 +89,6 @@ gem "mini_magick"
 
 # Frontend assets
 gem 'bower-rails'
+
+# Code quality
+gem 'coveralls', require: false

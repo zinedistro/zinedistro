@@ -1,4 +1,5 @@
 # A Zine Distro in a Box
+[![Coverage Status](https://img.shields.io/coveralls/zinedistro/zinedistro.svg)](https://coveralls.io/r/zinedistro/zinedistro)
 
 ### What is it?
 

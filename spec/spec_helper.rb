@@ -6,6 +6,10 @@ if ENV['COVERAGE']
   end
 end
 
+if ENV['TRAVIS']
+  require 'coveralls'
+  Coveralls.wear!
+end
 require 'spec_helper_lite'
 
 require File.expand_path('../../config/environment', __FILE__)
