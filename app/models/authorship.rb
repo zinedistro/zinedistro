@@ -4,6 +4,7 @@ class Authorship < ActiveRecord::Base
              validate: true,
              dependent: :destroy)
   validates :author_id, presence: true
+  validates_numericality_of :author_id
 
   belongs_to :zine, validate: true
   validates :zine_id, presence: true
