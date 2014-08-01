@@ -40,7 +40,9 @@ cd /home/app/zinedistro
 In the Rails console that appears, type something similar to this while substituting your own email address and password:
 
 ```ruby
-User.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
+User.create!(email: 'admin@example.com',
+             password: 'password',
+             password_confirmation: 'password')
 ```
 
 ## Contributing
