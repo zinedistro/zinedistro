@@ -3,6 +3,7 @@ ActiveAdmin.register Zine do
     def permitted_params
       params.permit(:utf8,
                     :commit,
+                    :authenticity_token,
                     zine: [:title,
                            :excerpt,
                            :subtitle,
