@@ -1,15 +1,12 @@
-if ENV['COVERAGE']
+if ENV['COVERAGE'] ||  ENV['TRAVIS']
   require 'simplecov'
+  require 'coveralls'
   SimpleCov.start do
     add_group 'Decorators', 'app/decorators'
     add_group 'ActiveAdmin', 'app/admin'
   end
 end
 
-if ENV['TRAVIS']
-  require 'coveralls'
-  Coveralls.wear!
-end
 require 'spec_helper_lite'
 
 require File.expand_path('../../config/environment', __FILE__)
