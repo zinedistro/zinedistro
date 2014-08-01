@@ -1,6 +1,8 @@
 if ENV['COVERAGE'] ||  ENV['CI']
   require 'simplecov'
   require 'coveralls'
+  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+  SimpleCov.start 'rails'
 end
 
 require 'spec_helper_lite'
