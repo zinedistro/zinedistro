@@ -16,16 +16,12 @@ describe ZineDecorator do
         described_class.new(build :zine, id: 0)
       end
 
-      it 'returns a figure tag' do
+      it "returns the cover image" do
         allow(zine).to receive(:title)
         expect(subject.cover_image_tag)
-          .to eq '<figure '\
-        'style="background-image: url(' \
-        "#{subject.cover_image.list_view.url})\">" \
-        '<figcaption>' \
-        "#{subject.title}" \
-        '</figcaption>' \
-        '</figure>'
+          .to match "#{subject.cover_image.list_view.url}"
+        expect(subject.cover_image_tag)
+          .to match "#{subject.title}"
       end
     end
   end

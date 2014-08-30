@@ -13,7 +13,9 @@ class ZineDecorator < ModelDecorator
   end
 
   def cover_image_tag
-    h.content_tag(:figure, style: "background-image: url(#{cover_image_url})") do
+    h.content_tag(:figure,
+                  style: "background-image: url(#{cover_image_url})",
+                  class: "zine-image") do
       h.content_tag :figcaption do
         object.title
       end

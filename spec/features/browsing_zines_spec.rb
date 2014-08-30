@@ -19,7 +19,7 @@ feature 'When Browsing Zines' do
     end
 
     scenario 'I can see zine images on the index page' do
-      expect(page).to have_css "figure[style$=\'background-image: url(#{first_zine.cover_image.list_view.url})\']"
+      expect(page).to have_css "#zine_#{first_zine.id} .zine-image"
     end
 
     scenario 'I can see zine title within figcaption on the index page' do
