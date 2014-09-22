@@ -34,3 +34,6 @@
 
 # Ignore vagrant virtual machines
 /.vagrant/
+
+# Ignore skylight configuration file
+config/skylight.yml
