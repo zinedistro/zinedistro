@@ -61,6 +61,10 @@ group :development do
   # gem 'sass-rails-source-maps'
 end
 
+group :production do
+  gem "skylight"
+end
+
 # ActiveAdmin
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise', github: 'plataformatec/devise'
