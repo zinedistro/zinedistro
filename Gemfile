@@ -14,26 +14,26 @@ gem 'uglifier', '~> 2.5.3'
 gem 'haml', '~> 4.0.4'
 
 group :test, :development do
-  gem 'rspec-rails', github: 'rspec/rspec-rails', branch: 'master', ref: 'b8680f98858598b5423e13765676773fe587288b'
+  gem 'rspec-rails', '~> 3.1.0'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'faker'
-  gem 'capybara', github: 'jnicklas/capybara', branch: 'master'
+  gem 'faker', '~> 1.4.3'
+  gem 'capybara', '~> 2.4.1'
   gem 'dotenv-rails'
-  gem 'pry'
+  gem 'pry', '~> 0.10.1'
 end
 
 group :test do
   # Take screenshots during/after failed feature specs
-  gem 'capybara-screenshot'
+  gem 'capybara-screenshot', '1.0.1'
 
   # Test coverage
-  gem 'simplecov'
+  gem 'simplecov', '~> 0.9.1'
 
   # Database truncation for test isolation
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~> 1.3.0'
 
   # Test Helpers
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers', '~> 2.7.0', require: false
 end
 
 group :development do
@@ -42,18 +42,18 @@ group :development do
   gem 'spring-commands-rspec'
 
   # Filesystem watcher for autotest, etc
-  gem 'guard'
-  gem 'guard-rspec'
+  gem 'guard', '~> 2.6.1'
+  gem 'guard-rspec', '~> 4.3.1', github: 'guard/guard-rspec', branch: 'master'
 
   # Watching for file changes
-  gem 'rb-inotify', require: false
-  gem 'rb-fsevent', require: false
-  gem 'rb-fchange', require: false
+  gem 'rb-inotify', '~> 0.9.5', require: false
+  gem 'rb-fsevent', '~> 0.9.4', require: false
+  gem 'rb-fchange', '~> 0.0.6',  require: false
 
-  gem 'guard-livereload'
+  gem 'guard-livereload', '~> 2.3.0'
 
   # Database query optimization
-  gem 'bullet'
+  gem 'bullet', '4.13.2'
 
   # TODO: https://github.com/vhyza/sass-rails-source-maps/issues/6
   # Source maps for SASS and CoffeeScript
