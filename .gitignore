@@ -37,3 +37,6 @@
 
 # Ignore skylight configuration file
 config/skylight.yml
+
+# Ignore database.yml
+/config/database.yml
