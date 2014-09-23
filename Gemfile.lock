@@ -60,6 +60,23 @@ GIT
     responders (1.0.0)
       railties (>= 3.2, < 5)
 
+GIT
+  remote: git://github.com/rspec/rspec-rails.git
+  revision: b8680f98858598b5423e13765676773fe587288b
+  ref: b8680f98858598b5423e13765676773fe587288b
+  branch: master
+  specs:
+    rspec-rails (3.0.0.beta2)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-collection_matchers
+      rspec-core (= 3.0.0.beta2)
+      rspec-expectations (= 3.0.0.beta2)
+      rspec-mocks (= 3.0.0.beta2)
+      rspec-support (= 3.0.0.beta2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -272,7 +289,7 @@ GEM
       rspec-core (= 3.0.0.beta2)
       rspec-expectations (= 3.0.0.beta2)
       rspec-mocks (= 3.0.0.beta2)
-    rspec-collection_matchers (0.0.4)
+    rspec-collection_matchers (1.0.0)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.0.beta2)
       rspec-support (= 3.0.0.beta2)
@@ -280,16 +297,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (= 3.0.0.beta2)
     rspec-mocks (3.0.0.beta2)
-      rspec-support (= 3.0.0.beta2)
-    rspec-rails (3.0.0.beta2)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-collection_matchers
-      rspec-core (= 3.0.0.beta2)
-      rspec-expectations (= 3.0.0.beta2)
-      rspec-mocks (= 3.0.0.beta2)
       rspec-support (= 3.0.0.beta2)
     rspec-support (3.0.0.beta2)
     sass (3.2.19)
@@ -380,7 +387,7 @@ DEPENDENCIES
   rb-fsevent
   rb-inotify
   responders!
-  rspec-rails (~> 3.0.0.beta2)
+  rspec-rails!
   sass-rails (~> 4.0.1)
   shoulda-matchers
   simplecov
