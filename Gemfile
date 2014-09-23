@@ -50,7 +50,7 @@ group :development do
   gem 'rb-fsevent', '~> 0.9.4', require: false
   gem 'rb-fchange', '~> 0.0.6',  require: false
 
-  gem 'guard-livereload', '~> 2.3.0'
+  gem 'guard-livereload', '~> 2.3.1'
 
   # Database query optimization
   gem 'bullet', '4.13.2'
@@ -66,7 +66,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise', github: 'plataformatec/devise'
 gem 'responders', github: 'plataformatec/responders'
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
-gem 'ransack', '~> 1.3.0'
+gem 'ransack', '~> 1.4.1'
 gem 'formtastic', github: 'justinfrench/formtastic'
 
 # Decorators
