@@ -1,0 +1,19 @@
+common: &common
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  host: <%= ENV.fetch('DB_1_PORT_5432_TCP_ADDR', 'localhost') %>
+  port: <%= ENV["BOXEN_POSTGRESQL_PORT"] || 5432 %>
+
+development:
+  <<: *common
+  database: zinedistro_development
+
+test:
+  <<: *common
+  database: zinedistro_test
+
+production:
+  <<: *common
+  database: zinedistro_production
