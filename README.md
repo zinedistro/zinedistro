@@ -19,9 +19,11 @@ Nope.
 
 ## Setup instructions
 
-1. Install [Vagrant](http://www.vagrantup.com/downloads.html)
+###  Using Vagrant
 
-2. Start the virtual machine:
+Install [Vagrant](http://www.vagrantup.com/downloads.html)
+
+####Start the virtual machine:
 
 ```console
 vagrant up
@@ -31,7 +33,7 @@ This command will download a virtual machine for Vagrant, install Docker on the 
 
 It can take a while to download, so go find a nice zine to read in the meantime.
 
-3. Customize environment variables
+###Customize environment variables
 
 See [.env.example](.env.example) for variables that need configuring. Copy `.env.example` to `.env` to get started:
 
@@ -52,7 +54,9 @@ For more information, see the [AWS page](http://docs.aws.amazon.com/AWSSecurityC
 
 If you wish to use another provider to store files, it should be possible, I just have not tried it yet. If you get it working or would like to ask a question, please open an [issue](./issues/new).
 
-Once that has completed, create your first user:
+### User Setup
+
+Once the application depedencies are taken care of, create your first user:
 
 ```console
 vagrant ssh
