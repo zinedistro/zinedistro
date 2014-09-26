@@ -31,6 +31,27 @@ This command will download a virtual machine for Vagrant, install Docker on the 
 
 It can take a while to download, so go find a nice zine to read in the meantime.
 
+3. Customize environment variables
+
+See [.env.example](.env.example) for variables that need configuring. Copy `.env.example` to `.env` to get started:
+
+```console
+cp .env.example .env
+```
+
+Next up, add some randomized secrets for Devise and Rails. `DEVISE_SECRET_KEY`, and `SECRET_KEY_BASE` are secret keys for the app and should be different long, random strings. Try running `rake secret` and placing the output in the corresponding values of `DEVISE_SECRET_KEY` and `SECRET_KEY_BASE`. For example:
+
+```console
+echo "export DEVISE_SECRET_KEY=`rake secret`" >> .env
+echo "export SECRET_KEY_BASE=`rake secret`" >> .env
+```
+
+For the values of `CARRIERWAVE_AWS_ACCESS_KEY_ID` and `CARRIERWAVE_AWS_SECRET_ACCESS_KEY`, you must enter your AWS credentials for an S3 bucket you wish to use to store PDFs and associated cover images.
+
+For more information, see the [AWS page](http://docs.aws.amazon.com/AWSSecurityCredentials/1.0/AboutAWSCredentials.html) on security credentials.
+
+If you wish to use another provider to store files, it should be possible, I just have not tried it yet. If you get it working or would like to ask a question, please open an [issue](./issues/new).
+
 Once that has completed, create your first user:
 
 ```console
