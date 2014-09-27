@@ -1,6 +1,9 @@
 ZineDistro::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  # Turn on eager loading for Rails 4 in production
+  config.eager_load = true
+
   # Code is not reloaded between requests
   config.cache_classes = true
 
