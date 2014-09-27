@@ -1,6 +1,5 @@
 begin
   require 'dotenv'
   Dotenv.load
-rescue => e
-  puts e
+rescue LoadError
 end
