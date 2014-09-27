@@ -65,7 +65,7 @@ If you wish to use another provider to store files, it should be possible, I jus
 
 ### User Setup
 
-Once the application depedencies are taken care of, create your first user:
+Once the application dependencies are taken care of, create your first user:
 
 ```console
 vagrant ssh
