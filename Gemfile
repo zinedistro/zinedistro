@@ -88,3 +88,6 @@ gem 'bower-rails', '~> 0.8.3'
 
 # Code quality
 gem 'coveralls', '~> 0.7.1', require: false
+
+# Heroku
+gem 'rails_12factor', group: :production
