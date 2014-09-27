@@ -53,8 +53,8 @@ cp .env.example .env
 Next up, add some randomized secrets for Devise and Rails. `DEVISE_SECRET_KEY`, and `SECRET_KEY_BASE` are secret keys for the app and should be different long, random strings. Try running `rake secret` and placing the output in the corresponding values of `DEVISE_SECRET_KEY` and `SECRET_KEY_BASE`. For example:
 
 ```console
-echo "export DEVISE_SECRET_KEY=`rake secret`" >> .env
-echo "export SECRET_KEY_BASE=`rake secret`" >> .env
+echo "DEVISE_SECRET_KEY=`rake secret`" >> .env
+echo "SECRET_KEY_BASE=`rake secret`" >> .env
 ```
 
 For the values of `CARRIERWAVE_AWS_ACCESS_KEY_ID` and `CARRIERWAVE_AWS_SECRET_ACCESS_KEY`, you must enter your AWS credentials for an S3 bucket you wish to use to store PDFs and associated cover images.
