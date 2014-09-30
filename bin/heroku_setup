@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+if [ "x$APP_NAME" == "x" ]
+then
+  echo "Please add an environment variable for \$APP_NAME and try again"
+  exit 0
+fi
+
+# Push configuration variables from .env to Heroku
+heroku config:push --app $APP_NAME
+
+# Add necessary addons
+for addon in heroku-postgresql pgbackups
+do
+  if ! heroku addons --app $APP_NAME | egrep -i "^$addon:" > /dev/null
+  then
+    heroku addons:add $addon --app $APP_NAME
+  else
+    echo "$addon already added, skipping..."
+  fi
+done
