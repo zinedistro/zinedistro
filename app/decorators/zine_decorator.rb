@@ -28,8 +28,8 @@ class ZineDecorator < ModelDecorator
   end
 
   def author_names
-    if object.authors.any?
-      object.authors.map(&:name).to_sentence
+    if object.authors.length > 0
+    object.authors.map(&:name).to_sentence
     else
       I18n.t(:anonymous)
     end
