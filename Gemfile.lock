@@ -1,4 +1,37 @@
 GIT
+  remote: git://github.com/justinfrench/formtastic.git
+  revision: 1bdf6d3642af52a1a62902f12b844a5856d0254e
+  specs:
+    formtastic (2.3.0.rc3)
+      actionpack (>= 3.2.13)
+
+GIT
+  remote: git://github.com/josevalim/inherited_resources.git
+  revision: 559161287cd705def4868d3c0de6ddc2d8a8564c
+  specs:
+    inherited_resources (1.4.1)
+      has_scope (~> 0.6.0.rc)
+      responders (~> 1.0.0)
+
+GIT
+  remote: git://github.com/plataformatec/responders.git
+  revision: 9357c734530c05e9a8325f74c54079a6fd3121c2
+  specs:
+    responders (1.0.0)
+      railties (>= 3.2, < 5)
+
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 2f6edfd0c57078a9d518fcd85276e92bc61c3ceb
+  specs:
+    devise (3.2.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+
+GIT
   remote: git://github.com/gregbell/active_admin.git
   revision: f5affaeb84a5c1a86ecefb48ec1099921787e6d9
   specs:
@@ -23,39 +56,6 @@ GIT
     guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
-
-GIT
-  remote: git://github.com/josevalim/inherited_resources.git
-  revision: 559161287cd705def4868d3c0de6ddc2d8a8564c
-  specs:
-    inherited_resources (1.4.1)
-      has_scope (~> 0.6.0.rc)
-      responders (~> 1.0.0)
-
-GIT
-  remote: git://github.com/justinfrench/formtastic.git
-  revision: 1bdf6d3642af52a1a62902f12b844a5856d0254e
-  specs:
-    formtastic (2.3.0.rc3)
-      actionpack (>= 3.2.13)
-
-GIT
-  remote: git://github.com/plataformatec/devise.git
-  revision: 2f6edfd0c57078a9d518fcd85276e92bc61c3ceb
-  specs:
-    devise (3.2.4)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
-
-GIT
-  remote: git://github.com/plataformatec/responders.git
-  revision: 9357c734530c05e9a8325f74c54079a6fd3121c2
-  specs:
-    responders (1.0.0)
-      railties (>= 3.2, < 5)
 
 GEM
   remote: https://rubygems.org/
