@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+
+# Set up Rails app. Run this script immediately after cloning the codebase.
+
+# Exit if any subcommand fails
+set -e
+
+# Set up Ruby dependencies via Bundler
+bundle install
+
+#If you like,  mkdir .git/safe in the root of repositories you trust
+# Add the below to your .zshrc to get this to work
+# export PATH=".git/safe/../../bin:$PATH"
+mkdir -p .git/safe
+
+# Set up configurable environment variables.
+if [ ! -f .env ]; then
+  cp .env.example .env
+fi
+
+# Copy the sample database file
+if [ ! -f config/database.yml ]; then
+  cp config/database.yml.example config/database.yml
+fi
+
+bundle exec rake db:drop:all
+bundle exec rake db:setup
+bundle exec rake db:test:prepare
+
+# Run the tests - these should all pass.
+bundle exec rake
+
+if [ ! -f latest.dump ]; then
+  curl -o latest.dump `heroku pgbackups:url -r production`
+fi

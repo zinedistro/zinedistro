@@ -19,6 +19,15 @@ Nope.
 
 ## Setup instructions
 
+###  Using the Install Script
+
+Run `bin/setup` should get everything you need up and running, including:
+
+* Bundling gems
+* Setting the `.env` file from the example file
+* Database configuration
+* Database setup and loading seed data
+
 ###  Using Vagrant
 
 Install [Vagrant](http://www.vagrantup.com/downloads.html)
