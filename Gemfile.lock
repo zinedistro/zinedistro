@@ -1,51 +1,18 @@
 GIT
-  remote: git://github.com/justinfrench/formtastic.git
-  revision: 1bdf6d3642af52a1a62902f12b844a5856d0254e
-  specs:
-    formtastic (2.3.0.rc3)
-      actionpack (>= 3.2.13)
-
-GIT
-  remote: git://github.com/josevalim/inherited_resources.git
-  revision: 559161287cd705def4868d3c0de6ddc2d8a8564c
-  specs:
-    inherited_resources (1.4.1)
-      has_scope (~> 0.6.0.rc)
-      responders (~> 1.0.0)
-
-GIT
-  remote: git://github.com/plataformatec/responders.git
-  revision: 9357c734530c05e9a8325f74c54079a6fd3121c2
-  specs:
-    responders (1.0.0)
-      railties (>= 3.2, < 5)
-
-GIT
-  remote: git://github.com/plataformatec/devise.git
-  revision: 2f6edfd0c57078a9d518fcd85276e92bc61c3ceb
-  specs:
-    devise (3.2.4)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
-
-GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: f5affaeb84a5c1a86ecefb48ec1099921787e6d9
+  revision: 0c83cfe0b9b43a4a27a63c13f27d6682b0ff6cae
   specs:
     activeadmin (1.0.0.pre)
-      arbre (~> 1.0)
+      arbre (~> 1.0, >= 1.0.2)
       bourbon
       coffee-rails
-      formtastic (~> 2.3.0.rc3)
-      inherited_resources (~> 1.3)
+      formtastic (~> 3.0)
+      inherited_resources (~> 1.4.1)
       jquery-rails
-      jquery-ui-rails
+      jquery-ui-rails (~> 5.0)
       kaminari (~> 0.15)
       rails (>= 3.2, < 4.2)
-      ransack (~> 1.0)
+      ransack (~> 1.3)
       sass-rails
 
 GIT
@@ -56,6 +23,25 @@ GIT
     guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
+
+GIT
+  remote: git://github.com/justinfrench/formtastic.git
+  revision: ccd5df59f3283a463577bf9e1f9ed6a15933b785
+  specs:
+    formtastic (3.1.0.pre)
+      actionpack (>= 3.2.13)
+
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: f246f62b106e14e0e123d823f5ad5496d8641c83
+  specs:
+    devise (3.4.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
 
 GEM
   remote: https://rubygems.org/
@@ -87,16 +73,16 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    arbre (1.0.1)
+    arbre (1.0.2)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
-    bourbon (3.2.1)
+    bourbon (3.2.3)
       sass (~> 3.2)
       thor
-    bower-rails (0.8.3)
+    bower-rails (0.9.0)
     builder (3.2.2)
-    bullet (4.13.2)
+    bullet (4.14.0)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
     capybara (2.4.3)
@@ -105,7 +91,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-screenshot (1.0.1)
+    capybara-screenshot (1.0.3)
       capybara (>= 1.0, < 3)
       colored
       launchy
@@ -120,10 +106,10 @@ GEM
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
-    coffee-script (2.2.0)
+    coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.7.0)
+    coffee-script-source (1.8.0)
     colored (1.2)
     coveralls (0.7.1)
       multi_json (~> 1.3)
@@ -134,11 +120,9 @@ GEM
     database_cleaner (1.3.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    dotenv (0.11.1)
-      dotenv-deployment (~> 0.0.2)
-    dotenv-deployment (0.0.2)
-    dotenv-rails (0.11.1)
-      dotenv (= 0.11.1)
+    dotenv (1.0.0)
+    dotenv-rails (1.0.0)
+      dotenv (= 1.0.0)
     draper (1.4.0)
       actionpack (>= 3.0)
       activemodel (>= 3.0)
@@ -158,7 +142,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
-    ffi (1.9.3)
+    ffi (1.9.5)
     fog (1.23.0)
       fog-brightbox
       fog-core (~> 1.23)
@@ -179,7 +163,7 @@ GEM
       net-ssh (>= 2.1.3)
     fog-json (1.0.0)
       multi_json (~> 1.0)
-    fog-softlayer (0.3.17)
+    fog-softlayer (0.3.19)
       fog-core
       fog-json
     formatador (0.2.5)
@@ -203,11 +187,14 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.6.11)
     inflecto (0.0.2)
+    inherited_resources (1.4.1)
+      has_scope (~> 0.6.0.rc)
+      responders (~> 1.0.0.rc)
     ipaddress (0.8.0)
-    jquery-rails (3.1.0)
+    jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (4.2.1)
+    jquery-ui-rails (5.0.0)
       railties (>= 3.2.16)
     json (1.8.1)
     kaminari (0.16.1)
@@ -216,7 +203,7 @@ GEM
     kgio (2.9.2)
     launchy (2.4.2)
       addressable (~> 2.3)
-    listen (2.7.9)
+    listen (2.7.11)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -228,7 +215,7 @@ GEM
     mini_magick (3.8.1)
       subexec (~> 0.2.1)
     mini_portile (0.6.0)
-    minitest (5.4.1)
+    minitest (5.4.2)
     multi_json (1.10.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -281,6 +268,8 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     request_store (1.1.0)
+    responders (1.0.0)
+      railties (>= 3.2, < 5)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
@@ -288,12 +277,12 @@ GEM
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
       rspec-mocks (~> 3.1.0)
-    rspec-core (3.1.4)
+    rspec-core (3.1.5)
       rspec-support (~> 3.1.0)
-    rspec-expectations (3.1.1)
+    rspec-expectations (3.1.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.1.0)
-    rspec-mocks (3.1.1)
+    rspec-mocks (3.1.2)
       rspec-support (~> 3.1.0)
     rspec-rails (3.1.0)
       actionpack (>= 3.0)
@@ -303,7 +292,7 @@ GEM
       rspec-expectations (~> 3.1.0)
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
-    rspec-support (3.1.0)
+    rspec-support (3.1.1)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -364,16 +353,16 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
-  bower-rails (~> 0.8.3)
-  bullet (= 4.13.2)
+  bower-rails (~> 0.9.0)
+  bullet (~> 4.14.0)
   capybara (~> 2.4.1)
-  capybara-screenshot (= 1.0.1)
+  capybara-screenshot (~> 1.0.3)
   carrierwave
   coffee-rails (~> 4.0.1)
   coveralls (~> 0.7.1)
   database_cleaner (~> 1.3.0)
   devise!
-  dotenv-rails
+  dotenv-rails (~> 1.0.0)
   draper (~> 1.4.0)
   factory_girl_rails (~> 4.0)
   faker (~> 1.4.3)
@@ -383,26 +372,26 @@ DEPENDENCIES
   guard-livereload (~> 2.3.1)
   guard-rspec (~> 4.3.1)!
   haml (~> 4.0.4)
-  inherited_resources!
+  inherited_resources (~> 1.4.1)
   kaminari (~> 0.16.1)
   mini_magick (~> 3.8.1)
   nokogiri (~> 1.6.3.1)
-  pg
+  pg (~> 0.17.1)
   pry (~> 0.10.1)
   rails (~> 4.1.6)
-  rails_12factor
+  rails_12factor (= 0.0.2)
   ransack (~> 1.4.1)
   rb-fchange (~> 0.0.6)
   rb-fsevent (~> 0.9.4)
   rb-inotify (~> 0.9.5)
-  responders!
+  responders (~> 1.0.0)
   rspec-rails (~> 3.1.0)
   sass-rails (~> 4.0.1)
   shoulda-matchers (~> 2.7.0)
   simplecov (~> 0.9.1)
-  skylight
+  skylight (~> 0.3.20)
   spring
   spring-commands-rspec
   uglifier (~> 2.5.3)
-  unf
-  unicorn
+  unf (~> 0.1.4)
+  unicorn (~> 4.8.3)
