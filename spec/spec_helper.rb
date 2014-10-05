@@ -1,8 +1,8 @@
 if ENV['COVERAGE'] ||  ENV['CI']
   require 'simplecov'
-  require 'coveralls'
-  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
   SimpleCov.start 'rails'
+  require "codeclimate-test-reporter"
+  CodeClimate::TestReporter.start
 end
 
 require 'spec_helper_lite'

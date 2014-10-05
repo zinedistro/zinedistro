@@ -24,7 +24,6 @@ gem 'unicorn', '~> 4.8.3'
 
 group :test, :development do
   gem 'capybara', '~> 2.4.1'
-  gem 'coveralls', '~> 0.7.1', require: false
   gem 'dotenv-rails', '~> 1.0.0'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker', '~> 1.4.3'
@@ -33,6 +32,7 @@ group :test, :development do
 end
 
 group :test do
+  gem "codeclimate-test-reporter", require: false
   gem 'capybara-screenshot', '~> 1.0.3'
   gem 'database_cleaner', '~> 1.3.0'
   gem 'shoulda-matchers', '~> 2.7.0', require: false
