@@ -11,6 +11,7 @@ require 'pry'
 WebMock.disable_net_connect!
 
 require_relative './support/configure_transactions.rb'
+require_relative './support/upload_helper.rb'
 unless rails_loaded?
   $:.unshift File.expand_path '../../app/models', __FILE__
   $:.unshift File.expand_path '../../app/uploaders', __FILE__

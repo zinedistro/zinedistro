@@ -28,6 +28,7 @@ describe Zine do
 
     context 'without a cover image' do
       let(:zine) { build :zine, cover_image: nil }
+      before { stub_legacy_zine_requests(zine) }
 
       it 'is not valid' do
         expect(zine).to_not be_valid
@@ -39,6 +40,7 @@ describe Zine do
 
       context 'with a legacy_id' do
         let(:zine) { build :zine, cover_image: nil, legacy_id: 12 }
+        before { stub_legacy_zine_requests(zine) }
 
         it 'is valid' do
           expect(zine).to be_valid
@@ -61,6 +63,7 @@ describe Zine do
 
       context 'with a legacy_id' do
         let(:zine) { build :zine, pdf: nil, legacy_id: 12 }
+        before { stub_legacy_zine_requests(zine) }
 
         it 'is valid' do
           expect(zine).to be_valid
