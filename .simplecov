@@ -12,4 +12,6 @@ SimpleCov.start 'rails' do
   add_group 'Decorators', 'app/decorators'
   add_group 'ActiveAdmin', 'app/admin'
   add_group 'Uploaders', 'app/uploaders'
+
+  minimum_coverage 100
 end if ENV["COVERAGE"] || ENV['CI']
