@@ -45,7 +45,7 @@ end
 if ENV['RAILS_ENV'] == "test"
   Fog.mock!
   CarrierWave.configure do |config|
-    config.storage = :fog
+    config.storage = :file
     config.enable_processing = false
     config.root = File.expand_path(
       File.join(File.dirname(__FILE__), "../../tmp"))
