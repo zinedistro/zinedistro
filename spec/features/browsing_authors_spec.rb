@@ -12,7 +12,9 @@ feature 'Browsing Zines' do
       end
 
       scenario 'I see a list of authors' do
-        expect(page).to have_content authors.reverse.map(&:name).join(' ')
+        authors.each do |author|
+          expect(page).to have_content(/\b#{author.name}\b/)
+        end
       end
 
       context 'When I click on an author' do
