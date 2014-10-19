@@ -2,6 +2,8 @@ require 'webmock/rspec'
 if ENV['COVERAGE'] || ENV['CI']
   require 'simplecov'
   SimpleCov.start 'rails'
+end
+if ENV['CI']
   require "codeclimate-test-reporter"
   WebMock.disable_net_connect!(:allow => "codeclimate.com")
   CodeClimate::TestReporter.start
