@@ -7,7 +7,7 @@ addons:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
-  - bin/rake db:schema:load db:migrate RAILS_ENV=test
+  - bundle exec rake db:schema:load db:migrate RAILS_ENV=test
 script: bundle exec rspec spec
 env:
   global:
