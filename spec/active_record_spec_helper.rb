@@ -5,6 +5,10 @@ require 'active_record'
 require 'factory_girl'
 require 'rack/test'
 require 'shoulda/matchers'
+require 'webmock/rspec'
+require 'pry'
+
+WebMock.disable_net_connect!
 
 require_relative './support/configure_transactions.rb'
 unless rails_loaded?
