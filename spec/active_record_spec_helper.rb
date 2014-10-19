@@ -8,7 +8,9 @@ require 'shoulda/matchers'
 require 'webmock/rspec'
 require 'pry'
 
-WebMock.disable_net_connect!
+unless ENV['CI']
+  WebMock.disable_net_connect!
+end
 
 require_relative './support/configure_transactions.rb'
 require_relative './support/upload_helper.rb'

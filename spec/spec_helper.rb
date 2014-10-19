@@ -1,7 +1,9 @@
-if ENV['COVERAGE'] ||  ENV['CI']
+require 'webmock/rspec'
+if ENV['COVERAGE'] || ENV['CI']
   require 'simplecov'
   SimpleCov.start 'rails'
   require "codeclimate-test-reporter"
+  WebMock.disable_net_connect!(:allow => "codeclimate.com")
   CodeClimate::TestReporter.start
 end
 
@@ -11,7 +13,6 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'capybara/rspec'
-require 'webmock/rspec'
 
 
 # Requires supporting ruby files with custom matchers and macros, etc,
