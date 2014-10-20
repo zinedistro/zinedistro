@@ -1,5 +1,4 @@
 require 'webmock/rspec'
-binding.pry
 if ENV['COVERAGE'] || ENV['CI']
   require 'simplecov'
   SimpleCov.start 'rails' do
