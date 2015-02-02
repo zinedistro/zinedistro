@@ -1,0 +1,53 @@
+{
+  "name": "Zine Distro",
+  "description": "A zine distribution platform",
+  "keywords": [
+    "zine",
+    "distro"
+  ],
+  "logo": "https://raw.githubusercontent.com/zinedistro/zinedistro/master/public/Icon.png",
+  "success_url": "/admin/login",
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "pgbackups:plus"
+  ],
+  "env": {
+    "DEVISE_SECRET_KEY": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "SECRET_KEY_BASE": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "CARRIERWAVE_PROVIDER": "AWS",
+    "CARRIERWAVE_AWS_ACCESS_KEY_ID": {
+      "description": "AWS access key ID"
+    },
+    "CARRIERWAVE_AWS_SECRET_ACCESS_KEY": {
+      "description": "AWS secret access key"
+    },
+    "CARRIERWAVE_REGION": {
+      "description": "AWS region",
+      "value": "us-west-1"
+    },
+    "CARRIERWAVE_ENDPOINT": {
+      "description": "AWS HTTP endpoint",
+      "value": "https://s3-us-west-1.amazonaws.com/"
+    },
+    "CARRIERWAVE_HOST": "https://s3.amazonaws.com/",
+    "CARRIERWAVE_ASSET_HOST": {
+      "value": "http://assets.your-app.com/"
+    },
+    "CARRIERWAVE_DIRECTORY": {
+      "description": "AWS bucket name",
+      "value": "YOUR_S3_BUCKET"
+    },
+    "LANG": "en_US.UTF-8",
+    "RAILS_ENV": "production",
+    "RACK_ENV": "production"
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake db:setup"
+  }
+}

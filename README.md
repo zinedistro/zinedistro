@@ -5,6 +5,8 @@
 [![Code Climate](https://codeclimate.com/github/zinedistro/zinedistro/badges/gpa.svg)](https://codeclimate.com/github/zinedistro/zinedistro)
 [![Dependency Status](https://gemnasium.com/zinedistro/zinedistro.svg)](https://gemnasium.com/zinedistro/zinedistro)
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ### What is it?
 
 A Rails application to facilitate creating a [zine](https://en.wikipedia.org/wiki/Zine) distro. It includes a complete application to get started sharing zines online.
