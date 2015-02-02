@@ -45,9 +45,17 @@
     },
     "LANG": "en_US.UTF-8",
     "RAILS_ENV": "production",
-    "RACK_ENV": "production"
+    "RACK_ENV": "production",
+    "ADMIN_USER_EMAIL": {
+      "description": "Remove this value when the app has launched",
+      "value": "admin@example.com"
+    },
+    "ADMIN_USER_PASSWORD": {
+      "description": "Remove this value when the app has launched",
+      "value": "password"
+    }
   },
   "scripts": {
-    "postdeploy": "bundle exec rake db:setup"
+    "postdeploy": "bundle exec rake db:setup && bundle exec rake admin:generate"
   }
 }
