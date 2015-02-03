@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 15687751fa9ff637a7b39aae36d6b35abdb8fed4
+  revision: 76f194ebe33303fb12dd0dbecb069e27fa8a8de9
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -105,7 +105,7 @@ GEM
     coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.8.0)
+    coffee-script-source (1.9.0)
     colored (1.2)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
