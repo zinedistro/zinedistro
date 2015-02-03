@@ -30,7 +30,7 @@ end
 group :test do
   gem "codeclimate-test-reporter", require: false
   gem 'capybara-screenshot', '~> 1.0.3'
-  gem 'database_cleaner', '~> 1.3.0'
+  gem 'database_cleaner', '~> 1.4.0'
   gem 'shoulda-matchers', '~> 2.7.0', require: false
   gem 'simplecov', '~> 0.9.1'
   gem 'webmock'
