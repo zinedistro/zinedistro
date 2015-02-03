@@ -39,7 +39,7 @@ end
 group :development do
   # gem 'coffee-rails-source-maps'
   # gem 'sass-rails-source-maps'
-  gem 'bullet', '~>4.14.0'
+  gem 'bullet'
   gem 'guard', '~> 2.6.1'
   gem 'guard-livereload', '~> 2.3.1'
   gem 'guard-rspec', '~> 4.5.0', require: false
