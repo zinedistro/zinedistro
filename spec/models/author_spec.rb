@@ -4,7 +4,7 @@ require_dependency 'author'
 describe Author do
   describe 'find_published' do
     context 'with a publshed author' do
-      let(:author) { create :author_with_zines }
+      let(:author) { FactoryGirl.create :author_with_zines }
       before do
         author.zines.last.publish!
       end

@@ -2,8 +2,8 @@ require 'active_record_spec_helper'
 require_dependency 'authorship'
 
 describe Authorship do
-  let(:author) { build :author }
-  let(:zine) { build :zine }
+  let(:author) { FactoryGirl.build :author }
+  let(:zine) { FactoryGirl.build :zine }
 
   context 'validations' do
     it { is_expected.to validate_presence_of :zine_id }

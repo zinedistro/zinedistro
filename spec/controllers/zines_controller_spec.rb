@@ -23,7 +23,7 @@ describe ZinesController do
 
   describe 'on GET to :show' do
     context 'with one zine' do
-      let(:zine) { create :zine_with_authors }
+      let(:zine) { FactoryGirl.create :zine_with_authors }
 
       context 'with valid params' do
         before do
@@ -45,7 +45,7 @@ describe ZinesController do
   end
 
   describe 'on GET to :index' do
-    let(:author_with_zines) { create :author, :with_zines }
+    let(:author_with_zines) { FactoryGirl.create :author, :with_zines }
 
     context 'with valid params' do
 
