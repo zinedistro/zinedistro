@@ -4,7 +4,7 @@ gem "mini_magick", '~> 3.8.1'
 gem 'activeadmin', github: 'activeadmin'
 gem 'bower-rails', '~> 0.9.0'
 gem 'carrierwave'
-gem 'coffee-rails', '~> 4.0.1'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'devise', github: 'plataformatec/devise'
 gem 'draper', '~> 1.4.0'
 gem 'fog', '~> 1.23.0', require: "fog/aws/storage"

@@ -99,7 +99,7 @@ GEM
     codeclimate-test-reporter (0.4.6)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
-    coffee-rails (4.0.1)
+    coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
     coffee-script (2.3.0)
@@ -372,7 +372,7 @@ DEPENDENCIES
   capybara-screenshot (~> 1.0.3)
   carrierwave
   codeclimate-test-reporter
-  coffee-rails (~> 4.0.1)
+  coffee-rails (~> 4.1.0)
   database_cleaner (~> 1.3.0)
   devise!
   dotenv-rails (~> 1.0.0)
