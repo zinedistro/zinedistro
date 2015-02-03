@@ -11,7 +11,7 @@ gem 'fog', '~> 1.27.0', require: "fog/aws/storage"
 gem 'haml', '~> 4.0.4'
 gem 'kaminari', '~> 0.16.1'
 gem 'nokogiri', '~> 1.6.6.2'
-gem 'pg', '~> 0.17.1'
+gem 'pg', '~> 0.18.1'
 gem 'rails', '~> 4.2.0'
 gem 'sass-rails', '~> 4.0.1'
 gem 'uglifier', '~> 2.5.3'
