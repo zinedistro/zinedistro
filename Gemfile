@@ -14,7 +14,7 @@ gem 'nokogiri', '~> 1.6.6.2'
 gem 'pg', '~> 0.18.1'
 gem 'rails', '~> 4.2.0'
 gem 'sass-rails', '~> 5.0.1'
-gem 'uglifier', '~> 2.5.3'
+gem 'uglifier', '~> 2.7.0'
 gem 'unf', '~> 0.1.4'
 gem 'unicorn', '~> 4.8.3'
 
