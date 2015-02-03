@@ -382,7 +382,7 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
-    skylight (0.3.21)
+    skylight (0.6.0)
       activesupport (>= 3.0.0)
     slop (3.6.0)
     spring (1.2.0)
@@ -460,7 +460,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.1)
   shoulda-matchers (~> 2.8.0)
   simplecov (~> 0.9.1)
-  skylight (~> 0.3.20)
+  skylight (~> 0.6.0)
   spring
   spring-commands-rspec
   uglifier (~> 2.5.3)
