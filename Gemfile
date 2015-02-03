@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "mini_magick", '~> 3.8.1'
+gem "mini_magick", '~> 4.0.3'
 gem 'activeadmin', github: 'activeadmin'
 gem 'bower-rails', '~> 0.9.0'
 gem 'carrierwave'
