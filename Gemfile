@@ -7,7 +7,7 @@ gem 'carrierwave'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise', github: 'plataformatec/devise'
 gem 'draper', '~> 1.4.0'
-gem 'fog', '~> 1.23.0', require: "fog/aws/storage"
+gem 'fog', '~> 1.27.0', require: "fog/aws/storage"
 gem 'haml', '~> 4.0.4'
 gem 'kaminari', '~> 0.16.1'
 gem 'nokogiri', '~> 1.6.3.1'
