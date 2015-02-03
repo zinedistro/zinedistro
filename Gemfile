@@ -52,5 +52,5 @@ end
 
 group :production do
   gem "skylight", '~> 0.3.20'
-  gem 'rails_12factor', '0.0.2'
+  gem 'rails_12factor', '0.0.3'
 end
