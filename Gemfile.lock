@@ -375,7 +375,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
     shellany (0.0.1)
-    shoulda-matchers (2.7.0)
+    shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
     simplecov (0.9.1)
       docile (~> 1.1.0)
@@ -458,7 +458,7 @@ DEPENDENCIES
   rb-inotify
   rspec-rails (~> 3.1.0)
   sass-rails (~> 5.0.1)
-  shoulda-matchers (~> 2.7.0)
+  shoulda-matchers (~> 2.8.0)
   simplecov (~> 0.9.1)
   skylight (~> 0.3.20)
   spring
