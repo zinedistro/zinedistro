@@ -30,3 +30,6 @@ deploy:
   app: zinedistro-next
   on:
     repo: zinedistro/zinedistro
+  run:
+    - 'rake db:migrate'
+    - restart
