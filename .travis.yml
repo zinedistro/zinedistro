@@ -22,4 +22,11 @@ env:
   - secure: nt1qi2HBswWmqCyUudUiObjNuL9zAScbvOF1Zm7l1arn+DOZrVBblX+c9G4eGaQX8mfyvfgY23tPWuXc01mq2HdhV+lHtpNC34OwwiXfYIEXMnJWLXJlGgRSJHiOCmjLJYH2lAlBFPHq+jZjuhHZ1NCq7M9X6zR/vvo9m669L2c=
   - secure: uV3zMRk0yyOmgsACttnSXBwkYWCkm8JZErJ+6e/RJ7i7flIcwXeInqLUJP8Ed5M8k9tKuyEK/Qjlbhck8DCMky1JNbHZEpW9/yFNB7l1UFjcJq1FSP0bcPUAI2RWdlcxsVMYi5XuRAtQLGUuQKqZpSjz7Ujfcm7KpZqAvhGmG3k=
   - secure: IEuuxHFI1OfX/910S7k41A7STlXZ/wEt6vU4ZLGGizdM09uxOS/T6fyb4DwFp/tShZai/9iQKaZhOJ1Ac/qi+3+cZvUKQcOWvVvTBQcuFGnXlWYGmVUuC9LE6jCnOy9U17R19bje5b8uFi0YwVxTgduFEd/ajQ3TWyVVCA4vzrg=
-  - secure: "nKW+WRSiH6bdYd6by1iHSeE7ULMjC1PmJ5RsfhzHvMiXDdk0l1cDH0h88Wl+IOfFdkCVxOhG8L4LPON+PrfDDeCJrhCeoFbVly+H1WPgHuR8q771mfeIaoE6GLc/ZB5pGa3KSke2AmzPvK7Ro0mymNt3+5ftRlKIzKMV8NpxNx0="
+  - secure: nKW+WRSiH6bdYd6by1iHSeE7ULMjC1PmJ5RsfhzHvMiXDdk0l1cDH0h88Wl+IOfFdkCVxOhG8L4LPON+PrfDDeCJrhCeoFbVly+H1WPgHuR8q771mfeIaoE6GLc/ZB5pGa3KSke2AmzPvK7Ro0mymNt3+5ftRlKIzKMV8NpxNx0=
+deploy:
+  provider: heroku
+  api_key:
+    secure: TMFF8lTUdOaMw5FDNlx+mxsEDxhr7vWSJh4c4td7lqvMdrIj2MBusJ++XxnU+6Xyjqw7uB2q3m2wNs9v8IbhaN2S6Mjy27iJU2D2n+xLxap6j19wJGkC0Uo1+6Mnd5PO+CnKnRaKP21T6YBEma8cJzqUWdfeONU5nz0wJW5xtg0=
+  app: zinedistro-next
+  on:
+    repo: zinedistro/zinedistro
