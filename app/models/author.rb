@@ -6,9 +6,11 @@ class Author < ActiveRecord::Base
   scope :published, -> {
     joins(:zines)
       .merge(Zine.published)
-      .except(:order)
       .distinct('authors.id')
-      .order('name DESC')
+  }
+
+  scope :order_by_name, -> {
+    order('name asc')
   }
 
   def self.find_published(id)

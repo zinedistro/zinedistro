@@ -22,8 +22,12 @@ class Zine < ActiveRecord::Base
 
   scope :published, -> {
     where(published: true)
-    .order(updated_at: :desc)
   }
+
+  scope :order_by_updated, -> {
+    order(updated_at: :desc)
+  }
+
   scope :with_authors, -> { includes(:authors) }
 
   def publish!
@@ -43,7 +47,7 @@ class Zine < ActiveRecord::Base
   end
 
   def self.catalog_with_authors
-    with_authors.published
+    with_authors.published.order_by_updated
   end
 
   def self.find_published(id)

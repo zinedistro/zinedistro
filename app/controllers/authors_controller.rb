@@ -1,7 +1,7 @@
 # AuthorsController
 class AuthorsController < ApplicationController
   def index
-    @authors = Author.published
+    @authors = Author.published.order_by_name
   end
 
   def show
