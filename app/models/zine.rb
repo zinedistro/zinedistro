@@ -8,8 +8,8 @@ class Zine < ActiveRecord::Base
   has_many :authors,
            -> { distinct.order(:name) },
            through: :authorships,
-           after_add: [:incriment_author_cache_counter],
-           after_remove: [:decriment_author_cache_counter]
+           after_add: [:increment_author_cache_counter],
+           after_remove: [:decrement_author_cache_counter]
 
   mount_uploader :cover_image, CoverImageUploader
   mount_uploader :pdf, PdfUploader
@@ -71,11 +71,11 @@ class Zine < ActiveRecord::Base
         "http://assets.zinedistro.org/zines/pdfs/#{legacy_id}.pdf"
   end
 
-  def incriment_author_cache_counter(record)
+  def increment_author_cache_counter(record)
     update_zine_counter(1)
   end
 
-  def decriment_author_cache_counter(record)
+  def decrement_author_cache_counter(record)
     update_zine_counter(-1)
   end
 
