@@ -1,9 +1,12 @@
 require 'spec_helper'
 feature 'Browsing Zines' do
   let(:authors) { create_list :author_with_zines, 4 }
+  let(:first_author_zines) { authors.first.zines }
+
   before do
     authors.each { |author| author.zines.map(&:publish!) }
   end
+
   context 'As a user' do
     context 'on the authors page' do
 
@@ -23,12 +26,24 @@ feature 'Browsing Zines' do
         end
 
         scenario "I should see the author's detailed information" do
-          within '.author .name' do
+          within '.author-name' do
             expect(page).to have_content authors.first.name
           end
         end
-        scenario 'I can see the zines created by a given author'
 
+        scenario 'I can see the zine titles created by a given author' do
+          titles = first_author_zines.map(&:title)
+          titles.each do |title|
+            expect(page).to have_content title
+          end
+        end
+
+        scenario 'I can see the zine subtitles created by a given author' do
+          subtitles = first_author_zines.map(&:subtitle)
+          subtitles.each do |subtitle|
+            expect(page).to have_content subtitle
+          end
+        end
       end
     end
   end
