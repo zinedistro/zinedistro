@@ -6,10 +6,10 @@ class Zine < ActiveRecord::Base
 
   has_many :authorships
   has_many :authors,
-           -> { distinct.order(:name) },
-           through: :authorships,
-           after_add: [:increment_author_cache_counter],
-           after_remove: [:decrement_author_cache_counter]
+    -> { distinct.order(:name) },
+    through: :authorships,
+    after_add: [:increment_author_cache_counter],
+    after_remove: [:decrement_author_cache_counter]
 
   mount_uploader :cover_image, CoverImageUploader
   mount_uploader :pdf, PdfUploader
@@ -67,8 +67,8 @@ class Zine < ActiveRecord::Base
   end
 
   def generate_pdf_from_legacy_id
-      self.remote_pdf_url =
-        "http://assets.zinedistro.org/zines/pdfs/#{legacy_id}.pdf"
+    self.remote_pdf_url =
+      "http://assets.zinedistro.org/zines/pdfs/#{legacy_id}.pdf"
   end
 
   def increment_author_cache_counter(*)
