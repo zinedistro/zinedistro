@@ -4,14 +4,24 @@ rvm:
 - 2.1.2
 addons:
   postgresql: '9.3'
+before_install:
+- "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+- gem install bundler aws-sdk:1.60.2 bundle_cache
+- bundle_cache_install
+bundler_args: --without development --path=~/.bundle
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
   - bundle exec rake db:schema:load db:migrate RAILS_ENV=test
 script: bundle exec rspec spec
+after_script:
+- bundle_cache
 env:
   global:
+  - BUNDLE_ARCHIVE='zinedistro-ci-bundle'
+  - RAILS_ENV=test
   - CARRIERWAVE_PROVIDER='AWS'
+  - AWS_S3_BUCKET='zinedistro-travis'
   - secure: mADV/ma1TdBzQDsJmYIiBQdnmPxNMFUwzmxXPV706/8ApLYSj+6dfz/3mpqqiY5I/EjBaAh/Ps205ifJhj73dz1anuO56xJ7v34jtrr20ePXnqCXDme2BG5VOwwWf8o+uq/1K3dkQe2jm8iAp2ZmkEF5lIyUK4hiAbtCcQbvfms=
   - secure: AQeOX+mEFStr/OMwPThClwn8oMgNrvAFwMHaNdugT+PRT6hlS0fiKF9C9cYn02ZsVBSesGHy7l9sIxSVn37x3M4Jx63Zeo8hbiKq+F3YHMeGceWwA7IwcwK8zI/JjBwpIBR3f8MNSFnwysFuUZJisrQThh0IL9jaFrGfE0V64E8=
   - CARRIERWAVE_REGION='us-west-1'
@@ -23,6 +33,8 @@ env:
   - secure: uV3zMRk0yyOmgsACttnSXBwkYWCkm8JZErJ+6e/RJ7i7flIcwXeInqLUJP8Ed5M8k9tKuyEK/Qjlbhck8DCMky1JNbHZEpW9/yFNB7l1UFjcJq1FSP0bcPUAI2RWdlcxsVMYi5XuRAtQLGUuQKqZpSjz7Ujfcm7KpZqAvhGmG3k=
   - secure: IEuuxHFI1OfX/910S7k41A7STlXZ/wEt6vU4ZLGGizdM09uxOS/T6fyb4DwFp/tShZai/9iQKaZhOJ1Ac/qi+3+cZvUKQcOWvVvTBQcuFGnXlWYGmVUuC9LE6jCnOy9U17R19bje5b8uFi0YwVxTgduFEd/ajQ3TWyVVCA4vzrg=
   - secure: nKW+WRSiH6bdYd6by1iHSeE7ULMjC1PmJ5RsfhzHvMiXDdk0l1cDH0h88Wl+IOfFdkCVxOhG8L4LPON+PrfDDeCJrhCeoFbVly+H1WPgHuR8q771mfeIaoE6GLc/ZB5pGa3KSke2AmzPvK7Ro0mymNt3+5ftRlKIzKMV8NpxNx0=
+  - secure: L1sDUYRKlcP2osXx6RI6IDT19nvZPILwy/Z8zz688eswncFutOSyCTVnNQGUreAiA+IiGoW6tOXhadutP7nJBZ7/R3QvXNKuXs4kId6M8YmYF/JiCWv6hgIvq6cgB7Xvo2hFWLYLF2cxzXSaNDltEc1d15eKpzDYtnw7sWk74HQ=
+  - secure: B8e61/4JQlUrEixUdNxI0QtClUeVG0ee+WORkyl9G2LFZmEGgxR7dGn2OFByCbEBD6YMCvcFyxMAI4Ao3qqeGbMQZGC+zjvwSvLJqUNi2BLyRT26iID7jqWCWNItMkvAM5/tjzOlGnhxSxYPiQqQkZdCc9o+495fipq2oR3l47o=
 deploy:
   provider: heroku
   api_key:
