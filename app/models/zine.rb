@@ -5,11 +5,13 @@ require_dependency 'pdf_uploader'
 class Zine < ActiveRecord::Base
 
   has_many :authorships
-  has_many :authors,
+  has_many(
+    :authors,
     -> { distinct.order(:name) },
     through: :authorships,
     after_add: [:increment_author_cache_counter],
-    after_remove: [:decrement_author_cache_counter]
+    after_remove: [:decrement_author_cache_counter],
+  )
 
   mount_uploader :cover_image, CoverImageUploader
   mount_uploader :pdf, PdfUploader
