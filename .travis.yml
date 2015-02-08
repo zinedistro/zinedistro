@@ -5,14 +5,14 @@ rvm:
 addons:
   postgresql: '9.3'
 before_install:
-- "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+- 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 - gem install bundler aws-sdk:1.60.2 bundle_cache
 - bundle_cache_install
-bundler_args: --without development --path=~/.bundle
+bundler_args: "--without development --path=~/.bundle"
 before_script:
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - bundle exec rake db:schema:load db:migrate RAILS_ENV=test
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+- bundle exec rake db:schema:load db:migrate RAILS_ENV=test
 script: bundle exec rspec spec
 after_script:
 - bundle_cache
@@ -43,5 +43,5 @@ deploy:
   on:
     repo: zinedistro/zinedistro
   run:
-    - 'rake db:migrate'
-    - 'restart'
+  - rake db:migrate
+  - restart
