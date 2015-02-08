@@ -71,11 +71,11 @@ class Zine < ActiveRecord::Base
         "http://assets.zinedistro.org/zines/pdfs/#{legacy_id}.pdf"
   end
 
-  def increment_author_cache_counter(record)
+  def increment_author_cache_counter(*)
     update_zine_counter(1)
   end
 
-  def decrement_author_cache_counter(record)
+  def decrement_author_cache_counter(*)
     update_zine_counter(-1)
   end
 
