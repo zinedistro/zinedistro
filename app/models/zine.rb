@@ -5,11 +5,13 @@ require_dependency 'pdf_uploader'
 class Zine < ActiveRecord::Base
 
   has_many :authorships
-  has_many :authors,
-           -> { distinct.order(:name) },
-           through: :authorships,
-           after_add: [:incriment_author_cache_counter],
-           after_remove: [:decriment_author_cache_counter]
+  has_many(
+    :authors,
+    -> { distinct.order(:name) },
+    through: :authorships,
+    after_add: [:increment_author_cache_counter],
+    after_remove: [:decrement_author_cache_counter],
+  )
 
   mount_uploader :cover_image, CoverImageUploader
   mount_uploader :pdf, PdfUploader
@@ -67,15 +69,15 @@ class Zine < ActiveRecord::Base
   end
 
   def generate_pdf_from_legacy_id
-      self.remote_pdf_url =
-        "http://assets.zinedistro.org/zines/pdfs/#{legacy_id}.pdf"
+    self.remote_pdf_url =
+      "http://assets.zinedistro.org/zines/pdfs/#{legacy_id}.pdf"
   end
 
-  def incriment_author_cache_counter(record)
+  def increment_author_cache_counter(*)
     update_zine_counter(1)
   end
 
-  def decriment_author_cache_counter(record)
+  def decrement_author_cache_counter(*)
     update_zine_counter(-1)
   end
 
