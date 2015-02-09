@@ -52,6 +52,9 @@ RSpec.configure do |config|
   # File-type inference disabled by default
   # https://www.relishapp.com/rspec/rspec-rails/docs/upgrade#file-type-inference-disabled
   config.infer_spec_type_from_file_location!
+
+  # Allow the use of t() instead of I18n.t() in tests
+  config.include AbstractController::Translation
 end
 
 Capybara.asset_host = 'http://localhost:3000'
