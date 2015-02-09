@@ -25,6 +25,8 @@ en:
     tagline: 'Download Print Read'
   author:
     attribution: 'by'
+  authors:
+    pluralized_title: 'Authors'
   zines:
     pluralized_title: 'Zines'
     singular_title: 'Zine'

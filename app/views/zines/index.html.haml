@@ -6,18 +6,11 @@
                   zine_path(zine),
                   class: 'cover_image')
       .meta.column.span-20.last
-        .entry-title
-          = link_to zine.path, rel: 'bookmark' do
-            %h3
-              = zine.title
-            %h4
-              = zine.subtitle
+        = render partial: 'zine', locals: { zine: zine }
         %h5
           %span.alt
             = I18n.t 'author.attribution'
           %span.author-name
             = zine.author_name_tag
-        - if zine.excerpt?
-          %section.excerpt.entry-summary
-            = simple_format zine.excerpt
+        = render partial: 'excerpt', locals: { zine: zine }
   = paginate @zines
