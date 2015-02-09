@@ -17,6 +17,7 @@ gem 'sass-rails', '~> 5.0.1'
 gem 'uglifier', '~> 2.7.0'
 gem 'unf', '~> 0.1.4'
 gem 'unicorn', '~> 4.8.3'
+gem "rack-timeout"
 
 group :test, :development do
   gem 'capybara', '~> 2.4.1'
