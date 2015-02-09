@@ -16,6 +16,7 @@
         %nav.links
           %ul
             %li= link_to I18n.t('zines.pluralized_title'), zines_path
+            %li= link_to I18n.t('authors.pluralized_title'), authors_path
     %main.container
       - flash.each do |name, msg|
         #{content_tag :div, msg, class: name}

@@ -10,7 +10,10 @@ feature 'Browsing Zines' do
   context "As a user" do
     context "on the authors page" do
       before do
-        visit authors_path
+        visit root_path
+        within "nav.links" do
+          click_link I18n.t('authors.pluralized_title')
+        end
       end
 
       scenario "I see a list of authors" do
