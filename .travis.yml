@@ -6,6 +6,7 @@ addons:
   postgresql: '9.3'
 before_install:
 - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+- gem install nokogiri -- --use-system-libraries
 - gem install bundler aws-sdk:1.60.2 bundle_cache
 - bundle_cache_install
 bundler_args: "--without development --path=~/.bundle"
