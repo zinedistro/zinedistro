@@ -1,8 +1,8 @@
 FactoryGirl.define do
 
   factory :zine do
-    title Faker::Lorem.words.join(' ').capitalize!
-    subtitle Faker::Lorem.words.join(' ').capitalize!
+    title { Faker::Lorem.words.join(' ').capitalize! }
+    subtitle { Faker::Lorem.words.join(' ').capitalize! }
     cover_image Rack::Test::UploadedFile.new(File.open(
       File.join(
         File.dirname(__FILE__), '../fixtures/images/transparent.png')))
