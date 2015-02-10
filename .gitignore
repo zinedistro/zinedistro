@@ -43,3 +43,6 @@ config/skylight.yml
 
 # Ignore database.yml
 /config/database.yml
+
+# Ignore rspec directory
+/rspec
