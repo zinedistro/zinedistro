@@ -17,7 +17,6 @@ before_script:
 script: bundle exec rspec spec
 after_script:
 - bundle_cache
-- git diff
 env:
   global:
   - BUNDLE_ARCHIVE='zinedistro-ci-bundle'
