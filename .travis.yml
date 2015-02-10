@@ -13,7 +13,7 @@ bundler_args: "--without development --path=~/.bundle"
 before_script:
 - cp config/database.yml.travis config/database.yml
 - psql -c 'create database travis_ci_test;' -U postgres
-- bundle exec rake db:schema:load db:migrate RAILS_ENV=test
+- psql -U postgres -q -d travis_ci_test -f db/structure.sql
 script: bundle exec rspec spec
 after_script:
 - bundle_cache
