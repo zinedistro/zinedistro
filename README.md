@@ -4,6 +4,7 @@
 [![Test Coverage](https://codeclimate.com/github/zinedistro/zinedistro/badges/coverage.svg)](https://codeclimate.com/github/zinedistro/zinedistro)
 [![Code Climate](https://codeclimate.com/github/zinedistro/zinedistro/badges/gpa.svg)](https://codeclimate.com/github/zinedistro/zinedistro)
 [![Dependency Status](https://gemnasium.com/zinedistro/zinedistro.svg)](https://gemnasium.com/zinedistro/zinedistro)
+[![Stories in Ready](https://badge.waffle.io/zinedistro/zinedistro.svg?label=ready&title=Ready)](https://waffle.io/zinedistro/zinedistro)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
