@@ -84,9 +84,84 @@ User.create!(email: 'admin@example.com',
              password_confirmation: 'password')
 ```
 
-## Contributing
+## Request for Contributions
 
-Coming soon. Currently, Zinedistro is not ready for contributions. If you have a question or or an idea, please file an issue.
+We would be thrilled to have your input on the future of zinedistro. Let's get started with a few ground rules.
+
+Please contribute to this repository if any of the following is true:
+- You have expertise in community development, communication, or education
+- You want open source communities to be more collaborative and inclusive
+- You want to help lower the burden to first time contributors
+
+# How to contribute
+
+Prerequisites: familiarity with [GitHub
+PRs](https://help.github.com/articles/using-pull-requests) (pull requests) and
+issues. Need help getting started? Try reading the [Github
+guide](https://help.github.com/articles/using-pull-requests/).
+
+When creating a pull request, we ask that you try to create a clear commit
+message outlining what was changed, added or removed in the present tense. See
+the [commit history](https://github.com/zinedistro/zinedistro/commits/master)
+for examples of commit messages. For more information on the formatting of
+commit messages, see Tim Pope's [blog
+post](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+
+In particular, this community seeks the following types of contributions:
+
+- Ideas: participate in an
+  [issues](https://github.com/zinedistro/zinedistro/issues) thread or start
+  your own to have your voice heard.
+- Improvements: help make this project more accessible to other users, make it
+  more extensible and easier for a new user to launch their own zine distro.
+- Outline sections: help us ensure that this repository is comprehensive. if
+  there is a topic that is overlooked, please add it, even if it is just a stub
+  in the form of a header and single sentence. Initially, most things fall into
+  this category.
+- Copy editing: fix typos, clarify language, and generally improve the quality
+  of the content
+
+#### Conduct
+
+We are committed to providing a friendly, safe and welcoming environment for
+all, regardless of gender, sexual orientation, disability, ethnicity, religion,
+or similar personal characteristic.
+
+Please be kind and courteous. There's no need to be mean or rude.
+Respect that people have differences of opinion and that every design or
+implementation choice carries a trade-off and numerous costs. There is seldom
+a right answer, merely an optimal answer given a set of values and
+circumstances.
+
+Please keep unstructured critique to a minimum. If you have solid ideas you
+want to experiment with, make a fork and see how it works.
+
+We will exclude you from interaction if you insult, demean or harass anyone.
+That is not welcome behaviour. We interpret the term "harassment" as
+including the definition in the
+[Citizen Code of Conduct](http://citizencodeofconduct.org/);
+if you have any lack of clarity about what might be included in that concept,
+please read their definition. In particular, we don't tolerate behavior that
+excludes people in socially marginalized groups.
+
+Private harassment is also unacceptable. No matter who you are, if you feel
+you have been or are being harassed or made uncomfortable by a community
+member, please contact one of the channel ops or any of the
+[Zinedistro](https://github.com/zinedistro/zinedistro) core team
+immediately. Whether you're a regular contributor or a newcomer, we care about
+making this community a safe place for you and we've got your back.
+
+Likewise any spamming, trolling, flaming, baiting or other attention-stealing
+behaviour is not welcome.
+
+# Communication
+
+GitHub issues are the primary way for communicating about specific proposed
+changes to this project. When making a contribution or commenting on someone
+else's contribution, please follow the conduct guidelines above. Language
+issues are often contentious and we'd like to keep discussion brief, civil and
+focused on what we're actually doing, not wandering off into too much imaginary
+stuff.
 
 ## License
 
