@@ -46,6 +46,10 @@
     "LANG": "en_US.UTF-8",
     "RAILS_ENV": "production",
     "RACK_ENV": "production",
+    "RAILS_SERVE_STATIC_FILES": {
+      "description": "Should the application serve static assets?",
+      "value": true
+    },
     "ADMIN_USER_EMAIL": {
       "description": "Remove this value when the app has launched",
       "value": "admin@example.com"
