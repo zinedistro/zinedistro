@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    sequence(:email) { |n| "robot_#{n}@zinedistro.org" }
-    password Faker::Lorem.words.join(' ').capitalize!
+    sequence(:email) { |n| "user_#{n}@zinedistro.org" }
+    password 'password'
   end
 end
