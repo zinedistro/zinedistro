@@ -55,6 +55,11 @@ RSpec.configure do |config|
 
   # Allow the use of t() instead of I18n.t() in tests
   config.include AbstractController::Translation
+
+  # Make authentication quick and easy:
+  # user = FactoryGirl.create(:user)
+  # login_as(user, :scope => :user)
+  include Warden::Test::Helpers
 end
 
 Capybara.asset_host = 'http://localhost:3000'
@@ -64,6 +69,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
+    Warden.test_mode!
   end
 
   config.before(:each) do
@@ -80,5 +86,6 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+    Warden.test_reset!
   end
 end
