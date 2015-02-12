@@ -55,4 +55,5 @@ end
 group :production do
   gem "skylight", '~> 0.6.0'
   gem 'rails_12factor', '0.0.3'
+  gem 'bugsnag'
 end
