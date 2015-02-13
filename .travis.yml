@@ -1,7 +1,7 @@
 language: ruby
 cache: bundler
 rvm:
-- 2.1.2
+- 2.2.0
 addons:
   postgresql: '9.3'
 before_install:
@@ -9,7 +9,7 @@ before_install:
 - gem install nokogiri -- --use-system-libraries
 - gem install bundler aws-sdk:1.60.2 bundle_cache
 - bundle_cache_install
-bundler_args: "--without development --path=~/.bundle"
+bundler_args: "--without development production --path=~/.bundle"
 before_script:
 - cp config/database.yml.travis config/database.yml
 - psql -c 'create database travis_ci_test;' -U postgres
