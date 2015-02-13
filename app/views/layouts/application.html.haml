@@ -7,7 +7,7 @@
     %link{:href => 'http://assets.zinedistro.org/avatars/favicon.png', :rel => 'icon', :type => 'image/png'}/
     = auto_discovery_link_tag :atom, zines_path(:format => :atom)
     = stylesheet_link_tag    'application', :media => 'all'
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'application', async: true
   %body
     %header
       %nav.container.root
