@@ -11,15 +11,15 @@
 
 A Rails application to facilitate creating a [zine](https://en.wikipedia.org/wiki/Zine) distro. It includes a complete application to get started sharing zines online.
 
-### Is It Good?
+### Is it Good?
 
 Yes.
 
-### Is It "Production Ready™"?
+### Is it "Production Ready™"?
 
 Nope.
 
-## Setup instructions
+## Setup Instructions
 
 ###  Using the Install Script
 
@@ -34,7 +34,7 @@ Run `bin/setup` should get everything you need up and running, including:
 
 Install [Vagrant](http://www.vagrantup.com/downloads.html)
 
-####Start the virtual machine:
+####Start the Virtual Machine:
 
 ```console
 vagrant up
@@ -44,7 +44,7 @@ This command will download a virtual machine for Vagrant, install Docker on the 
 
 It can take a while to download, so go find a nice zine to read in the meantime.
 
-###Customize environment variables
+###Customize Environment Variables
 
 See [.env.example](.env.example) for variables that need configuring. Copy `.env.example` to `.env` to get started:
 
@@ -92,7 +92,7 @@ Please contribute to this repository if any of the following is true:
 - You want open source communities to be more collaborative and inclusive
 - You want to help lower the burden to first time contributors
 
-# How to contribute [![Stories in Ready](https://badge.waffle.io/zinedistro/zinedistro.svg?label=ready&title=Ready)](https://waffle.io/zinedistro/zinedistro)
+# How to Contribute [![Stories in Ready](https://badge.waffle.io/zinedistro/zinedistro.svg?label=ready&title=Ready)](https://waffle.io/zinedistro/zinedistro)
 
 Prerequisites: familiarity with [GitHub
 PRs](https://help.github.com/articles/using-pull-requests) (pull requests) and
