@@ -126,7 +126,7 @@ ActiveAdmin.setup do |config|
   # and feel.
   #
   # To load a stylesheet:
-  #   config.register_stylesheet 'my_stylesheet.css'
+  config.register_stylesheet 'select2.css'
   #
   # You can provide an options hash for more control,
   # which is passed along to stylesheet_link_tag():
@@ -134,7 +134,7 @@ ActiveAdmin.setup do |config|
   #                               :media => :print)
   #
   # To load a javascript file:
-  #   config.register_javascript 'my_javascript.js'
+  config.register_javascript 'select2.js'
 
   # == CSV options
   #
