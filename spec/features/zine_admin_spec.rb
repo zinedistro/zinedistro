@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 
 feature 'As a user' do
 

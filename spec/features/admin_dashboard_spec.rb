@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 feature 'As a user I can see an admin dashboard' do
   before do
     sign_in

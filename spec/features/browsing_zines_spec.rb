@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 
 feature 'When Browsing Zines' do
   describe 'On the index page' do

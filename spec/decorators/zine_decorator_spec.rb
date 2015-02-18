@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 
 describe ZineDecorator do
   let(:zine) { FactoryGirl.create :zine_with_authors }
