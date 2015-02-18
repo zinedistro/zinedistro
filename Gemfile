@@ -20,6 +20,7 @@ gem 'unf', '~> 0.1.4'
 gem 'unicorn', '~> 4.8.3'
 gem "rack-timeout"
 gem 'utf8-cleaner', '~> 0.0.9'
+gem 'newrelic_rpm', group: [:development, :production]
 
 group :test, :development do
   gem 'capybara', '~> 2.4.1'
