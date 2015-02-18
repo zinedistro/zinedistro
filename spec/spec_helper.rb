@@ -42,6 +42,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 Kaminari.configure { |c| c.default_per_page = 2 }
+Capybara.asset_host = 'http://localhost:3000'
 
 RSpec.configure do |config|
   # If true, the base class of anonymous controllers will be inferred
@@ -55,10 +56,7 @@ RSpec.configure do |config|
 
   # Allow the use of t() instead of I18n.t() in tests
   config.include AbstractController::Translation
-end
 
-Capybara.asset_host = 'http://localhost:3000'
-RSpec.configure do |config|
   # Turn deprications into errors with stacktraces
   config.raise_errors_for_deprecations!
 
