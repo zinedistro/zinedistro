@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 feature 'Browsing Zines' do
   let(:authors) { create_list :author_with_zines, 4 }
   let(:first_author_zines) { authors.first.zines }
