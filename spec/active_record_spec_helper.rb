@@ -1,4 +1,4 @@
-require 'spec_helper_lite'
+require "spec_helper"
 require 'faker'
 require 'yaml'
 require 'active_record'

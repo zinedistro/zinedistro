@@ -25,7 +25,7 @@ if ENV['CI']
   CodeClimate::TestReporter.start
 end
 
-require 'spec_helper_lite'
+require "spec_helper"
 
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
