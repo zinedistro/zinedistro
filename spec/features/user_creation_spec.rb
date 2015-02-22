@@ -13,6 +13,6 @@ feature 'As a user' do
     fill_in 'user_password', with: "a password"
     fill_in 'user_password_confirmation', with: "a password"
     click_button 'Create User'
-    expect(page).to have_content success_message_for :user
+    expect(page).to have_content create_message_for :user
   end
 end

@@ -18,6 +18,6 @@ feature 'As a user' do
     expect(page).to have_css '#zine_cover_image_cache'
     expect(page).to have_css '#zine_pdf_cache'
     click_button 'Create Zine'
-    expect(page).to have_content success_message_for :zine
+    expect(page).to have_content create_message_for :zine
   end
 end
