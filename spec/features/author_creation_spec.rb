@@ -12,6 +12,6 @@ feature "Creating Authors" do
     expect(page).to have_link t("authors.pluralized_title")
     fill_in "author_name", with: author
     click_button "Create Author"
-    expect(page).to have_content success_message_for :author
+    expect(page).to have_content create_message_for :author
   end
 end
