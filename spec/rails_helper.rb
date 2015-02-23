@@ -21,7 +21,7 @@ if ENV['COVERAGE'] || ENV['CI']
 end
 if ENV['CI']
   require "codeclimate-test-reporter"
-  WebMock.disable_net_connect!(:allow => "codeclimate.com")
+  WebMock.disable_net_connect!(allow: "codeclimate.com")
   CodeClimate::TestReporter.start
 end
 
