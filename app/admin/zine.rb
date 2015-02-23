@@ -1,5 +1,5 @@
 ActiveAdmin.register Zine do
-menu label: proc{ I18n.t "zines.pluralized_title" }
+menu label: proc { I18n.t "zines.pluralized_title" }
   controller do
     def permitted_params
       params.permit(:utf8,
