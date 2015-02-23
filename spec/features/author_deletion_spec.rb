@@ -1,5 +1,5 @@
 require "spec_helper"
-feature "Deleing Authors" do
+feature "Deleting Authors" do
   let(:user) { create :user }
   let!(:author) { create :author }
 
