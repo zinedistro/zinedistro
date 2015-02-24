@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 feature "Deleting Authors" do
   let(:user) { create :user }
   let!(:author) { create :author }
