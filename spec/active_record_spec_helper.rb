@@ -39,11 +39,6 @@ unless rails_loaded?
   require_relative './support/factory_girl.rb'
 
   RSpec.configure do |config|
-    # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-    config.fixture_path = "#{::Rails.root}/spec/fixtures"
     config.include Capybara::DSL
   end
-
-  Dir["#{File.dirname(__FILE__)}/factories/**/*.rb"].each { |f| require f }
 end
-
