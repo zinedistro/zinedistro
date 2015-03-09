@@ -1,9 +1,7 @@
-require "rails_helper"
+require 'rails_helper'
 
 describe ZinesController do
-
   context 'parameters' do
-
     context 'index' do
       it 'permits a page' do
         params = ActionController::Parameters.new(page: 1)
@@ -48,7 +46,6 @@ describe ZinesController do
     let(:author_with_zines) { FactoryGirl.create :author, :with_zines }
 
     context 'with valid params' do
-
       before do
         get :index
       end
@@ -58,7 +55,6 @@ describe ZinesController do
       it 'assigns the entire published zine catalog as @zines' do
         expect(assigns(:zines)).to eq Zine.catalog
       end
-
     end
   end
 end

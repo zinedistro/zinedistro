@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 describe ZineDecorator do
   let(:zine) { FactoryGirl.create :zine_with_authors }
@@ -10,31 +10,33 @@ describe ZineDecorator do
   end
 
   describe '#cover_image_tag' do
-
     context 'with a cover image' do
       subject do
         described_class.new(build :zine, id: 0)
       end
 
-      it "returns the cover image" do
+      it 'returns the cover image' do
         allow(zine).to receive(:title)
-        expect(subject.cover_image_tag)
-          .to match "#{subject.cover_image.list_view.url}"
-        expect(subject.cover_image_tag)
-          .to match "#{subject.title}"
+        expect(subject.cover_image_tag).to(
+          match "#{subject.cover_image.list_view.url}"
+        )
+        expect(subject.cover_image_tag).to(
+          match "#{subject.title}"
+        )
       end
     end
   end
 
   describe '#path' do
     it 'returns a sanitized, seo-friendly url string' do
-      expect(subject.path)
-        .to eq '/zines/' \
+      expect(subject.path).to(
+        eq '/zines/' \
         "#{zine.id}/" \
         "#{zine.title.downcase.gsub(' ', '-')}/" \
         "by/author-#{zine.authors[0].id}" \
         "-author-#{zine.authors[1].id}-" \
         "and-author-#{zine.authors[2].id}"
+      )
     end
   end
 
@@ -54,5 +56,4 @@ describe ZineDecorator do
       end
     end
   end
-
 end

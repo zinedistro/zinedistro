@@ -2,15 +2,15 @@ require 'carrierwave/orm/activerecord'
 require_dependency 'cover_image_uploader'
 require_dependency 'pdf_uploader'
 
+# Zines are why you're here
 class Zine < ActiveRecord::Base
-
   has_many :authorships
   has_many(
     :authors,
     -> { distinct.order(:name) },
     through: :authorships,
     after_add: [:increment_author_cache_counter],
-    after_remove: [:decrement_author_cache_counter],
+    after_remove: [:decrement_author_cache_counter]
   )
 
   mount_uploader :cover_image, CoverImageUploader
@@ -20,11 +20,11 @@ class Zine < ActiveRecord::Base
 
   before_validation(:generate_assets_from_legacy_ids)
 
-  scope :published, -> {
+  scope :published, lambda {
     where(published: true)
   }
 
-  scope :order_by_updated, -> {
+  scope :order_by_updated, lambda {
     order(updated_at: :desc)
   }
 
@@ -61,10 +61,9 @@ class Zine < ActiveRecord::Base
   private
 
   def generate_assets_from_legacy_ids
-    if legacy_id.present?
-      generate_cover_image_from_legacy_id
-      generate_pdf_from_legacy_id
-    end
+    return unless legacy_id.present?
+    generate_cover_image_from_legacy_id
+    generate_pdf_from_legacy_id
   end
 
   def generate_cover_image_from_legacy_id

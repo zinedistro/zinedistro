@@ -4,9 +4,7 @@ require_dependency 'author'
 require_dependency 'authorship'
 
 describe Zine do
-
   describe 'validations' do
-
     context 'with all required attributes' do
       let(:zine) { FactoryGirl.build :zine }
       it 'is valid' do
@@ -21,7 +19,9 @@ describe Zine do
         expect(zine).to_not be_valid
         expect(zine.errors.count).to equal 1
         expect(zine.errors.full_messages.first).to eq(
-          "#{I18n.t('activerecord.attributes.zine.title')} #{I18n.t('errors.messages.blank')}"
+          I18n.t('activerecord.attributes.zine.title') +
+          ' ' +
+          I18n.t('errors.messages.blank')
         )
       end
     end
@@ -34,7 +34,9 @@ describe Zine do
         expect(zine).to_not be_valid
         expect(zine.errors.count).to equal 1
         expect(zine.errors.full_messages.first).to eq(
-          "#{I18n.t('activerecord.attributes.zine.cover_image')} #{I18n.t('errors.messages.blank')}"
+          I18n.t('activerecord.attributes.zine.cover_image') +
+          ' ' +
+          I18n.t('errors.messages.blank')
         )
       end
 
@@ -57,7 +59,9 @@ describe Zine do
         expect(zine).to_not be_valid
         expect(zine.errors.count).to equal 1
         expect(zine.errors.full_messages.first).to eq(
-          "#{I18n.t('activerecord.attributes.zine.pdf')} #{I18n.t('errors.messages.blank')}"
+          I18n.t('activerecord.attributes.zine.pdf') +
+          ' ' +
+          I18n.t('errors.messages.blank')
         )
       end
 
@@ -79,27 +83,29 @@ describe Zine do
       let(:published_zine) { FactoryGirl.create :zine_with_authors }
 
       it 'returns the published zine' do
-        expect(described_class.find_published(published_zine.id))
-        .to eq published_zine
+        expect(
+          described_class.find_published(published_zine.id)
+        ).to eq published_zine
       end
     end
 
     context 'with an unpublished zine' do
-      let(:unpublished_zine) { FactoryGirl.build :zine_with_authors, :unpublished }
+      let(:unpublished_zine) do
+        FactoryGirl.build :zine_with_authors, :unpublished
+      end
 
       it 'raises "record not found"' do
-        expect {
+        expect do
           described_class.find_published(unpublished_zine.id)
-        }.to raise_error(ActiveRecord::RecordNotFound)
+        end.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
 
     context 'without a zine' do
-
       it 'raises "record not found"' do
-        expect {
+        expect do
           described_class.find_published('robots')
-        }.to raise_error(ActiveRecord::RecordNotFound)
+        end.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end
@@ -107,7 +113,9 @@ describe Zine do
   describe '.catalog' do
     context 'with published a zine' do
       let(:published_zine) { FactoryGirl.create :zine_with_authors }
-      let(:unpublished_zine) { FactoryGirl.build :zine_with_authors, :unpublished }
+      let(:unpublished_zine) do
+        FactoryGirl.build(:zine_with_authors, :unpublished)
+      end
 
       it 'returns published zines' do
         expect(described_class.catalog).to include published_zine
@@ -120,7 +128,7 @@ describe Zine do
   end
 
   describe '#add_author' do
-    context "with an author" do
+    context 'with an author' do
       let(:author) { FactoryGirl.build :author }
       let(:zine) { FactoryGirl.create :zine }
 
@@ -133,9 +141,9 @@ describe Zine do
       it 'does not add the author multiple times' do
         expect(zine.author_count).to eq 0
         zine.add_author(author)
-        expect {
+        expect do
           zine.add_author(author)
-        }.to raise_error(ActiveRecord::RecordInvalid)
+        end.to raise_error(ActiveRecord::RecordInvalid)
         expect(zine.author_count).to eq 1
       end
     end
@@ -165,18 +173,18 @@ describe Zine do
 
       context 'when adding an author' do
         it 'incriments author_count' do
-          expect {
+          expect do
             zine.add_author(author)
-          }.to change(zine.authors, :count).by(1)
+          end.to change(zine.authors, :count).by(1)
         end
       end
 
       context 'when removing an author' do
         it 'decrements author_count' do
           zine.authors << author
-          expect {
+          expect do
             zine.remove_author(author)
-          }.to change(zine, :author_count).by(-1)
+          end.to change(zine, :author_count).by(-1)
         end
       end
     end
@@ -187,11 +195,10 @@ describe Zine do
       let(:zine) { FactoryGirl.build :zine, :unpublished }
       it 'changes the published attribute' do
         expect(zine.published).to be false
-        expect {
+        expect do
           zine.publish!
-        }.to change(zine, :published).from(false).to(true)
+        end.to change(zine, :published).from(false).to(true)
       end
     end
   end
-
 end
