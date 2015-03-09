@@ -37,4 +37,8 @@ unless rails_loaded?
   I18n.load_path << app_translations
 
   require_relative './support/factory_girl.rb'
+
+  RSpec.configure do |config|
+    config.active_record.raise_in_transactional_callbacks = true
+  end
 end
