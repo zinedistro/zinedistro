@@ -37,8 +37,4 @@ unless rails_loaded?
   I18n.load_path << app_translations
 
   require_relative './support/factory_girl.rb'
-
-  RSpec.configure do |config|
-    config.include Capybara::DSL
-  end
 end

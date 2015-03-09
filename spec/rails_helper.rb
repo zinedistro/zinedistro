@@ -44,6 +44,8 @@ Kaminari.configure { |c| c.default_per_page = 2 }
 Capybara.asset_host = 'http://localhost:3000'
 
 RSpec.configure do |config|
+  config.include Capybara::DSL
+
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
