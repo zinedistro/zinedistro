@@ -1,3 +1,5 @@
+require_dependency 'zine'
+require_dependency 'authorship'
 # Author
 class Author < ActiveRecord::Base
   has_many :authorships, -> { includes :authors }
