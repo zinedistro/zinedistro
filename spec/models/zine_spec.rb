@@ -1,4 +1,4 @@
-require 'active_record_spec_helper'
+require 'rails_helper'
 require_dependency 'zine'
 require_dependency 'author'
 require_dependency 'authorship'

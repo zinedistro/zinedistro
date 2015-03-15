@@ -46,6 +46,12 @@ Capybara.asset_host = 'http://localhost:3000'
 RSpec.configure do |config|
   config.include Capybara::DSL
 
+  # Use create :factory instead of FactoryGirl.create :factory
+  config.include FactoryGirl::Syntax::Methods
+
+  # Prevent Rspec-Rails from implicitly wrapping tests in database transactions
+  config.use_transactional_fixtures = false
+
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
