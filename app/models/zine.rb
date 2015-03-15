@@ -28,6 +28,12 @@ class Zine < ActiveRecord::Base
     order(updated_at: :desc)
   }
 
+  scope :most_recent, lambda {
+    published
+      .order_by_updated
+      .take(1)
+  }
+
   scope :with_authors, -> { includes(:authors) }
 
   def publish!
@@ -56,6 +62,10 @@ class Zine < ActiveRecord::Base
 
   def self.find_published_with_authors(id)
     with_authors.find_published(id)
+  end
+
+  def self.most_recently_published_date
+    most_recent.first.try(:updated_at)
   end
 
   private

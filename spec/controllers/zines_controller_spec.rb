@@ -37,23 +37,22 @@ describe ZinesController do
         it 'is decorated with ZineDecorator' do
           expect(assigns(:zine)).to be_decorated_with ZineDecorator
         end
-
       end
     end
-  end
 
-  describe 'on GET to :index' do
-    let(:author_with_zines) { FactoryGirl.create :author, :with_zines }
+    describe 'on GET to :index' do
+      let(:author_with_zines) { FactoryGirl.create :author, :with_zines }
 
-    context 'with valid params' do
-      before do
-        get :index
-      end
+      context 'with valid params' do
+        before do
+          get :index
+        end
 
-      it { is_expected.to respond_with 200 }
+        it { is_expected.to respond_with 200 }
 
-      it 'assigns the entire published zine catalog as @zines' do
-        expect(assigns(:zines)).to eq Zine.catalog
+        it 'assigns the entire published zine catalog as @zines' do
+          expect(assigns(:zines)).to eq Zine.catalog
+        end
       end
     end
   end

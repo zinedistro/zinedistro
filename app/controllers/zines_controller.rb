@@ -2,6 +2,7 @@
 class ZinesController < ApplicationController
   def index
     @zines = Zine.catalog_with_authors.page(ZineParams.index(params)[:page]).decorate
+    @most_recent = Zine.most_recently_published_date
   end
 
   def show

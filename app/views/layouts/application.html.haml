@@ -28,7 +28,7 @@
           %li.zinedistro
             =I18n.t('site.name')
           %li= link_to I18n.t('twitter_link'), 'https://twitter.com/zinedistro'
-          %li.feed= link_to I18n.t 'rss_link', zines_path(format: :atom)
+          %li.feed= link_to I18n.t('rss_link'), zines_path(format: :atom)
           %li
             = link_to 'A Resistance Army Project', 'http://theresistancearmy.com/'
             = "( maintained by #{link_to 'Faun', 'https://twitter.com/faunzy'} )".html_safe

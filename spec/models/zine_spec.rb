@@ -1,4 +1,6 @@
 require 'rails_helper'
+require 'active_support/testing/time_helpers'
+include ActiveSupport::Testing::TimeHelpers
 require_dependency 'zine'
 require_dependency 'author'
 require_dependency 'authorship'
@@ -198,6 +200,52 @@ describe Zine do
         expect do
           zine.publish!
         end.to change(zine, :published).from(false).to(true)
+      end
+    end
+  end
+
+  describe '.most_recent' do
+    context 'with no published zines' do
+      it 'returns an empty set' do
+        expect(described_class.most_recent).to be_empty
+      end
+    end
+
+    context 'with published zines' do
+      let(:zine) { FactoryGirl.create :zine }
+      let(:zine2) { FactoryGirl.create :zine }
+
+      it 'updates the timestamp to the latest zine' do
+        Time.travel_to(Date.today - 7) do
+          zine2.publish!
+        end
+        zine.publish!
+        expect(described_class.most_recent).to eq([zine])
+      end
+    end
+  end
+
+  describe '.most_recently_published_date' do
+    context 'with no published zines' do
+      it 'returns nil' do
+        expect(described_class.most_recently_published_date).to be_nil
+      end
+    end
+
+    context 'with published zines' do
+      let(:zine) { FactoryGirl.create :zine }
+      let(:zine2) { FactoryGirl.create :zine }
+
+      it 'updates the timestamp to the latest zine' do
+        Time.travel_to(Date.today - 7) do
+          zine2.publish!
+        end
+        Time.travel_to(Date.today) do
+          zine.publish!
+          expect(
+            described_class.most_recently_published_date
+          ).to eq(Time.zone.now)
+        end
       end
     end
   end

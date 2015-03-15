@@ -35,6 +35,10 @@ class ZineDecorator < ModelDecorator
     end
   end
 
+  def full_title
+    "#{object.title}: #{object.subtitle}"
+  end
+
   private
 
   def cover_image_url

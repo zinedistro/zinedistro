@@ -9,6 +9,21 @@ describe ZineDecorator do
     described_class.new(zine)
   end
 
+  describe '#id' do
+    subject do
+      described_class.new(build :zine, id: 1234)
+    end
+    it 'returns the zine id' do
+      expect(subject.id).to match 1234
+    end
+  end
+
+  describe '#full_title' do
+    it 'returns a concatenated string of title and subtitle' do
+      expect(subject.full_title).to eq zine.title + ': ' + zine.subtitle
+    end
+  end
+
   describe '#cover_image_tag' do
     context 'with a cover image' do
       subject do
