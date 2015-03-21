@@ -40,19 +40,29 @@ describe ZinesController do
       end
     end
 
-    describe 'on GET to :index' do
-      let(:author_with_zines) { FactoryGirl.create :author, :with_zines }
-
+    context 'without any zines' do
       context 'with valid params' do
         before do
-          get :index
+          get :show, id: 0
         end
 
-        it { is_expected.to respond_with 200 }
+        it { is_expected.to respond_with 404 }
+      end
+    end
+  end
 
-        it 'assigns the entire published zine catalog as @zines' do
-          expect(assigns(:zines)).to eq Zine.catalog
-        end
+  describe 'on GET to :index' do
+    let(:author_with_zines) { FactoryGirl.create :author, :with_zines }
+
+    context 'with valid params' do
+      before do
+        get :index
+      end
+
+      it { is_expected.to respond_with 200 }
+
+      it 'assigns the entire published zine catalog as @zines' do
+        expect(assigns(:zines)).to eq Zine.catalog
       end
     end
   end
