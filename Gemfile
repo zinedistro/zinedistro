@@ -53,6 +53,7 @@ group :development do
   gem 'rb-inotify', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'travis'
 end
 
 group :production do
