@@ -20,12 +20,12 @@ if ENV['COVERAGE'] || ENV['CI']
   end
 end
 if ENV['CI']
-  require "codeclimate-test-reporter"
-  WebMock.disable_net_connect!(allow: "codeclimate.com")
+  require 'codeclimate-test-reporter'
+  WebMock.disable_net_connect!(allow: 'codeclimate.com')
   CodeClimate::TestReporter.start
 end
 
-require "spec_helper"
+require 'spec_helper'
 
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
