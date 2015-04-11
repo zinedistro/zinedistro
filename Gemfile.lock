@@ -94,6 +94,8 @@ GEM
       mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    childprocess (0.5.6)
+      ffi (~> 1.0, >= 1.0.11)
     codeclimate-test-reporter (0.4.7)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
@@ -325,6 +327,8 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    overcommit (0.23.0)
+      childprocess (~> 0.5.0)
     pg (0.18.1)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
@@ -507,6 +511,7 @@ DEPENDENCIES
   mini_magick (~> 4.2.1)
   newrelic_rpm
   nokogiri (~> 1.6.6.2)
+  overcommit
   pg (~> 0.18.1)
   pry
   rack-timeout
