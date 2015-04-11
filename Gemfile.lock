@@ -443,17 +443,17 @@ DEPENDENCIES
   bower-rails (~> 0.9.0)
   bugsnag
   bullet
-  capybara (~> 2.4.1)
-  capybara-screenshot (~> 1.0.3)
+  capybara
+  capybara-screenshot
   carrierwave
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
-  database_cleaner (~> 1.4.0)
+  database_cleaner
   devise!
-  dotenv-rails (~> 1.0.0)
+  dotenv-rails
   draper (~> 1.4.0)
-  factory_girl_rails (~> 4.0)
-  faker (~> 1.4.3)
+  factory_girl_rails
+  faker
   fog (~> 1.27.0)
   foreman
   guard
@@ -466,17 +466,17 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri (~> 1.6.6.2)
   pg (~> 0.18.1)
-  pry (~> 0.10.1)
+  pry
   rack-timeout
   rails (~> 4.2.0)
   rails_12factor (= 0.0.3)
   rb-fchange
   rb-fsevent
   rb-inotify
-  rspec-rails (~> 3.1.0)
+  rspec-rails
   sass-rails (~> 5.0.1)
-  shoulda-matchers (~> 2.8.0)
-  simplecov (~> 0.9.1)
+  shoulda-matchers
+  simplecov
   skylight (~> 0.6.0)
   spring
   spring-commands-rspec

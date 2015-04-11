@@ -23,20 +23,20 @@ gem 'utf8-cleaner', '~> 0.0.9'
 gem 'newrelic_rpm', group: [:development, :production]
 
 group :test, :development do
-  gem 'capybara', '~> 2.4.1'
-  gem 'dotenv-rails', '~> 1.0.0'
-  gem 'factory_girl_rails', '~> 4.0'
-  gem 'faker', '~> 1.4.3'
-  gem 'pry', '~> 0.10.1'
-  gem 'rspec-rails', '~> 3.1.0'
+  gem 'capybara'
+  gem 'dotenv-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'pry'
+  gem 'rspec-rails'
 end
 
 group :test do
-  gem "codeclimate-test-reporter", require: false
-  gem 'capybara-screenshot', '~> 1.0.3'
-  gem 'database_cleaner', '~> 1.4.0'
-  gem 'shoulda-matchers', '~> 2.8.0', require: false
-  gem 'simplecov', '~> 0.9.1'
+  gem 'capybara-screenshot'
+  gem 'codeclimate-test-reporter', require: false
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', require: false
+  gem 'simplecov'
   gem 'webmock'
 end
 
@@ -44,6 +44,7 @@ group :development do
   # gem 'coffee-rails-source-maps'
   # gem 'sass-rails-source-maps'
   gem 'bullet'
+  gem 'foreman'
   gem 'guard'
   gem 'guard-livereload'
   gem 'guard-rspec', require: false
@@ -52,7 +53,6 @@ group :development do
   gem 'rb-inotify', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'foreman'
 end
 
 group :production do
