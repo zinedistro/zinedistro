@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :author do
     sequence(:name) { |n| "Author #{n}" }
     factory :author_with_zines do
-      ignore do
+      transient do
         zines_count 3
       end
       after(:create) do |author, evaluator|

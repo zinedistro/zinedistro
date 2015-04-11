@@ -12,7 +12,7 @@ FactoryGirl.define do
     sequence(:download_url) { |n| "/download/zines/#{n}" }
 
     factory :zine_with_authors do
-      ignore do
+      transient do
         authors_count 3
       end
       after :create do |zine, evaluator|
