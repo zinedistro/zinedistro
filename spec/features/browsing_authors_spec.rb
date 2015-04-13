@@ -27,7 +27,7 @@ feature 'Browsing Zines' do
           click_link authors.first.name
         end
 
-        scenario "I should see the author's detailed information" do
+        scenario "I can see the author's detailed information" do
           within ".author-name" do
             expect(page).to have_content authors.first.name
           end
