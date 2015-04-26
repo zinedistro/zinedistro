@@ -19,31 +19,36 @@ module ZineDistro
   # ZineDistro configuration
   class Application < Rails::Application
     config.generators do |g|
-      g.test_framework :rspec,
+      g.test_framework(:rspec,
                        fixtures: true,
                        view_specs: false,
                        helper_specs: false,
                        routing_specs: false,
                        controller_specs: true,
-                       feature_specs: true
+                       feature_specs: true)
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
       g.helper false
       g.template_engine :haml
       g.stylesheets false
       g.stylesheet_engine = :sass
     end
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+
+    # Settings in config/environments/* take precedence over those specified
+    # here.  Application configuration should go into files in
+    # config/initializers -- all .rb files in that directory are automatically
+    # loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/lib)
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
+
+    # Set Time.zone default to the specified zone and make Active Record
+    # auto-convert to this zone.  Run "rake -D time" for a list of tasks for
+    # finding time zone names. Default is UTC.
     config.time_zone = 'Pacific Time (US & Canada)'
 
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    # The default locale is :en and all translations from
+    # config/locales/*.rb,yml are auto loaded.  config.i18n.load_path +=
+    # Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
     # Configure the default encoding used in templates for Ruby 1.9.
@@ -52,7 +57,8 @@ module ZineDistro
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    # Use SQL instead of Active Record's schema dumper when creating the database.
+    # Use SQL instead of Active Record's schema dumper when creating the
+    # database.
     config.active_record.schema_format = :sql
 
     # Enable escaping HTML in JSON.
@@ -60,8 +66,8 @@ module ZineDistro
 
     config.i18n.available_locales = [:en]
     config.i18n.default_locale = :en
-    # This is necessary if your schema can't be completely dumped by the schema dumper,
-    # like if you have constraints or database-specific column types
+    # This is necessary if your schema can't be completely dumped by the schema
+    # dumper, like if you have constraints or database-specific column types
     # config.active_record.schema_format = :sql
 
     # Version of your assets, change this if you want to expire all your assets
@@ -74,12 +80,17 @@ module ZineDistro
     config.assets.precompile += %w( .svg .eot .woff .ttf )
 
     # Add assets packaged by bower to asset pipeline
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+    config.assets.paths << Rails.root.join('vendor',
+                                           'assets',
+                                           'bower_components')
 
     # Don't suppress Active Record errors raised within after_rollback or
     # after_commit callbacks
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.middleware.insert_before ActionDispatch::ParamsParser, "CatchJsonParseErrors"
+    config.middleware.insert_before(
+      ActionDispatch::ParamsParser,
+      'CatchJsonParseErrors'
+    )
   end
 end
