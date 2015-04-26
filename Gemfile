@@ -39,7 +39,7 @@ group :test do
   gem 'simplecov'
   gem 'webmock'
   gem 'curb'
-  gem 'capybara-webkit'
+  gem 'poltergeist'
 end
 
 group :development do

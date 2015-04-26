@@ -30,6 +30,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -41,7 +42,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 Kaminari.configure { |c| c.default_per_page = 2 }
 Capybara.asset_host = 'http://localhost:3000'
-Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :poltergeist
 WebMock.disable_net_connect!(allow: 'codeclimate.com', allow_localhost: true)
 
 RSpec.configure do |config|
