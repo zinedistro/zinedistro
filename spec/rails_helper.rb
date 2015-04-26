@@ -21,7 +21,6 @@ if ENV['COVERAGE'] || ENV['CI']
 end
 if ENV['CI']
   require 'codeclimate-test-reporter'
-  WebMock.disable_net_connect!(allow: 'codeclimate.com')
   CodeClimate::TestReporter.start
 end
 
@@ -42,6 +41,8 @@ ActiveRecord::Migration.maintain_test_schema!
 
 Kaminari.configure { |c| c.default_per_page = 2 }
 Capybara.asset_host = 'http://localhost:3000'
+Capybara.javascript_driver = :webkit
+WebMock.disable_net_connect!(allow: 'codeclimate.com', allow_localhost: true)
 
 RSpec.configure do |config|
   config.include Capybara::DSL

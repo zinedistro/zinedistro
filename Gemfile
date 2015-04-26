@@ -38,6 +38,8 @@ group :test do
   gem 'shoulda-matchers', require: false
   gem 'simplecov'
   gem 'webmock'
+  gem 'curb'
+  gem 'capybara-webkit'
 end
 
 group :development do
