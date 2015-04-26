@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     render(file: 'application/_missing',
            status: :not_found,
            formats: [:html],
-           layout:  true)
+           layout: true)
   end
 
   def unknown_format
