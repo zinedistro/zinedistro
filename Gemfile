@@ -1,4 +1,4 @@
-ruby '2.2.1'
+ruby ENV['CUSTOM_RUBY_VERSION'] || '2.2.2'
 source 'https://rubygems.org'
 
 gem 'activeadmin', '~> 1.0.0.pre1'
