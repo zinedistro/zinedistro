@@ -472,7 +472,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
-    unicorn (4.8.3)
+    unicorn (4.9.0)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
@@ -541,7 +541,7 @@ DEPENDENCIES
   travis
   uglifier (~> 2.7.0)
   unf (~> 0.1.4)
-  unicorn (~> 4.8.3)
+  unicorn (~> 4.9.0)
   utf8-cleaner (~> 0.0.9)
   webmock
 
