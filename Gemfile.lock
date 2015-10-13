@@ -521,7 +521,7 @@ DEPENDENCIES
   pry
   rack-timeout
   rails (~> 4.2.0)
-  rails_12factor (= 0.0.3)
+  rails_12factor
   rb-fchange
   rb-fsevent
   rb-inotify
@@ -529,7 +529,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.1)
   shoulda-matchers (~> 2.8.0)
   simplecov
-  skylight (~> 0.6.0)
+  skylight
   spring
   spring-commands-rspec
   travis
