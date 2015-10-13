@@ -34,12 +34,12 @@ end
 group :test do
   gem 'capybara-screenshot'
   gem 'codeclimate-test-reporter', require: false
+  gem 'curb'
   gem 'database_cleaner'
-  gem 'shoulda-matchers', require: false
+  gem 'poltergeist'
+  gem 'shoulda-matchers', '~> 2.8.0', require: false
   gem 'simplecov'
   gem 'webmock'
-  gem 'curb'
-  gem 'poltergeist'
 end
 
 group :development do
