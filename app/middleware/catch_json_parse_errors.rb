@@ -8,7 +8,7 @@ class CatchJsonParseErrors
     @app.call(env)
   rescue ActionDispatch::ParamsParser::ParseError => error
     if env['HTTP_ACCEPT'] =~ /application\/json/
-      error_output = "There was a problem in the JSON you submitted: #{error}"
+      error_output = 'Invalid JSON'
       return [
         400, { 'Content-Type' => 'application/json' },
         [{ status: 400, error: error_output }.to_json]

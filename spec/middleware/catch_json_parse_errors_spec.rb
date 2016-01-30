@@ -10,7 +10,7 @@ feature 'A client submits JSON' do
     expect(curb.response_code).to eq 400
     expect(curb.content_type).to match(/application\/json/)
     expect(curb.body_str).to match(
-      'There was a problem in the JSON you submitted:'
+      { 'status' => 400, 'error' => 'Invalid JSON' }.to_json
     )
   end
 end
