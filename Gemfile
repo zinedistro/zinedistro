@@ -2,7 +2,7 @@ ruby ENV['CUSTOM_RUBY_VERSION'] || '2.3.0'
 source 'https://rubygems.org'
 
 gem 'activeadmin', '~> 1.0.0.pre1'
-gem 'bower-rails', '~> 0.9.0'
+gem 'bower-rails'
 gem 'carrierwave', '~> 0.10.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise', '~> 3.5.1'
