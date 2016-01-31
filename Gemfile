@@ -37,7 +37,7 @@ group :test do
   gem 'codeclimate-test-reporter', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
-  gem 'shoulda-matchers', '~> 2.8.0', require: false
+  gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'webmock'
 end

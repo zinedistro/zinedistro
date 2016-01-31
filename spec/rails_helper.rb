@@ -45,6 +45,13 @@ Capybara.asset_host = 'http://localhost:3000'
 Capybara.javascript_driver = :poltergeist
 WebMock.disable_net_connect!(allow: 'codeclimate.com', allow_localhost: true)
 
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
 RSpec.configure do |config|
   config.include Capybara::DSL
 
