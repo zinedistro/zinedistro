@@ -40,7 +40,6 @@ group :test do
   gem 'shoulda-matchers', '~> 2.8.0', require: false
   gem 'simplecov'
   gem 'webmock'
-  gem 'curb', '<= 0.9.0'
 end
 
 group :development do

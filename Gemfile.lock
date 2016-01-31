@@ -97,7 +97,6 @@ GEM
     concurrent-ruby (1.0.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    curb (0.8.8)
     database_cleaner (1.5.1)
     devise (3.5.5)
       bcrypt (~> 3.0)
@@ -511,7 +510,6 @@ DEPENDENCIES
   carrierwave (~> 0.10.0)
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
-  curb (<= 0.9.0)
   database_cleaner
   devise (~> 3.5.1)
   dotenv-rails
