@@ -1,13 +1,14 @@
 require 'rails_helper'
 
-feature 'A client submits JSON', js: true do
-  scenario 'with an invalid format returns 400' do
-    request = Curl.get("http://#{host}:#{port}/admin/login.aspx")
+describe 'A client submits a request with an invalid format' do
+  it 'returns 400' do
+    headers = {
+      'ACCEPT' => 'application/json'
+    }
+    get '/admin/login.aspx', headers
 
-    expect(request.response_code).to eq 400
-    expect(request.content_type).to match(/application\/json/)
-    expect(request.body_str).to match(
-      'There was a problem with the given format: aspx'
-    )
+    expect(response.content_type).to eq('application/json')
+    expect(response).to have_http_status(:bad_request)
+    expect(response.body).to match('There was a problem with the given format')
   end
 end
