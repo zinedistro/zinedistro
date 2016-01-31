@@ -20,7 +20,7 @@ gem 'responders', '~> 2.0'
 gem 'sass-rails', '~> 5.0.1'
 gem 'uglifier', '~> 2.7.0'
 gem 'unf', '~> 0.1.4'
-gem 'unicorn', '~> 4.9.0'
+gem 'unicorn'
 gem 'utf8-cleaner', '~> 0.0.9'
 
 group :test, :development do
