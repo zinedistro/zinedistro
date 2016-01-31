@@ -12,7 +12,7 @@ gem 'haml', '~> 4.0.4'
 gem 'kaminari', '~> 0.16.1'
 gem 'mini_magick', '~> 4.2.1'
 gem 'newrelic_rpm', group: [:development, :production]
-gem 'nokogiri', '~> 1.6.6.2'
+gem 'nokogiri', '> 1.6.6.4'
 gem 'pg', '~> 0.18.1'
 gem 'rack-timeout'
 gem 'rails', '~> 4.2.5'
