@@ -10,7 +10,7 @@ gem 'draper', '~> 2.1.0'
 gem 'fog', require: 'fog/aws/storage'
 gem 'haml', '~> 4.0.4'
 gem 'kaminari', '~> 0.16.1'
-gem 'mini_magick', '~> 4.2.1'
+gem 'mini_magick'
 gem 'newrelic_rpm', group: [:development, :production]
 gem 'nokogiri', '> 1.6.6.4'
 gem 'pg', '~> 0.18.1'
