@@ -87,10 +87,5 @@ module ZineDistro
     # Don't suppress Active Record errors raised within after_rollback or
     # after_commit callbacks
     config.active_record.raise_in_transactional_callbacks = true
-
-    config.middleware.insert_before(
-      ActionDispatch::ParamsParser,
-      'CatchJsonParseErrors'
-    )
   end
 end
