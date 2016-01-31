@@ -490,7 +490,8 @@ GEM
       rack
       raindrops (~> 0.7)
     uniform_notifier (1.9.0)
-    utf8-cleaner (0.0.9)
+    utf8-cleaner (0.2.1)
+      activesupport
     warden (1.2.5)
       rack (>= 1.0)
     webmock (1.22.6)
@@ -557,7 +558,7 @@ DEPENDENCIES
   uglifier (~> 2.7.0)
   unf (~> 0.1.4)
   unicorn
-  utf8-cleaner (~> 0.0.9)
+  utf8-cleaner
   webmock
 
 BUNDLED WITH
