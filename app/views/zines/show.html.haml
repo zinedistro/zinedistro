@@ -2,7 +2,7 @@
   %ul.zine_back
     %li
       = link_to I18n.t(:zine_back), zines_path
-%article.zine.column.span-24{:id => "zine_#{@zine.id}"}
+%article.zine.show.column.span-24{ :id => "zine_#{@zine.id}" }
   %aside.cover.column.span-6
     = @zine.cover_image_tag
   %section.meta.column.span-18.last
