@@ -14,7 +14,7 @@
     %h5
       %span.alt by
       = @zine.author_name_tag
-    %p.excerpt
+    %section.excerpt
       = simple_format @zine.excerpt if @zine.excerpt
   - if @zine.full_text?
     %section.full_text.column.span-24
