@@ -1,6 +1,8 @@
 $link_color: darken(steelblue, 0);
 $link_hover_color: #181818;
 $link_alternate_color: cornsilk;
+$medium_gray: #ccc;
+$light_gray: #eee;
 
 // blueprint overrides...
 abbr,
@@ -82,7 +84,7 @@ article a {
 
 // header...
 header {
-  background: #eee;
+  background: $light_gray;
   padding: 1em 0;
 
   h1,
@@ -108,7 +110,7 @@ header {
   }
 
   h2 a {
-    color: #ccc;
+    color: $medium_gray;
   }
 
   .links {
@@ -141,7 +143,7 @@ main {
   float: left;
 
   li.border {
-    border-right: 1px solid #ccc;
+    border-right: 1px solid $medium_gray;
     padding-right: .5em;
   }
 
@@ -169,7 +171,7 @@ main {
     margin: 6px 14px 0 0;
     height: 200px;
     width: 136px;
-    outline: 1px solid #ccc;
+    outline: 1px solid $medium_gray;
 
     & a:hover {
       background: none;
@@ -256,7 +258,7 @@ main {
   }
 
   .stats {
-    color: #ccc;
+    color: $medium_gray;
     font-size: 1em;
     line-height: 100%;
 
@@ -366,7 +368,7 @@ footer {
 
   .current,
   a {
-    border: 1px solid #ccc;
+    border: 1px solid $medium_gray;
     line-height: 100%;
     margin: 0;
     padding: .5em;
