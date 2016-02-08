@@ -57,9 +57,6 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
-  # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
-
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
 
@@ -82,4 +79,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Use Redis cache store in production.
+  if ENV['REDIS_URL']
+    config.cache_store = :readthis_store, {
+      expires_in: 2.weeks.to_i,
+      namespace: 'cache',
+      redis: {
+        url: ENV.fetch('REDIS_URL'),
+        driver: :hiredis
+      }
+    }
+  else
+    Logger.new(STDOUT).warn "REDIS_URL is not set, starting without redis cache"
+  end
 end

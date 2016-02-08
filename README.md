@@ -84,6 +84,17 @@ User.create!(email: 'admin@example.com',
              password_confirmation: 'password')
 ```
 
+
+### Redis configuration
+
+In order to optimize Redis for caching, change the key expiration policy to [`volatile-lru`](https://devcenter.heroku.com/articles/heroku-redis#maxmemory-policy):
+
+```sh
+heroku redis:maxmemory REDIS_URL --policy volatile-lru
+```
+
+Note that this is not necessary if the application was deployed using the `Deploy to Heroku` button
+
 ## Request for Contributions
 
 We would be thrilled to have your input on the future of zinedistro. Let's get started with a few ground rules.

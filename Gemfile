@@ -64,4 +64,6 @@ group :production do
   gem 'rails_12factor'
   gem 'bugsnag'
   gem 'heroku_rails_deflate'
+  gem 'readthis'
+  gem 'hiredis'
 end
