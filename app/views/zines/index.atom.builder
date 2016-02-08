@@ -6,11 +6,13 @@ atom_feed do |feed|
   end
 
   @zines.each do |zine|
-    feed.entry(zine) do |entry|
-      entry.title zine.full_title
-      entry.content simple_format(zine.excerpt), type: 'html'
-      entry.author do |author|
-        author.name zine.author_names
+    cache ['v1_atom', zine] do
+      feed.entry(zine) do |entry|
+        entry.title zine.full_title
+        entry.content simple_format(zine.excerpt), type: 'html'
+        entry.author do |author|
+          author.name zine.author_names
+        end
       end
     end
   end

@@ -1,21 +1,22 @@
-%nav.back
-  %ul.zine_back
-    %li
-      = link_to I18n.t(:zine_back), zines_path
-%article.zine.show.column.span-24{ :id => "zine_#{@zine.id}" }
-  %aside.cover.column.span-6
-    = @zine.cover_image_tag
-  %section.meta.column.span-18.last
-    %nav.column.span-4
-      .download
-        = @zine.download_link
-    %h3= @zine.title
-    %h4= @zine.subtitle
-    %h5
-      %span.alt by
-      = @zine.author_name_tag
-    %section.excerpt
-      = simple_format @zine.excerpt if @zine.excerpt
-  - if @zine.full_text?
-    %section.full_text.column.span-24
-      = simple_format @zine.full_text
+- cache ['v1', @zine] do
+  %nav.back
+    %ul.zine_back
+      %li
+        = link_to I18n.t(:zine_back), zines_path
+  %article.zine.show.column.span-24{ :id => "zine_#{@zine.id}" }
+    %aside.cover.column.span-6
+      = @zine.cover_image_tag
+    %section.meta.column.span-18.last
+      %nav.column.span-4
+        .download
+          = @zine.download_link
+      %h3= @zine.title
+      %h4= @zine.subtitle
+      %h5
+        %span.alt by
+        = @zine.author_name_tag
+      %section.excerpt
+        = simple_format @zine.excerpt if @zine.excerpt
+    - if @zine.full_text?
+      %section.full_text.column.span-24
+        = simple_format @zine.full_text
