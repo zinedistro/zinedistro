@@ -19,4 +19,4 @@ test:
 production:
   <<: *common
   url:  <%= ENV["DATABASE_URL"] %>
-  database: zinedistro_development
+  database: zinedistro_production
