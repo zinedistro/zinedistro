@@ -1,0 +1,22 @@
+common: &common
+  adapter: postgresql
+  encoding: unicode
+  timeout: 5000
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
+  host: <%= ENV.fetch('RAILS_POSTGRESQL_HOST', 'localhost') %>
+  port: <%= ENV.fetch('RAILS_POSTGRESQL_PORT', 5432) %>
+  user: <%= ENV.fetch('RAILS_POSTGRESQL_USER', 'postgres') %>
+  password: <%= ENV.fetch('RAILS_POSTGRESQL_PASSWORD', nil) %>
+
+development:
+  <<: *common
+  database: zinedistro_development
+
+test:
+  <<: *common
+  database: zinedistro_test
+
+production:
+  <<: *common
+  url:  <%= ENV["DATABASE_URL"] %>
+  database: zinedistro_development

@@ -14,13 +14,13 @@ gem 'mini_magick'
 gem 'newrelic_rpm', group: [:development]
 gem 'nokogiri', '> 1.6.6.4'
 gem 'pg', '~> 0.18.1'
+gem 'puma'
 gem 'rack-timeout'
 gem 'rails', '~> 4.2.5'
 gem 'responders', '~> 2.0'
 gem 'sass-rails', '~> 5.0.1'
 gem 'uglifier', '~> 2.7.0'
 gem 'unf', '~> 0.1.4'
-gem 'unicorn'
 gem 'utf8-cleaner'
 
 group :test, :development do

@@ -315,7 +315,6 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.0.5)
@@ -358,6 +357,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.16.0)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
@@ -394,7 +394,6 @@ GEM
       activesupport (= 4.2.5.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    raindrops (0.15.0)
     rake (10.5.0)
     ransack (1.7.0)
       actionpack (>= 3.0)
@@ -491,10 +490,6 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
-    unicorn (5.0.1)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
     uniform_notifier (1.9.0)
     utf8-cleaner (0.2.1)
       activesupport
@@ -547,6 +542,7 @@ DEPENDENCIES
   pg (~> 0.18.1)
   poltergeist
   pry
+  puma
   rack-timeout
   rails (~> 4.2.5)
   rails_12factor
@@ -565,7 +561,6 @@ DEPENDENCIES
   travis
   uglifier (~> 2.7.0)
   unf (~> 0.1.4)
-  unicorn
   utf8-cleaner
   webmock
 
