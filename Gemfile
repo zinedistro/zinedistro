@@ -1,4 +1,5 @@
-ruby ENV['CUSTOM_RUBY_VERSION'] || '2.3.0'
+ruby_version = File.open('.ruby-version').read.chomp
+ruby ENV['CUSTOM_RUBY_VERSION'] || ruby_version
 source 'https://rubygems.org'
 
 gem 'activeadmin', '~> 1.0.0.pre1'
