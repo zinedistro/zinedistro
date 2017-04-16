@@ -106,6 +106,8 @@ Please contribute to this repository if any of the following is true:
 
 ## How to Contribute [![Stories in Ready](https://badge.waffle.io/zinedistro/zinedistro.svg?label=ready&title=Ready)](https://waffle.io/zinedistro/zinedistro)
 
+[![Throughput Graph](https://graphs.waffle.io/zinedistro/zinedistro/throughput.svg)](https://waffle.io/zinedistro/zinedistro/metrics)
+
 Prerequisites: familiarity with [GitHub
 PRs](https://help.github.com/articles/using-pull-requests) (pull requests) and
 issues. Need help getting started? Try reading the [Github
