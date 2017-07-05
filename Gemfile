@@ -23,6 +23,7 @@ gem 'sass-rails', '~> 5.0.1'
 gem 'uglifier', '~> 2.7.0'
 gem 'unf', '~> 0.1.4'
 gem 'utf8-cleaner'
+gem 'select2-rails'
 
 group :test, :development do
   gem 'capybara'

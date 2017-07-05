@@ -43,7 +43,6 @@ ActiveAdmin.register Zine do
       f.input(:authors,
               as: :select,
               input_html: {
-                style: 'width: 25%;',
                 class: 'zine_authors',
                 placeholder: 'Enter an author name',
                 value: f.object.authors.join(',')
