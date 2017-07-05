@@ -1,5 +1,5 @@
 require 'rails_helper'
-feature 'As a user' do
+feature 'As an admin user' do
   let!(:zine) do
     create(:zine_with_authors,
            title: 'Zine 1',
