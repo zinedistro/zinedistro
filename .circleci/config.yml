@@ -1,0 +1,70 @@
+defaults: &defaults
+  working_directory: ~/zinedistro
+  docker:
+    - image: circleci/ruby:2.4.1-node
+    - image: circleci/postgres:9.4.12-alpine
+      env:
+        - POSTGRES_USER: ubuntu
+        - POSTGRES_DB: zinedistro_test
+        - POSTGRES_PASSWORD: ""
+
+  environment:
+    - DATABASE_URL: postgres://ubuntu:@localhost:5432/zinedistro_test
+    - RAILS_ENV: test
+    - CIRCLE_ARTIFACTS: ~/zinedistro/artifacts
+    - CIRCLE_PROJECT_REPONAME: zinedistro
+version: 2
+executorType: docker
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - type: cache-restore
+        name: Restore source cache
+        key: zinedistro-source-{{ .Branch }}-
+      - type: checkout
+        name: Clone source code
+      - type: cache-save
+        name: Save cache
+        key: zinedistro-source-{{ .Branch }}-{{ .Revision }}
+        paths:
+          - ~/zinedistro
+      - type: cache-restore
+        name: Restore dependency cache
+        key: zinedistro-dep-{{ .Branch }}-
+      - type: shell
+        name: Install dependencies
+        command: |
+          bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - type: cache-save
+        name: Save dependency cache
+        key: zinedistro-dep-{{ .Branch }}-{{ checksum "Gemfile" }}
+        paths:
+          - ~/zinedistro/vendor/bundle
+      - type: shell
+        name: Install dockerize
+        command: |
+          if ! [[ -s /usr/local/bin/dockerize ]]
+          then
+            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          fi
+        environment:
+          - DOCKERIZE_VERSION: v0.3.0
+      - type: shell
+        name: Install Postgres client
+        command: sudo apt-get install postgresql-client
+      - type: shell
+        name: Wait for db
+        command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - type: shell
+        name: Configure Postgres
+        command: |
+          mkdir -p $CIRCLE_ARTIFACTS || true
+          cp config/database.example.yml config/database.yml
+          bundle exec rake db:create db:structure:load --trace
+      - type: shell
+        name: Run RSpec tests
+        command: |
+          TESTFILES=$(picard tests glob "spec/**/*_spec.rb" | picard tests split --split-by=timings)
+          bundle exec rspec --format documentation --color -- ${TESTFILES}
