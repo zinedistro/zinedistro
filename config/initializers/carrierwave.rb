@@ -1,6 +1,5 @@
 ENV['RAILS_ENV'] ||= Rails.env.to_s
 
-require 'fog/aws/storage'
 require 'carrierwave'
 required_constants = %w{
     RAILS_ENV
@@ -23,7 +22,7 @@ bucket_suffix = -> {
 current_bucket = ENV['CARRIERWAVE_DIRECTORY'] + bucket_suffix[]
 
 CarrierWave.configure do |config|
-  config.storage = :fog
+  config.fog_provider = 'fog/aws'
   config.fog_credentials = {
     provider: ENV['CARRIERWAVE_PROVIDER'],
     aws_access_key_id: ENV['CARRIERWAVE_AWS_ACCESS_KEY_ID'],

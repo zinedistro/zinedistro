@@ -9,7 +9,6 @@ require 'action_mailer/railtie'
 require 'sprockets/railtie'
 
 Bundler.require(:default, Rails.env)
-require 'carrierwave/orm/activerecord'
 
 unless Rails.env.production?
   require File.expand_path("#{File.dirname(__FILE__)}/initializers/dotenv.rb")
