@@ -86,5 +86,8 @@ module ZineDistro
     # Don't suppress Active Record errors raised within after_rollback or
     # after_commit callbacks
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Raise an exception on unpermitted parameters
+    config.action_controller.action_on_unpermitted_parameters = :raise
   end
 end
