@@ -15,7 +15,7 @@ before_script:
 - cp config/database.yml.travis config/database.yml
 - psql -c 'create database travis_ci_test;' -U postgres
 - psql -U postgres -q -d travis_ci_test -f db/structure.sql
-script: rake
+script: bundle exec rspec && bundle exec codeclimate-test-reporter
 after_script:
 - bundle_cache
 env:

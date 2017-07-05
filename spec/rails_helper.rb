@@ -19,10 +19,6 @@ if ENV['COVERAGE'] || ENV['CI']
     minimum_coverage 95
   end
 end
-if ENV['CI']
-  require 'codeclimate-test-reporter'
-  CodeClimate::TestReporter.start
-end
 
 require 'spec_helper'
 
