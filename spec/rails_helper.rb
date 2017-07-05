@@ -15,8 +15,6 @@ if ENV['COVERAGE'] || ENV['CI']
     add_group 'Decorators', 'app/decorators'
     add_group 'ActiveAdmin', 'app/admin'
     add_group 'Uploaders', 'app/uploaders'
-
-    minimum_coverage 95
   end
 end
 
