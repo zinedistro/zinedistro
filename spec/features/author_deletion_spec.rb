@@ -1,6 +1,6 @@
 require "rails_helper"
 feature "Deleting Authors" do
-  let(:user) { create :user }
+  let(:user) { create :admin_user }
   let!(:author) { create :author }
 
   before do

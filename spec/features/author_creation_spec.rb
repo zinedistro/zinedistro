@@ -1,6 +1,6 @@
 require 'rails_helper'
 feature 'Creating Authors' do
-  let(:user) { create :user }
+  let(:user) { create :admin_user }
   let(:author) { attributes_for :author }
 
   before do
