@@ -6,8 +6,7 @@ feature 'As a admin user' do
     sign_in
   end
 
-  scenario 'I can add a new user' do
-
+  scenario 'I can add a new admin user' do
     visit new_admin_admin_user_path
     fill_in 'admin_user_email', with: "user@zinedistro.org"
     fill_in 'admin_user_password', with: "a password"
