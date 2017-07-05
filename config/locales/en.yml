@@ -53,3 +53,4 @@ en:
       carrierwave_download_error: "Couldn't download image."
       extension_white_list_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
       extension_black_list_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
+      mini_magick_processing_error: "Couldn't convert the file to the specified format."
