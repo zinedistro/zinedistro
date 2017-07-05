@@ -1,13 +1,15 @@
 ruby ENV['CUSTOM_RUBY_VERSION'] || `cat .ruby-version`.chomp
 source 'https://rubygems.org'
 
-gem 'activeadmin', '~> 1.0.0.pre1'
+gem 'rails'
+
+gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'bower-rails'
-gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise', '~> 3.5.1'
 gem 'draper', '~> 2.1.0'
-gem 'fog', require: 'fog/aws/storage'
+gem 'fog-aws'
 gem 'haml', '~> 4.0.4'
 gem 'kaminari', '~> 0.16.1'
 gem 'mini_magick'
@@ -16,7 +18,6 @@ gem 'nokogiri', '> 1.6.6.4'
 gem 'pg', '~> 0.18.1'
 gem 'puma'
 gem 'rack-timeout'
-gem 'rails', '~> 4.2.5.1'
 gem 'responders', '~> 2.0'
 gem 'sass-rails', '~> 5.0.1'
 gem 'uglifier', '~> 2.7.0'
@@ -30,6 +31,7 @@ group :test, :development do
   gem 'faker'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'rb-readline'
 end
 
 group :test do
