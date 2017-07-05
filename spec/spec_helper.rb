@@ -1,4 +1,6 @@
 require 'rspec/core'
+require 'pry'
+
 ENV['RAILS_ENV'] ||= 'test'
 
 def rails_loaded?
