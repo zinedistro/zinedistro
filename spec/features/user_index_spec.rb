@@ -6,9 +6,9 @@ feature 'As a user' do
     sign_in
   end
 
-  scenario 'I can add a new user' do
+  scenario 'I can add a new admin user' do
 
-    visit admin_users_path
-    expect(page).to have_content User.first.email
+    visit new_admin_admin_user_path
+    expect(page).to have_content AdminUser.first.email
   end
 end

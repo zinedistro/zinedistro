@@ -15,8 +15,8 @@ feature 'As a user' do
     within "#zine_pdf_input" do
       expect(page).to have_content "PDF"
     end
-    expect(page).to have_css '#zine_cover_image_cache'
-    expect(page).to have_css '#zine_pdf_cache'
+    expect(page).to have_css 'input#zine_cover_image_cache', visible: false
+    expect(page).to have_css 'input#zine_pdf_cache', visible: false
     click_button 'Create Zine'
     expect(page).to have_content create_message_for :zine
   end
