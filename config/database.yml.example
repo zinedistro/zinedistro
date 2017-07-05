@@ -3,8 +3,9 @@ common: &common
   encoding: unicode
   pool: 5
   timeout: 5000
-  host: <%= ENV.fetch('DB_1_PORT_5432_TCP_ADDR', 'localhost') %>
-  port: <%= ENV["BOXEN_POSTGRESQL_PORT"] || 5432 %>
+  host: <%= ENV.fetch('RAILS_POSTGRESQL_HOST', 'localhost') %>
+  port: <%= ENV.fetch("RAILS_POSTGRESQL_PORT", 5432) %>
+  username: <%= ENV.fetch('RAILS_POSTGRESQL_USERNAME', 'postgres') %>
 
 development:
   <<: *common
