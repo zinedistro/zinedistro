@@ -1,5 +1,4 @@
 # encoding: utf-8
-require 'fog/aws/storage'
 require 'carrierwave'
 require 'carrier_wave_model_configuration'
 

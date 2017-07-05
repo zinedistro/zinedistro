@@ -1,4 +1,4 @@
-require 'fog/aws/storage'
+require 'fog/aws'
 require 'carrierwave'
 module CarrierWaveModelConfiguration
 
