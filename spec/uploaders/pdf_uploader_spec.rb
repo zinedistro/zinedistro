@@ -28,11 +28,5 @@ describe PdfUploader do
     it "has the correct file extension" do
       expect(instance.file.extension).to eq('pdf')
     end
-
-    it "does not allow the PDF to be converted" do
-      expect {
-        instance.convert(:pdf)
-      }.to raise_error { CarrierWave::ProcessingError }
-    end
   end
 end

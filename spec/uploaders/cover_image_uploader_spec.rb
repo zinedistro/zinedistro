@@ -44,11 +44,5 @@ describe CoverImageUploader do
       instance.convert(:jpeg)
       expect(instance.file.extension).to eq('jpeg')
     end
-
-    it "does not allow the images to be converted to PDF" do
-      expect {
-        instance.convert(:pdf)
-      }.to raise_error { CarrierWave::ProcessingError }
-    end
   end
 end
