@@ -1,6 +1,8 @@
-require "rails_helper"
+# frozen_string_literal: true
 
+require 'rails_helper'
 require 'carrierwave/test/matchers'
+
 feature 'As an admin user' do
   before do
     sign_in
