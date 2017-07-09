@@ -48,4 +48,7 @@ Rails.application.configure do
     Bullet.enable = true
     Bullet.rails_logger = true
   end
+
+  # Raise an exception on unpermitted parameters
+  config.action_controller.action_on_unpermitted_parameters = :raise
 end
