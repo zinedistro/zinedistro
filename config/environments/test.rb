@@ -45,4 +45,6 @@ Rails.application.configure do
     host: "localhost:#{ENV.fetch("$PORT", 3000)}"
   }
 
+  # Raise an exception on unpermitted parameters
+  config.action_controller.action_on_unpermitted_parameters = :raise
 end
