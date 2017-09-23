@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/zinedistro
   docker:
-    - image: circleci/ruby:2.4.1-node
+    - image: circleci/ruby:2.4.2-node
     - image: circleci/postgres:9.4.12-alpine
       env:
         - POSTGRES_USER: ubuntu
