@@ -18,7 +18,7 @@ Yes.
 
 ### Is it "Production Ready™"?
 
-Nope.
+Yes.
 
 ## Setup Instructions
 
