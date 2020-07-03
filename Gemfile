@@ -11,7 +11,7 @@ gem 'devise', '~> 3.5.1'
 gem 'draper', '~> 2.1.0'
 gem 'fog-aws'
 gem 'haml', '~> 4.0.4'
-gem 'kaminari', '~> 0.16.1'
+gem 'kaminari', '~> 1.2.1'
 gem 'mini_magick'
 gem 'newrelic_rpm', group: [:development]
 gem 'nokogiri', '> 1.6.6.4'
