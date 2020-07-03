@@ -267,7 +267,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    puma (2.16.0)
+    puma (3.12.6)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
