@@ -271,7 +271,7 @@ GEM
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
-    rack (1.6.8)
+    rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-timeout (0.3.2)
