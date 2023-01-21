@@ -1,12 +1,12 @@
 common: &common
-  adapter: postgresql
+  adapter: mysql
   encoding: unicode
   timeout: 5000
   pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
-  host: <%= ENV.fetch('RAILS_POSTGRESQL_HOST', 'localhost') %>
-  port: <%= ENV.fetch('RAILS_POSTGRESQL_PORT', 5432) %>
-  user: <%= ENV.fetch('RAILS_POSTGRESQL_USER', 'postgres') %>
-  password: <%= ENV.fetch('RAILS_POSTGRESQL_PASSWORD', nil) %>
+  host: <%= ENV.fetch('RAILS_DB_HOST', 'localhost') %>
+  port: <%= ENV.fetch('RAILS_DB_PORT', 5432) %>
+  user: <%= ENV.fetch('RAILS_DB_USER', 'postgres') %>
+  password: <%= ENV.fetch('RAILS_DB_PASSWORD', nil) %>
 
 development:
   <<: *common
