@@ -37,7 +37,7 @@ class Zine < ActiveRecord::Base
   scope :with_authors, -> { includes(:authors) }
 
   def publish!
-    update_attributes!(published: true)
+    update!(published: true)
   end
 
   def add_author(author_to_add)

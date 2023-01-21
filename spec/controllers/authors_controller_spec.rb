@@ -37,7 +37,7 @@ describe AuthorsController do
       let(:author) { FactoryGirl.create :author_with_zines, zines_count: 1 }
 
       before do
-        author.zines.first.update_attributes(published: false)
+        author.zines.first.update!(published: false)
         get :show, id: author
       end
 
