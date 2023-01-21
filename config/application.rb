@@ -82,9 +82,5 @@ module ZineDistro
     config.assets.paths << Rails.root.join('vendor',
                                            'assets',
                                            'bower_components')
-
-    # Don't suppress Active Record errors raised within after_rollback or
-    # after_commit callbacks
-    config.active_record.raise_in_transactional_callbacks = true
   end
 end
