@@ -3,25 +3,25 @@ source 'https://rubygems.org'
 
 gem 'rails'
 
-gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'activeadmin'
 gem 'bower-rails'
 gem 'carrierwave'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'devise', '~> 3.5.1'
-gem 'draper', '~> 2.1.0'
+gem 'coffee-rails'
+gem 'devise'
+gem 'draper'
 gem 'fog-aws'
-gem 'haml', '~> 4.0.4'
-gem 'kaminari', '~> 0.16.1'
+gem 'haml'
+gem 'kaminari'
 gem 'mini_magick'
 gem 'newrelic_rpm', group: [:development]
-gem 'nokogiri', '> 1.6.6.4'
-gem 'pg', '~> 0.18.1'
+gem 'nokogiri'
+gem 'pg'
 gem 'puma'
 gem 'rack-timeout'
-gem 'responders', '~> 2.0'
-gem 'sass-rails', '~> 5.0.1'
-gem 'uglifier', '~> 2.7.0'
-gem 'unf', '~> 0.1.4'
+gem 'responders'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'unf'
 gem 'utf8-cleaner'
 gem 'select2-rails'
 
@@ -57,7 +57,7 @@ group :development do
   gem 'rb-fchange', require: false
   gem 'rb-fsevent', require: false
   gem 'rb-inotify', require: false
-  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'travis'
