@@ -1,4 +1,5 @@
 require 'webmock/rspec'
+
 if ENV['COVERAGE'] || ENV['CI']
   require 'simplecov'
   SimpleCov.start 'rails' do
@@ -19,8 +20,6 @@ if ENV['COVERAGE'] || ENV['CI']
 end
 
 require 'spec_helper'
-
-require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'capybara/rspec'

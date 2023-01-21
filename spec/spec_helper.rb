@@ -2,6 +2,7 @@ require 'rspec/core'
 require 'pry'
 
 ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path("#{File.dirname(__FILE__)}\/../config/environment")
 
 def rails_loaded?
   Object.const_defined?(:ZineDistro) &&
