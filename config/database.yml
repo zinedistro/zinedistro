@@ -1,7 +1,7 @@
 common: &common
-  adapter: mysql
-  encoding: unicode
-  timeout: 5000
+  adapter: <%= ENV.fetch('RAILS_DB_ADAPTER', 'mysql2') %>
+  encoding: <%= ENV.fetch('RAILS_DB_ENCODING', 'utf8mb3') %>
+  timeout: <%= ENV.fetch('RAILS_DB_TIMEOUT_MS', 5000) %>.to_i
   pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
   host: <%= ENV.fetch('RAILS_DB_HOST', 'localhost') %>
   port: <%= ENV.fetch('RAILS_DB_PORT', 5432) %>
