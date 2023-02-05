@@ -4,13 +4,16 @@ common: &common
   timeout: <%= ENV.fetch('RAILS_DB_TIMEOUT_MS', 5000) %>.to_i
   pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
   host: <%= ENV.fetch('RAILS_DB_HOST', 'localhost') %>
-  port: <%= ENV.fetch('RAILS_DB_PORT', 5432) %>
-  user: <%= ENV.fetch('RAILS_DB_USER', 'postgres') %>
-  password: <%= ENV.fetch('RAILS_DB_PASSWORD', nil) %>
+  port: <%= ENV.fetch('RAILS_DB_PORT', 3306) %>
+  username: <%= ENV.fetch('RAILS_DB_USER', 'root') %>
+  password: <%= ENV.fetch('RAILS_DB_PASSWORD', '') %>
+  ssl_mode: <% ENV.FETCH('RAILS_DB_SSL_MODE', 'verify_identity') %>
+  sslca:  <% ENV.FETCH('RAILS_DB_SSL_MODE', '/etc/ssl/cert.pem') %>
+  database: <% ENV.FETCH('RAILS_DB_DATABASE', 'zinedistro') %>
 
 development:
   <<: *common
-  database: zinedistro_development
+  database: <% ENV.FETCH('RAILS_DB_DATABASE', 'zinedistro_development') %>
 
 test:
   <<: *common
@@ -19,4 +22,3 @@ test:
 production:
   <<: *common
   url:  <%= ENV["DATABASE_URL"] %>
-  database: zinedistro_production
