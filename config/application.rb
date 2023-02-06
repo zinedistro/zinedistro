@@ -26,9 +26,7 @@ module ZineDistro
                        feature_specs: true)
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
       g.helper false
-      g.template_engine :haml
       g.stylesheets false
-      g.stylesheet_engine = :sass
     end
 
     # Settings in config/environments/* take precedence over those specified
