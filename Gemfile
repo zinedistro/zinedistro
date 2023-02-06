@@ -23,7 +23,7 @@ gem 'utf8-cleaner'
 group :test, :development do
   gem 'capybara'
   gem 'dotenv-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry'
   gem 'rspec-rails'
