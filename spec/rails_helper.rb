@@ -48,8 +48,8 @@ end
 RSpec.configure do |config|
   config.include Capybara::DSL
 
-  # Use create :factory instead of FactoryGirl.create :factory
-  config.include FactoryGirl::Syntax::Methods
+  # Use create :factory instead of FactoryBot.create :factory
+  config.include FactoryBot::Syntax::Methods
 
   # Prevent Rspec-Rails from implicitly wrapping tests in database transactions
   config.use_transactional_fixtures = false

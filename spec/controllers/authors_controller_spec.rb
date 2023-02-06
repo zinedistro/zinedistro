@@ -3,7 +3,7 @@ require "rails_helper"
 describe AuthorsController do
   describe 'on GET to :index' do
     context 'with published authors' do
-      let!(:author) { FactoryGirl.create :author_with_zines }
+      let!(:author) { FactoryBot.create :author_with_zines }
 
       before do
         get :index
@@ -19,7 +19,7 @@ describe AuthorsController do
 
   describe 'on GET to :show' do
     context 'with a published author' do
-      let(:author) { FactoryGirl.create :author_with_zines }
+      let(:author) { FactoryBot.create :author_with_zines }
 
       before do
         author.zines.first.publish!
@@ -34,7 +34,7 @@ describe AuthorsController do
     end
 
     context 'with an unpublished author' do
-      let(:author) { FactoryGirl.create :author_with_zines, zines_count: 1 }
+      let(:author) { FactoryBot.create :author_with_zines, zines_count: 1 }
 
       before do
         author.zines.first.update!(published: false)

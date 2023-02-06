@@ -8,14 +8,14 @@ require_dependency 'authorship'
 describe Zine do
   describe 'validations' do
     context 'with all required attributes' do
-      let(:zine) { FactoryGirl.build :zine }
+      let(:zine) { FactoryBot.build :zine }
       it 'is valid' do
         expect(zine).to be_valid
       end
     end
 
     context 'without a title' do
-      let(:zine) { FactoryGirl.build :zine, title: nil }
+      let(:zine) { FactoryBot.build :zine, title: nil }
 
       it 'is not valid' do
         expect(zine).to_not be_valid
@@ -29,7 +29,7 @@ describe Zine do
     end
 
     context 'without a cover image' do
-      let(:zine) { FactoryGirl.build :zine, cover_image: nil }
+      let(:zine) { FactoryBot.build :zine, cover_image: nil }
       before { stub_legacy_zine_requests(zine) }
 
       it 'is not valid' do
@@ -43,7 +43,7 @@ describe Zine do
       end
 
       context 'with a legacy_id' do
-        let(:zine) { FactoryGirl.build :zine, cover_image: nil, legacy_id: 12 }
+        let(:zine) { FactoryBot.build :zine, cover_image: nil, legacy_id: 12 }
         before { stub_legacy_zine_requests(zine) }
 
         it 'is valid' do
@@ -55,7 +55,7 @@ describe Zine do
     end
 
     context 'without a PDF' do
-      let(:zine) { FactoryGirl.build :zine, pdf: nil }
+      let(:zine) { FactoryBot.build :zine, pdf: nil }
 
       it 'is not valid' do
         expect(zine).to_not be_valid
@@ -68,7 +68,7 @@ describe Zine do
       end
 
       context 'with a legacy_id' do
-        let(:zine) { FactoryGirl.build :zine, pdf: nil, legacy_id: 12 }
+        let(:zine) { FactoryBot.build :zine, pdf: nil, legacy_id: 12 }
         before { stub_legacy_zine_requests(zine) }
 
         it 'is valid' do
@@ -82,7 +82,7 @@ describe Zine do
 
   describe '.find_published' do
     context 'with a published zine' do
-      let(:published_zine) { FactoryGirl.create :zine_with_authors }
+      let(:published_zine) { FactoryBot.create :zine_with_authors }
 
       it 'returns the published zine' do
         expect(
@@ -93,7 +93,7 @@ describe Zine do
 
     context 'with an unpublished zine' do
       let(:unpublished_zine) do
-        FactoryGirl.build :zine_with_authors, :unpublished
+        FactoryBot.build :zine_with_authors, :unpublished
       end
 
       it 'raises "record not found"' do
@@ -114,9 +114,9 @@ describe Zine do
 
   describe '.catalog' do
     context 'with published a zine' do
-      let(:published_zine) { FactoryGirl.create :zine_with_authors }
+      let(:published_zine) { FactoryBot.create :zine_with_authors }
       let(:unpublished_zine) do
-        FactoryGirl.build(:zine_with_authors, :unpublished)
+        FactoryBot.build(:zine_with_authors, :unpublished)
       end
 
       it 'returns published zines' do
@@ -131,8 +131,8 @@ describe Zine do
 
   describe '#add_author' do
     context 'with an author' do
-      let(:author) { FactoryGirl.build :author }
-      let(:zine) { FactoryGirl.create :zine }
+      let(:author) { FactoryBot.build :author }
+      let(:zine) { FactoryBot.create :zine }
 
       it 'adds an author as one of the zine authors' do
         expect(zine.authors).to eq []
@@ -154,7 +154,7 @@ describe Zine do
   describe '#remove_author' do
     context 'with an author' do
       let(:last_author) { published_zine.authors.last }
-      let(:published_zine) { FactoryGirl.create :zine_with_authors }
+      let(:published_zine) { FactoryBot.create :zine_with_authors }
 
       it 'removes the author as one of the zine authors' do
         expect(published_zine.remove_author(last_author)).to be_truthy
@@ -165,9 +165,9 @@ describe Zine do
 
   describe '#author_count' do
     context 'with published zines' do
-      let(:published_zine) { FactoryGirl.create :zine_with_authors }
-      let(:zine) { FactoryGirl.create :zine }
-      let(:author) { FactoryGirl.build :author }
+      let(:published_zine) { FactoryBot.create :zine_with_authors }
+      let(:zine) { FactoryBot.create :zine }
+      let(:author) { FactoryBot.build :author }
 
       it 'returns the number of authors for a given zine' do
         expect(published_zine.author_count).to eq 3
@@ -194,7 +194,7 @@ describe Zine do
 
   describe '#publish!' do
     context 'with unpublished zines' do
-      let(:zine) { FactoryGirl.build :zine, :unpublished }
+      let(:zine) { FactoryBot.build :zine, :unpublished }
       it 'changes the published attribute' do
         expect(zine.published).to be false
         expect do
@@ -212,8 +212,8 @@ describe Zine do
     end
 
     context 'with published zines' do
-      let(:zine) { FactoryGirl.create :zine }
-      let(:zine2) { FactoryGirl.create :zine }
+      let(:zine) { FactoryBot.create :zine }
+      let(:zine2) { FactoryBot.create :zine }
 
       it 'updates the timestamp to the latest zine' do
         Time.travel_to(Date.today - 7) do
@@ -233,8 +233,8 @@ describe Zine do
     end
 
     context 'with published zines' do
-      let(:zine) { FactoryGirl.create :zine }
-      let(:zine2) { FactoryGirl.create :zine }
+      let(:zine) { FactoryBot.create :zine }
+      let(:zine2) { FactoryBot.create :zine }
 
       it 'updates the timestamp to the latest zine' do
         Time.travel_to(Date.today - 7) do

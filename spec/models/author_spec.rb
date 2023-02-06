@@ -5,7 +5,7 @@ include ActiveSupport::Testing::TimeHelpers
 describe Author do
   describe 'find_published' do
     context 'with a publshed author' do
-      let(:author) { FactoryGirl.create :author_with_zines }
+      let(:author) { FactoryBot.create :author_with_zines }
 
       before do
         author.zines.last.publish!
@@ -27,7 +27,7 @@ describe Author do
     end
 
     describe '#most_recent' do
-      let(:author) { FactoryGirl.create :author_with_zines }
+      let(:author) { FactoryBot.create :author_with_zines }
 
       before do
         travel_to Time.zone.local(2004, 11, 24, 01, 04, 44)

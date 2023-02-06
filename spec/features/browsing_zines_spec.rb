@@ -2,12 +2,12 @@ require "rails_helper"
 
 feature 'When Browsing Zines' do
   describe 'On the index page' do
-    let!(:zine_for_pagination) { FactoryGirl.create :zine, :published }
+    let!(:zine_for_pagination) { FactoryBot.create :zine, :published }
     let!(:first_zine) do create(:zine_with_authors,
                                 title: 'Zine 1',
                                 subtitle: 'Subtitle 1')
     end
-    let!(:second_zine) { FactoryGirl.create :zine, title: 'Zine 2' }
+    let!(:second_zine) { FactoryBot.create :zine, title: 'Zine 2' }
     let!(:unpublished_zine) do
       create(:zine,
              :unpublished,

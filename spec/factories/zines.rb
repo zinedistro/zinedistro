@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :zine do
     title { Faker::Lorem.words.join(" ").capitalize! }

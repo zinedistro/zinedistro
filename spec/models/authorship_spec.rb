@@ -2,8 +2,8 @@ require 'rails_helper'
 require_dependency 'authorship'
 
 describe Authorship do
-  let(:author) { FactoryGirl.build :author }
-  let(:zine) { FactoryGirl.build :zine }
+  let(:author) { FactoryBot.build :author }
+  let(:zine) { FactoryBot.build :zine }
 
   context 'validations' do
     it { is_expected.to validate_presence_of :zine_id }

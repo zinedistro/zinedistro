@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe ZineDecorator do
-  let(:zine) { FactoryGirl.create :zine_with_authors }
+  let(:zine) { FactoryBot.create :zine_with_authors }
 
   subject do
     # FIXME: stub out authors and ids to test in isolation
@@ -65,7 +65,7 @@ describe ZineDecorator do
     end
 
     context 'whithout an author' do
-      let(:zine) { FactoryGirl.build :zine }
+      let(:zine) { FactoryBot.build :zine }
       it "returns 'anonymous'" do
         expect(subject.author_names).to eq 'Anonymous'
       end

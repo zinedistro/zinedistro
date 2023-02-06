@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :author do
     sequence(:name) { |n| "Author #{n}" }
     factory :author_with_zines do
