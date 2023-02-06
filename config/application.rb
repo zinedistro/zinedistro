@@ -63,19 +63,5 @@ module ZineDistro
     # This is necessary if your schema can't be completely dumped by the schema
     # dumper, like if you have constraints or database-specific column types
     # config.active_record.schema_format = :sql
-
-    # Version of your assets, change this if you want to expire all your assets
-    config.assets.enabled = true
-    config.assets.version = '1.0'
-    config.assets.initialize_on_precompile = false
-
-    # Add the fonts to asset pipeline
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-    config.assets.precompile += %w( .svg .eot .woff .ttf )
-
-    # Add assets packaged by bower to asset pipeline
-    config.assets.paths << Rails.root.join('vendor',
-                                           'assets',
-                                           'bower_components')
   end
 end
