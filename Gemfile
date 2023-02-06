@@ -4,9 +4,7 @@ source 'https://rubygems.org'
 gem 'rails'
 
 gem 'activeadmin'
-gem 'bower-rails'
 gem 'carrierwave'
-gem 'coffee-rails'
 gem 'devise'
 gem 'draper'
 gem 'fog-aws'
@@ -19,9 +17,6 @@ gem 'nokogiri'
 gem 'puma'
 gem 'rack-timeout'
 gem 'responders'
-gem 'sass-rails'
-gem 'select2-rails'
-gem 'uglifier'
 gem 'unf'
 gem 'utf8-cleaner'
 
@@ -33,6 +28,7 @@ group :test, :development do
   gem 'pry'
   gem 'rspec-rails'
   gem 'rb-readline'
+  gem 'webpacker'
 end
 
 group :test do
@@ -46,8 +42,6 @@ group :test do
 end
 
 group :development do
-  # gem 'coffee-rails-source-maps'
-  # gem 'sass-rails-source-maps'
   gem 'bullet'
   gem 'foreman'
   gem 'guard'
@@ -60,7 +54,6 @@ group :development do
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'travis'
 end
 
 group :production do
