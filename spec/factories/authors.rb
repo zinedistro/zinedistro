@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:name) { |n| "Author #{n}" }
     factory :author_with_zines do
       transient do
-        zines_count 3
+        zines_count { 3 }
       end
       after(:create) do |author, evaluator|
         zines = create_list(:zine, evaluator.zines_count)
