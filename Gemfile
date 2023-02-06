@@ -8,11 +8,9 @@ gem 'carrierwave'
 gem 'devise'
 gem 'draper'
 gem 'fog-aws'
-gem 'haml'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'mysql2'
-gem 'newrelic_rpm', group: [:development]
 gem 'nokogiri'
 gem 'puma'
 gem 'rack-timeout'
@@ -28,6 +26,7 @@ group :test, :development do
   gem 'pry'
   gem 'rspec-rails'
   gem 'rb-readline'
+  gem 'sprockets-rails'
   gem 'webpacker'
 end
 
@@ -47,6 +46,7 @@ group :development do
   gem 'guard'
   gem 'guard-livereload'
   gem 'guard-rspec', require: false
+  gem 'newrelic_rpm'
   gem 'overcommit'
   gem 'rb-fchange', require: false
   gem 'rb-fsevent', require: false

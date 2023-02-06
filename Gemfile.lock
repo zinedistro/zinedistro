@@ -203,10 +203,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    haml (6.1.1)
-      temple (>= 0.8.2)
-      thor
-      tilt
     has_scope (0.8.1)
       actionpack (>= 5.2)
       activesupport (>= 5.2)
@@ -419,10 +415,15 @@ GEM
     spring (4.1.1)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
+    sprockets (4.2.0)
+      concurrent-ruby (~> 1.0)
+      rack (>= 2.2.4, < 4)
+    sprockets-rails (3.4.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      sprockets (>= 3.0.0)
     ssrf_filter (1.1.1)
-    temple (0.10.0)
     thor (1.2.1)
-    tilt (2.0.11)
     timeout (0.3.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -473,7 +474,6 @@ DEPENDENCIES
   guard
   guard-livereload
   guard-rspec
-  haml
   heroku_rails_deflate
   hiredis
   kaminari
@@ -501,6 +501,7 @@ DEPENDENCIES
   skylight
   spring
   spring-commands-rspec
+  sprockets-rails
   unf
   utf8-cleaner
   webmock
