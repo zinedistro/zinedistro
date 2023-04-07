@@ -59,6 +59,7 @@ module ZineDistro
 
     config.i18n.available_locales = [:en]
     config.i18n.default_locale = :en
+
     # This is necessary if your schema can't be completely dumped by the schema
     # dumper, like if you have constraints or database-specific column types
     # config.active_record.schema_format = :sql
