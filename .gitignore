@@ -50,3 +50,6 @@ config/skylight.yml
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore pscale CLI configuration
+.pscale.yml
