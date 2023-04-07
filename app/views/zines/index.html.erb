@@ -1,0 +1,26 @@
+<div id="zines" class="hfeed">
+  <% @zines.each_with_index do |zine, index| %>
+    <% cache ['v1', zine] do %>
+      <div id="<%= zine.id %>" class="column span-24 hentry">
+        <div class="cover column span-4">
+          <%= link_to(zine.cover_image_tag,
+                      zine_path(zine),
+                      class: 'cover_image') %>
+        </div>
+        <div class="meta column span-20 last">
+          <%= render partial: 'zine', locals: { zine: zine } %>
+          <h5>
+            <span class="alt">
+              <%= I18n.t 'author.attribution' %>
+            </span>
+            <span class="author-name">
+              <%= zine.author_name_tag %>
+            </span>
+          </h5>
+          <%= render partial: 'excerpt', locals: { zine: zine } %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= paginate @zines %>
+</div>

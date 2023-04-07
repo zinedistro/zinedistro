@@ -1,0 +1,12 @@
+<div class="entry-title">
+  <%= link_to zine_path(zine), :rel => 'bookmark' do %>
+    <h3 class="title">
+      <%= zine.title %>
+    </h3>
+    <% if zine.subtitle.present? %>
+      <h4 class="subtitle">
+        <%= zine.subtitle %>
+      </h4>
+    <% end %>
+  <% end %>
+</div>

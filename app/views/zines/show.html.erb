@@ -1,0 +1,39 @@
+<% cache ['v1', @zine] do %>
+  <nav class="back">
+    <ul class="zine_back">
+      <li>
+        <%= link_to I18n.t(:zine_back), zines_path %>
+      </li>
+    </ul>
+  </nav>
+  <article class="zine show column span-24" id="zine_<%= @zine.id %>">
+    <aside class="cover column span-6">
+      <%= @zine.cover_image_tag %>
+    </aside>
+    <section class="meta column span-18 last">
+      <nav class="column span-4">
+        <div class="download">
+          <%= @zine.download_link %>
+        </div>
+      </nav>
+      <h3>
+        <%= @zine.title %>
+      </h3>
+      <h4>
+        <%= @zine.subtitle %>
+      </h4>
+      <h5>
+        <span class="alt">by</span>
+        <%= @zine.author_name_tag %>
+      </h5>
+      <section class="excerpt">
+        <%= simple_format @zine.excerpt if @zine.excerpt %>
+      </section>
+    </section>
+    <% if @zine.full_text? %>
+      <section class="full_text column span-24">
+        <%= simple_format @zine.full_text %>
+      </section>
+    <% end %>
+  </article>
+<% end %>

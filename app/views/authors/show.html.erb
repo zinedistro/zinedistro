@@ -1,0 +1,6 @@
+<div class="author">
+  <h2 class="author-name">
+    <%= @author.name %>
+  </h2>
+  <%= render partial: 'zine_list', locals: { zines: @author.zines } %>
+</div>

@@ -1,8 +1,0 @@
-%nav
-  %h3
-    = link_to_unless_current 'Zines', zines_path
-    %span.actions
-      - if controller.action_name == "edit"
-        = link_to @zine.title, @zine
-      - else
-        = link_to_unless_current 'New', new_zine_path, :accesskey => "n"

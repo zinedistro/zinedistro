@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zine Distro : Download Print Read</title>
+    <%= csrf_meta_tags %>
+    <link href="<%= root_path %>" rel="index">/</link>
+    <%= stylesheet_link_tag 'application', media: 'screen' %>
+    <%= render 'pingdom' if ENV['PINGDOM_KEY'].present? %>
+    <link href="http://assets.zinedistro.org/avatars/favicon.png" rel="icon" type="image/png">/</link>
+    <%= auto_discovery_link_tag :atom, zines_path(format: :atom) %>
+    <%= javascript_pack_tag 'application', async: true %>
+  </head>
+  <body>
+    <header>
+      <nav class="container root">
+        <h1>
+          <%= link_to I18n.t('site.name'), root_path, rel: 'home' %>
+        </h1>
+        <h2>
+          <%= link_to I18n.t('site.tagline'), root_path, rel: 'home' %>
+        </h2>
+        <nav class="links">
+          <ul>
+            <li>
+              <%= link_to I18n.t('zines.pluralized_title'), zines_path %>
+            </li>
+            <li>
+              <%= link_to I18n.t('authors.pluralized_title'), authors_path %>
+            </li>
+          </ul>
+        </nav>
+      </nav>
+    </header>
+    <main class="container">
+      <% flash.each do |name, msg| %>
+        <div id="content_tag" class="<%= name %>">
+          <%= msg %>
+        </div>
+        <%= yield %>
+      <% end %>
+    </main>
+    <footer id="bottom">
+      <nav class="container">
+        <ul>
+          <li class="zinedistro">
+            <%= I18n.t('site.name') %>
+          </li>
+          <li>
+            <%= link_to I18n.t('twitter_link'), 'https://twitter.com/zinedistro' %>
+          </li>
+          <li class="feed">
+            <%= link_to I18n.t('rss_link'), zines_path(format: :atom) %>
+          </li>
+          <li>
+            <%= link_to 'A Resistance Army Project', 'http://theresistancearmy.com/' %>
+            <%= "( maintained by #{link_to 'Faun', 'https://twitter.com/faunzy'} )".html_safe %>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
