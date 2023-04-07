@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2017_01_10_053104) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_07_175551) do
   create_table "active_admin_comments", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -108,6 +108,7 @@ ActiveRecord::Schema[7.0].define(version: 2017_01_10_053104) do
     t.integer "author_count", default: 0, null: false
     t.string "pdf"
     t.integer "legacy_id"
+    t.index ["published", "updated_at"], name: "index_zines_on_published_and_updated_at"
   end
 
 end
