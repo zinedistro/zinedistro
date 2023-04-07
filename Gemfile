@@ -54,6 +54,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'planetscale_rails'
 end
 
 group :production do
