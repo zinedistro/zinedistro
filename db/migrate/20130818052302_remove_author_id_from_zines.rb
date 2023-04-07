@@ -1,4 +1,4 @@
-class RemoveAuthorIdFromZines < ActiveRecord::Migration
+class RemoveAuthorIdFromZines < ActiveRecord::Migration[7.0]
   def up
     Zine.all.find_each do |zine|
       author = Author.find_by_id(zine.author_id)

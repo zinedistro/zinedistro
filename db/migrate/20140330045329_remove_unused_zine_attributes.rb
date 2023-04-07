@@ -1,4 +1,4 @@
-class RemoveUnusedZineAttributes < ActiveRecord::Migration
+class RemoveUnusedZineAttributes < ActiveRecord::Migration[7.0]
   def change
     remove_column :zines, :downloads, :integer
     remove_column :zines, :new_paper_count, :integer
