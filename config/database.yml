@@ -7,13 +7,13 @@ common: &common
   port: <%= ENV.fetch('RAILS_DB_PORT', 3306) %>
   username: <%= ENV.fetch('RAILS_DB_USER', 'root') %>
   password: <%= ENV.fetch('RAILS_DB_PASSWORD', '') %>
-  ssl_mode: <% ENV.fetch('RAILS_DB_SSL_MODE', 'verify_identity') %>
-  sslca:  <% ENV.fetch('RAILS_DB_SSL_MODE', '/etc/ssl/cert.pem') %>
-  database: <% ENV.fetch('RAILS_DB_DATABASE', 'zinedistro') %>
+  ssl_mode: <%= ENV['RAILS_DB_SSL_MODE'] %>
+  sslca:  <%= ENV[ 'RAILS_DB_SSL_CA' ] %>
+  database: <%= ENV.fetch('RAILS_DB_DATABASE', 'zinedistro') %>
 
 development:
   <<: *common
-  database: <% ENV.fetch('RAILS_DB_DATABASE', 'zinedistro_development') %>
+  database: <%= ENV.fetch('RAILS_DB_DATABASE', 'zinedistro_development') %>
 
 test:
   <<: *common
