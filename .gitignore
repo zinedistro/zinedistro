@@ -53,3 +53,6 @@ yarn-debug.log*
 
 # Ignore pscale CLI configuration
 .pscale.yml
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
