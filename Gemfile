@@ -26,8 +26,9 @@ group :test, :development do
   gem 'pry'
   gem 'rspec-rails'
   gem 'rb-readline'
+  gem 'cssbundling-rails'
   gem 'sprockets-rails'
-  gem 'webpacker'
+  gem 'sassc-rails'
 end
 
 group :test do
