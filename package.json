@@ -1,11 +1,13 @@
 {
   "dependencies": {
-    "@rails/webpacker": "5.4.4",
+    "@types/jquery": "^3.5.29",
+    "jquery": "^3.7.1",
+    "jquery-ujs": "^1.2.3",
     "rails-erb-loader": "^5.5.2",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "sass": "^1.71.1",
+    "select2": "^4.1.0-rc.0"
   },
-  "devDependencies": {
-    "webpack-dev-server": "^3"
+  "scripts": {
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
   }
 }
