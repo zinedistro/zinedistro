@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag 'application', media: 'screen' %>
     <%= javascript_include_tag 'application' %>
     <%= render 'pingdom' if ENV['PINGDOM_KEY'].present? %>
-    <link href="http://assets.zinedistro.org/avatars/favicon.png" rel="icon" type="image/png"></link>
+    <link href="/favicon.png" rel="icon" type="image/png"></link>
     <%= auto_discovery_link_tag :atom, zines_path(format: :atom) %>
   </head>
   <body>
