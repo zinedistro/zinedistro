@@ -16,6 +16,7 @@ end
 module ZineDistro
   # ZineDistro configuration
   class Application < Rails::Application
+
     config.generators do |g|
       g.test_framework(:rspec,
                        fixtures: true,
@@ -55,6 +56,8 @@ module ZineDistro
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
+
+    config.load_defaults 7.0
 
     config.i18n.available_locales = [:en]
     config.i18n.default_locale = :en
