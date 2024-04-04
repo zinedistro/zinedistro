@@ -15,6 +15,7 @@ gem 'nokogiri'
 gem 'puma'
 gem 'rack-timeout'
 gem 'responders'
+gem 'sprockets-rails'
 gem 'unf'
 gem 'utf8-cleaner'
 
