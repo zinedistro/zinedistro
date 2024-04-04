@@ -13,6 +13,7 @@ gem 'mini_magick'
 gem 'mysql2'
 gem 'nokogiri'
 gem 'puma'
+gem "sassc-rails"
 gem 'rack-timeout'
 gem 'responders'
 gem 'sprockets-rails'
@@ -28,8 +29,6 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'rb-readline'
   gem 'cssbundling-rails'
-  gem 'sprockets-rails'
-  gem 'sassc-rails'
 end
 
 group :test do
