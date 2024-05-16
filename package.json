@@ -9,5 +9,15 @@
   },
   "scripts": {
     "build:css": "sass ./app/assets/stylesheets/application.css.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  },
+  "devDependencies": {
+    "@prettier/plugin-ruby": "^4.0.4",
+    "prettier": "^3.2.5"
+  },
+  "prettier": {
+    "rubySingleQuote": true,
+    "plugins": [
+      "@prettier/plugin-ruby"
+    ]
   }
 }
