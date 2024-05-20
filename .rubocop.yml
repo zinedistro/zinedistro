@@ -1,21 +1,8 @@
 AllCops:
-  Include:
-    - "**/*.gemspec"
-    - "**/*.podspec"
-    - "**/*.jbuilder"
-    - "**/*.rake"
-    - "**/*.opal"
-    - "**/Gemfile"
-    - "**/Rakefile"
-    - "**/Capfile"
-    - "**/Guardfile"
-    - "**/Podfile"
-    - "**/Thorfile"
-    - "**/Vagrantfile"
-    - "**/Berksfile"
-    - "**/Cheffile"
-    - "**/Vagabondfile"
+  NewCops: enable
+
   Exclude:
+    - "**/Guardfile"
     - "db/**/*"
     - "bin/**/*"
     - "config/**/*"
