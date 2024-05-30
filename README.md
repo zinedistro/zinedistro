@@ -1,11 +1,5 @@
 # A Zine Distro in a Box
 
-[![Build Status](https://travis-ci.org/zinedistro/zinedistro.svg?branch=master)](https://travis-ci.org/zinedistro/zinedistro)
-[![Test Coverage](https://codeclimate.com/github/zinedistro/zinedistro/badges/coverage.svg)](https://codeclimate.com/github/zinedistro/zinedistro)
-[![Code Climate](https://codeclimate.com/github/zinedistro/zinedistro/badges/gpa.svg)](https://codeclimate.com/github/zinedistro/zinedistro)
-[![Dependency Status](https://gemnasium.com/zinedistro/zinedistro.svg)](https://gemnasium.com/zinedistro/zinedistro)
-[![PullReview stats](https://www.pullreview.com/github/zinedistro/zinedistro/badges/master.svg?)](https://www.pullreview.com/github/zinedistro/zinedistro/reviews/master)
-
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ### What is it?
