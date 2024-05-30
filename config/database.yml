@@ -8,7 +8,7 @@ common: &common
   username: <%= ENV.fetch('RAILS_DB_USER', 'root') %>
   password: <%= ENV.fetch('RAILS_DB_PASSWORD', '') %>
   ssl_mode: <%= ENV['RAILS_DB_SSL_MODE'] %>
-  sslca:  <%= ENV[ 'RAILS_DB_SSL_CA' ] %>
+  sslca: <%= ENV[ 'RAILS_DB_SSL_CA' ] %>
   database: <%= ENV.fetch('RAILS_DB_DATABASE', 'zinedistro') %>
 
 development:
@@ -21,4 +21,4 @@ test:
 
 production:
   <<: *common
-  url:  <%= ENV["DATABASE_URL"] %>
+  url: <%= ENV["DATABASE_URL"] %>
