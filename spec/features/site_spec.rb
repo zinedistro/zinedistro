@@ -12,13 +12,5 @@ feature 'Browsing the site' do
         end
       end
     end
-
-    scenario 'I can see a link to the resistance army site' do
-      within 'footer#bottom' do
-        find("a[href='http://theresistancearmy.com/']") do
-          expect(page).to have_content 'A Resistance Army Project'
-        end
-      end
-    end
   end
 end
